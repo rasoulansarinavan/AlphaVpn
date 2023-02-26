@@ -8,6 +8,6 @@ class SideBar extends Component
 {
     public function render()
     {
-        return view('admin.layouts.side-bar');
+        return view('Admin.layouts.side-bar');
     }
 }

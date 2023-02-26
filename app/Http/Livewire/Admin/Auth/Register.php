@@ -8,6 +8,6 @@ class Register extends Component
 {
     public function render()
     {
-        return view('admin.livewire.auth.register')->extends('admin.layouts.auth-app');
+        return view('Admin.livewire.auth.register')->extends('admin.layouts.auth-app');
     }
 }
