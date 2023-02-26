@@ -38,7 +38,7 @@ body.dark .nav.nav-tabs li.nav-item button.nav-link:disabled {
 body.dark .nav.nav-pills {
   border: none;
   padding: 8px;
-  background: #1b2e4b;
+    background:transparent;
   border-radius: 8px;
 }
 body.dark .nav.nav-pills li.nav-item button.nav-link {

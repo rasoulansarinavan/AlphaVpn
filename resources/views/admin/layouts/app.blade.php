@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
-    <title>CORK Admin - Multipurpose Bootstrap Dashboard Template </title>
+    <title>WLF VPN</title>
     <link rel="icon" type="image/x-icon" href="/admin/src/assets/img/favicon.ico"/>
     <link href="/admin/layouts/modern-dark-menu/css/light/loader.css" rel="stylesheet" type="text/css"/>
     <link href="/admin/layouts/modern-dark-menu/css/dark/loader.css" rel="stylesheet" type="text/css"/>
@@ -26,7 +26,7 @@
     @livewireStyles
 </head>
 <livewire:admin.layouts.header/>
-<body class="layout-boxed dark">
+<body class="layout-boxed dark" style="background-image: url(/admin/assets/img/back.jpg);background-size: cover;">
 
 <div class="main-container" id="container">
     <div class="overlay"></div>

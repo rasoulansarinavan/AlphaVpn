@@ -12,7 +12,7 @@ body.dark .widget-content-area {
   border: 1px solid #0e1726;
   box-shadow: 0 0 40px 0 rgba(94, 92, 154, 0.06);
   padding: 0;
-  background-color: #0e1726;
+  background-color: transparent ;
 }
 body.dark .no-content:before, body.dark .no-content:after {
   display: none !important;
@@ -142,7 +142,7 @@ body.dark .table > tbody > tr > td {
   border: none;
   padding: 0;
   padding: 10px 21px 10px 21px;
-  color: #888ea8;
+  color: #fff;
   letter-spacing: 1px;
   white-space: nowrap;
 }
