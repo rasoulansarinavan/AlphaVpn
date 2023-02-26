@@ -25,7 +25,7 @@
     @stack('link')
     @livewireStyles
 </head>
-<livewire:admin.layouts.header/>
+<livewire:client.layouts.header/>
 <body class="layout-boxed dark">
 
 <div class="main-container" id="container">
@@ -33,7 +33,7 @@
     <div class="search-overlay"></div>
 
     <div class="sidebar-wrapper sidebar-theme">
-        <livewire:admin.layouts.side-bar/>
+        <livewire:client.layouts.side-bar/>
     </div>
 
     <div id="content" class="main-content">
@@ -41,7 +41,7 @@
 
         @yield('content')
 
-        <livewire:admin.layouts.footer/>
+        <livewire:client.layouts.footer/>
     </div>
 </div>
 
