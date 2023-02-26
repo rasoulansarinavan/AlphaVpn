@@ -5,6 +5,7 @@ use App\Http\Livewire\Admin\Auth\Register;
 
 use App\Http\Livewire\Admin\Home\Dashboard;
 use App\Http\Livewire\Admin\Pricing\Table;
+use App\Http\Livewire\Admin\Team\Members;
 use App\Http\Livewire\Admin\User\Setting;
 use Illuminate\Support\Facades\Route;
 
@@ -31,5 +32,5 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
     Route::get('/account-setting', Setting::class)->name('account-setting');
     Route::get('/pricing-table', Table::class)->name('pricing-table');
-
+    Route::get('/my-team', Members::class)->name('my-team');
 });

@@ -8,6 +8,6 @@ class Table extends Component
 {
     public function render()
     {
-        return view('Admin.livewire.pricing.table')->extends('admin.layouts.app');;
+        return view('Admin.livewire.pricing.table')->extends('admin.layouts.app');
     }
 }

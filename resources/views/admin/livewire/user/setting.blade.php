@@ -1,7 +1,6 @@
 <div class="layout-px-spacing">
 
     @push('link')
-        <link href="/admin/src/plugins/css/dark/filepond/custom-filepond.css" rel="stylesheet" type="text/css" />
         <link href="/admin/src/assets/css/dark/components/tabs.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" type="text/css" href="/admin/src/assets/css/dark/elements/alert.css">
 
