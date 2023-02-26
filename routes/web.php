@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Livewire\Admin\Order\Index;
 use App\Http\Livewire\Client\Auth\Login;
 use App\Http\Livewire\Client\Auth\Register;
 use App\Http\Livewire\Client\Home\Dashboard;
 use App\Http\Livewire\Client\Pricing\Table;
 use App\Http\Livewire\Client\User\Setting;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,5 +32,9 @@ Route::prefix('client')->name('client.')->group(function () {
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
     Route::get('/account-setting', Setting::class)->name('account-setting');
     Route::get('/pricing-table', Table::class)->name('pricing-table');
+});
 
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('/order', Index::class)->name('order-table');
+    Route::get('/user', \App\Http\Livewire\Admin\User\Index::class)->name('user');
 });

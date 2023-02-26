@@ -4,10 +4,10 @@ namespace App\Http\Livewire\Admin\User;
 
 use Livewire\Component;
 
-class Setting extends Component
+class Index extends Component
 {
     public function render()
     {
-        return view('Admin.livewire.user.setting')->extends('admin.layouts.app');
+        return view('admin.livewire.users.index')->extends('admin.layouts.app');
     }
 }
