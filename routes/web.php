@@ -45,4 +45,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/products', \App\Http\Livewire\Admin\Product\Index::class)->name('products');
     Route::get('/server', \App\Http\Livewire\Admin\Server\Index::class)->name('server');
     Route::get('/types', \App\Http\Livewire\Admin\Type\Index::class)->name('types');
+    Route::get('/deposits', \App\Http\Livewire\Admin\Deposit\Index::class)->name('deposits');
+    Route::get('/wallets', \App\Http\Livewire\Admin\Wallet\Index::class)->name('wallets');
 });
