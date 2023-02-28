@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Admin\Product;
 use App\Models\features;
 use App\Models\Product;
 use App\Models\Servers;
+use App\Models\Types;
 use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
 
@@ -91,6 +92,7 @@ class Index extends Component
         $products = Product::all();
         $servers = Servers::all();
         $features = features::all();
-        return view('admin.livewire.product.index', ['products' => $products, 'servers' => $servers, 'features' => $features])->extends('admin.layouts.app');
+        $types = Types::all();
+        return view('admin.livewire.product.index', ['products' => $products, 'servers' => $servers, 'features' => $features,'types'=>$types])->extends('admin.layouts.app');
     }
 }

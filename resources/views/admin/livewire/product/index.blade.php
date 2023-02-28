@@ -59,12 +59,12 @@
                                     name="type" id="type" wire:model="type">
                                 <option></option>
 
-                                @foreach($features as $feature)
+                                @foreach($types as $type)
                                 <option
                                     @if($server_id==$server->id)
                                         selected="selected"
                                     @endif
-                                    value="{{$feature->product_id}}">{{$feature->description}}</option>
+                                    value="{{$type->id}}">{{$type->name}}</option>
                                 @endforeach
                             </select>
                             @foreach($errors->get('type') as $message)
@@ -120,7 +120,7 @@
                                     <td><b>{{$product->name}}</b></td>
                                     <td><b>{{$product->price}}</b></td>
                                     <td><b>{{$product->discount}}</b></td>
-                                    <td>{{$product->type}}</td>
+                                    <td>{{optional($product->category)->name}}</td>
                                     <td class="text-end">
                                         <div class="dropdown"><a class="btn btn-light rounded btn-sm font-sm" href="#"
                                                                  data-bs-toggle="dropdown"><i

@@ -31,4 +31,9 @@ class Product extends Model
     {
         return $this->belongsTo(Servers::class, 'server_id');
     }
+
+    public function category()
+    {
+        return $this->belongsTo(Types::class, 'type');
+    }
 }

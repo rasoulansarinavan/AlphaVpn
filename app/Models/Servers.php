@@ -11,9 +11,22 @@ class Servers extends Model
 
     protected $guarded = [];
 
-
-        public function parent()
+    public function saveServer($formData, $server_id)
     {
-        return $this->belongsTo(Servers::class, 'server_id');
+        Servers::query()->updateOrCreate(
+            [
+                'id' => $server_id
+            ],
+            [
+                'name' => $formData['name'],
+                'password' => $formData['password'],
+                'ip' => $formData['ip'],
+            ]
+        );
     }
+
+//    public function parent()
+//    {
+//        return $this->belongsTo(Servers::class, 'server_id');
+//    }
 }
