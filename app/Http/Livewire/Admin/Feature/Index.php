@@ -1,6 +1,7 @@
 <?php
 
-namespace App\Http\Livewire\Client\Feature;
+namespace App\Http\Livewire\Admin\Feature;
+
 
 use App\Models\features;
 use App\Models\Product;
@@ -11,6 +12,7 @@ class Index extends Component
 {
     public $product_id = '', $description = '', $feature_id;
     protected $listeners = ['delete', 'saveFeature'];
+
     public function saveFeature($formData, features $features)
     {
 
@@ -76,6 +78,6 @@ class Index extends Component
     {
         $products = Product::all();
         $features = features::all();
-        return view('client.livewire.feature.index', ['products' => $products, 'features' => $features])->extends('client.layouts.app');
+        return view('admin.livewire.feature.index', ['products' => $products, 'features' => $features])->extends('admin.layouts.app');
     }
 }

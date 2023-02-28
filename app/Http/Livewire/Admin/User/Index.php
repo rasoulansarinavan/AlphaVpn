@@ -8,6 +8,6 @@ class Index extends Component
 {
     public function render()
     {
-        return view('admin.livewire.user.index')->extends('admin.layouts.app');
+        return view('admin.livewire.users.index')->extends('admin.layouts.app');
     }
 }
