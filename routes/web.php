@@ -1,12 +1,13 @@
 <?php
 
-use App\Http\Livewire\Admin\Auth\Login;
-use App\Http\Livewire\Admin\Auth\Register;
+use App\Http\Livewire\client\Auth\Login;
+use App\Http\Livewire\client\Auth\Register;
 
-use App\Http\Livewire\Admin\Home\Dashboard;
-use App\Http\Livewire\Admin\Pricing\Table;
-use App\Http\Livewire\Admin\Team\Members;
-use App\Http\Livewire\Admin\User\Setting;
+use App\Http\Livewire\Client\Feature\Index;
+use App\Http\Livewire\client\Home\Dashboard;
+use App\Http\Livewire\client\Pricing\Table;
+use App\Http\Livewire\client\Team\Members;
+use App\Http\Livewire\client\User\Setting;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,11 +27,18 @@ Route::get('/', function () {
 //Route::get('/index', Index::class)->name('index');
 
 
-Route::prefix('admin')->name('admin.')->group(function () {
+Route::prefix('client')->name('client.')->group(function () {
     Route::get('/login', Login::class)->name('login');
     Route::get('/register', Register::class)->name('register');
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
     Route::get('/account-setting', Setting::class)->name('account-setting');
     Route::get('/pricing-table', Table::class)->name('pricing-table');
     Route::get('/my-team', Members::class)->name('my-team');
+    Route::get('/feature', Index::class)->name('feature');
+});
+
+
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('/order', \App\Http\Livewire\Admin\Order\Index::class)->name('order');
+    Route::get('/user', \App\Http\Livewire\Admin\User\Index::class)->name('user');
 });
