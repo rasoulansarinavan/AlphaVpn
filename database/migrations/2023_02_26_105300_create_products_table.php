@@ -14,6 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->string('name');
             $table->integer('price');
+            $table->foreignId('server_id')->constrained();
             $table->timestamps();
         });
     }
