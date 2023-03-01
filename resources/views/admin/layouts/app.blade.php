@@ -77,6 +77,8 @@
                 }
             });
     });
+
+
     window.addEventListener('swal:confirm', event => {
         swal({
             title: event.detail.title,

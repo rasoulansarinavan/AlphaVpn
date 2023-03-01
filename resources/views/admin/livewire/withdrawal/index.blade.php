@@ -24,15 +24,17 @@
                         <label for="changeStatus">Select Status:</label>
                         <select name="changeStatus" id="changeStatus"
                                 class="form-select @error('changeStatus') error-input-border @enderror"
-                                wire:change="update($event.target.value)" >
-                            <potion>{{$withdrawal->status}}</potion>
-                            @foreach($statuses as  $status)
+                                wire:change="changeStatus($event.target.value)">
+                            <option>{{$withdrawal->status}}</option>
+                            @foreach($statuses as $status)
                                 <option
-                                    {{--                                    @if($status==$deposit->status)--}}
-                                    {{--                                        selected="selected"--}}
-                                    {{--                                    @endif--}}
+
+                                    @if($status==$withdrawal->$status)
+                                        selected="selected"
+                                    @endif
                                     value="{{$status}}/{{$withdrawal->id}}">{{ $status }}</option>
                             @endforeach
+
                         </select>
                     </div>
                 </td>

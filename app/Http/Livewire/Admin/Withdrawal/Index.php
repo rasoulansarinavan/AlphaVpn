@@ -8,7 +8,8 @@ use Livewire\Component;
 class Index extends Component
 
 {
-    protected $listeners = ['changeStatus', 'delete', 'update'];
+    protected $listeners = ['delete', 'changeStatus', 'deleteConfirm'];
+
     public $statuses = [
         "Rejected",
         "Pending",
@@ -25,10 +26,10 @@ class Index extends Component
         ]);
     }
 
-
     public function changeStatus($value)
     {
         $withdrawal_id = explode('/', $value)[1];
+
         $status = explode('/', $value)[0];
 
         $status_list = ['Pending', 'Accepted', 'Rejected'];
@@ -39,6 +40,9 @@ class Index extends Component
                 ])
                 ->update(['status' => $status]);
         }
+        $this->dispatchBrowserEvent('success', [
+            'message' => 'The operation was successful'
+        ]);
     }
 
 
@@ -53,7 +57,7 @@ class Index extends Component
     }
 
 
-    public function deleted($withdrawal_id)
+    public function delete($withdrawal_id)
     {
         withdrawal::query()->where('id', $withdrawal_id)->delete();
 
