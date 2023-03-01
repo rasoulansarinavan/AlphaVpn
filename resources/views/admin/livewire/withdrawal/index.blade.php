@@ -11,12 +11,12 @@
         </tr>
         </thead>
         <tbody>
-        @foreach($deposits as $deposit)
+        @foreach($withdrawals as $withdrawal)
             <tr>
                 <td class="checkbox-column">{{$loop->index+1}}</td>
                 <td><a href="./app-invoice-preview.html"><span
-                            class="inv-number">{{optional($deposit->parent)->name}}</span></a></td>
-                <td><a href="./app-invoice-preview.html"><span class="inv-number">{{$deposit->price}}</span></a></td>
+                            class="inv-number">{{optional($withdrawal->parent)->name}}</span></a></td>
+                <td><a href="./app-invoice-preview.html"><span class="inv-number">{{$withdrawal->price}}</span></a></td>
 
 
                 <td>
@@ -25,13 +25,13 @@
                         <select name="changeStatus" id="changeStatus"
                                 class="form-select @error('changeStatus') error-input-border @enderror"
                                 wire:change="update($event.target.value)" >
-                            <potion>{{$deposit->status}}</potion>
+                            <potion>{{$withdrawal->status}}</potion>
                             @foreach($statuses as  $status)
                                 <option
                                     {{--                                    @if($status==$deposit->status)--}}
                                     {{--                                        selected="selected"--}}
                                     {{--                                    @endif--}}
-                                    value="{{$status}}/{{$deposit->id}}">{{ $status }}</option>
+                                    value="{{$status}}/{{$withdrawal->id}}">{{ $status }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -41,7 +41,7 @@
                 <td>
                     <a
                         class="badge badge-light-danger text-start action-delete" href="#"
-                        wire:click="deleteConfirm({{$deposit->id}})">
+                        wire:click="deleteConfirm({{$withdrawal->id}})">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                              class="feather feather-trash">

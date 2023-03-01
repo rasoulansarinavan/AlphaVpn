@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class withdrawal extends Model
 {
     use HasFactory;
+    protected $guarded=[];
+
+
+    public function parent()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

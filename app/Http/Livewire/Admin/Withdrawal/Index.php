@@ -2,12 +2,70 @@
 
 namespace App\Http\Livewire\Admin\Withdrawal;
 
+use App\Models\withdrawal;
 use Livewire\Component;
 
 class Index extends Component
+
 {
+    protected $listeners = ['changeStatus', 'delete', 'update'];
+    public $statuses = [
+        "Rejected",
+        "Pending",
+        "Confirmed",
+    ];
+
+    public function update($id)
+    {
+        $this->dispatchBrowserEvent('swal:confirm', [
+            'type' => 'warning',
+            'title' => trans('Are you sure???'),
+            'text' => '',
+            'id' => $id
+        ]);
+    }
+
+
+    public function changeStatus($value)
+    {
+        $withdrawal_id = explode('/', $value)[1];
+        $status = explode('/', $value)[0];
+
+        $status_list = ['Pending', 'Accepted', 'Rejected'];
+        if (in_array($status, $status_list)) {
+            withdrawal::query()
+                ->where([
+                    'id' => $withdrawal_id,
+                ])
+                ->update(['status' => $status]);
+        }
+    }
+
+
+    public function deleteConfirm($id)
+    {
+        $this->dispatchBrowserEvent('swal:confirm', [
+            'type' => 'warning',
+            'title' => trans('Are you sure???'),
+            'text' => '',
+            'id' => $id
+        ]);
+    }
+
+
+    public function deleted($withdrawal_id)
+    {
+        withdrawal::query()->where('id', $withdrawal_id)->delete();
+
+        $this->dispatchBrowserEvent('success', [
+            'message' => 'The operation was successful'
+        ]);
+    }
+
+
     public function render()
     {
-        return view('');
+        $withdrawals = withdrawal::all();
+        return view('admin.livewire.withdrawal.index', ['withdrawals' => $withdrawals])->extends('admin.layouts.app');
     }
 }

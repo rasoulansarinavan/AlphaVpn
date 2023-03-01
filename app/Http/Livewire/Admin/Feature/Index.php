@@ -16,6 +16,7 @@ class Index extends Component
     public function saveFeature($formData, Features $features)
     {
 
+
         if ($this->feature_id != null) {
             $feature_id = $this->feature_id;
             $validator = Validator::make($formData, [
