@@ -39,6 +39,7 @@ Route::prefix('client')->name('client.')->group(function () {
 
 
 Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('/dashboard', \App\Http\Livewire\Admin\Home\Dashboard::class)->name('dashboard');
     Route::get('/orders', \App\Http\Livewire\Admin\Order\Index::class)->name('orders');
     Route::get('/user', \App\Http\Livewire\Admin\User\Index::class)->name('user');
     Route::get('/feature', Index::class)->name('feature');
