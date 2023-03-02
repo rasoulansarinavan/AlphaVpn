@@ -7,30 +7,20 @@ use Livewire\Component;
 
 class Index extends Component
 {
-    protected $listeners = ['changeStatus', 'delete','update'];
+    public $deposit_id;
+    protected $listeners = ['delete', 'changeStatus'];
     public $statuses = [
         "Rejected",
         "Pending",
         "Confirmed",
     ];
 
-    public function update($id)
-    {
-        $this->dispatchBrowserEvent('swal:confirm', [
-            'type' => 'warning',
-            'title' => trans('Are you sure???'),
-            'text' => '',
-            'id' => $id
-        ]);
-    }
-
-
     public function changeStatus($value)
     {
         $deposit_id = explode('/', $value)[1];
         $status = explode('/', $value)[0];
 
-        $status_list = ['Pending', 'Accepted', 'Rejected'];
+        $status_list = ['Pending', 'Confirmed', 'Rejected'];
         if (in_array($status, $status_list)) {
             Deposit::query()
                 ->where([
@@ -38,6 +28,9 @@ class Index extends Component
                 ])
                 ->update(['status' => $status]);
         }
+        $this->dispatchBrowserEvent('success', [
+            'message' => 'The operation was successful'
+        ]);
     }
 
 
@@ -52,7 +45,7 @@ class Index extends Component
     }
 
 
-    public function deleted($deposit_id)
+    public function delete($deposit_id)
     {
         Deposit::query()->where('id', $deposit_id)->delete();
 

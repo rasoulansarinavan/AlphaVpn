@@ -28,7 +28,11 @@
                             <option>{{$deposit->status}}</option>
                             @foreach($statuses as  $status)
                                 <option
-                                    value="{{$status}}/{{$deposit->id}}"></option>
+                                    @if($status==$deposit->status)
+                                        selected="selected"
+                                    @endif
+
+                                    value="{{$status}}/{{$deposit->id}}">{{$status}}</option>
                             @endforeach
                         </select>
                     </div>

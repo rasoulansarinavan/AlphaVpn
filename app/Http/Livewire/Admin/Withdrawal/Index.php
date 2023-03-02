@@ -8,7 +8,7 @@ use Livewire\Component;
 class Index extends Component
 
 {
-    protected $listeners = ['delete', 'changeStatus', 'deleteConfirm'];
+    protected $listeners = ['delete', 'changeStatus', 'deleteConfirm','update'];
 
     public $statuses = [
         "Rejected",
@@ -32,7 +32,7 @@ class Index extends Component
 
         $status = explode('/', $value)[0];
 
-        $status_list = ['Pending', 'Accepted', 'Rejected'];
+        $status_list = ['Pending', 'Confirmed', 'Rejected'];
         if (in_array($status, $status_list)) {
             withdrawal::query()
                 ->where([

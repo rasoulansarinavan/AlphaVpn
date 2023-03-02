@@ -29,7 +29,7 @@
                             @foreach($statuses as $status)
                                 <option
 
-                                    @if($status==$withdrawal->$status)
+                                    @if($status==$withdrawal->status)
                                         selected="selected"
                                     @endif
                                     value="{{$status}}/{{$withdrawal->id}}">{{ $status }}</option>
