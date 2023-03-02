@@ -6,6 +6,8 @@
             <th>User Name</th>
             <th>Product Name</th>
             <th>Product Price</th>
+            <th>Server Name</th>
+            <th>IP</th>
             <th>Status</th>
             <th>Actions</th>
         </tr>
@@ -20,6 +22,12 @@
                             class="inv-number">{{optional($order->product)->name}}</span></a></td>
                 <td><a href="./app-invoice-preview.html"><span
                             class="inv-number">{{optional($order->product)->price}}</span></a></td>
+
+                <td><a href="./app-invoice-preview.html"><span
+                            class="inv-number">{{optional($order->product)->parent->name}}</span></a></td>
+                <td><a href="./app-invoice-preview.html"><span
+                            class="inv-number">{{optional($order->product)->parent->ip}}</span></a></td>
+
                 <td>
                     <div class="mb-4">
                         <label for="changeStatus">Select Status:</label>

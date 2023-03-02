@@ -23,7 +23,7 @@
                                         @if($product_id==$product->id)
                                             selected="selected"
                                         @endif
-                                        value="{{$product->id}}">{{$product->name}} ==> {{$product->price}}</option>
+                                        value="{{$product->id}}">{{$product->name}}</option>
                                 @endforeach
                             </select>
                             @foreach($errors->get('product_id') as $message)
