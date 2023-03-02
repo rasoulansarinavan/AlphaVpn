@@ -60,6 +60,6 @@ class Index extends Component
     public function render()
     {
         $orders = Order::all();
-        return view('admin.livewire.order.index', ['orders' => $orders, 'servers' => $servers])->extends('admin.layouts.app');
+        return view('admin.livewire.order.index', ['orders' => $orders])->extends('admin.layouts.app');
     }
 }
