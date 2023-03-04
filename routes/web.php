@@ -34,7 +34,6 @@ Route::prefix('client')->name('client.')->group(function () {
     Route::get('/account-setting', Setting::class)->name('account-setting');
     Route::get('/pricing-table', Table::class)->name('pricing-table');
     Route::get('/my-team', Members::class)->name('my-team');
-
 });
 
 
@@ -47,6 +46,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/server', \App\Http\Livewire\Admin\Server\Index::class)->name('server');
     Route::get('/types', \App\Http\Livewire\Admin\Type\Index::class)->name('types');
     Route::get('/deposits', \App\Http\Livewire\Admin\Deposit\Index::class)->name('deposits');
-    Route::get('/wallets', \App\Http\Livewire\Admin\Wallet\Index::class)->name('wallets');
+//    Route::get('/wallets', \App\Http\Livewire\Admin\Wallet\Index::class)->name('wallets');
     Route::get('/withdrawals', \App\Http\Livewire\Admin\Withdrawal\Index::class)->name('withdrawals');
 });

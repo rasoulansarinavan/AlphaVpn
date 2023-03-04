@@ -11,14 +11,14 @@ class UserWallet extends Model
 
     protected $guarded = [];
 
-    public function saveUserWallet($formData, $wallet_id)
+    public function saveAddressWallet($formData, $wallet_id)
     {
         UserWallet::query()->updateOrCreate(
             [
                 'id' => $wallet_id
             ],
             [
-                'user_id' => $formData['user_id'],
+                'user_id' => 1,
                 'address_wallet' => $formData['address_wallet']
             ]
         );
