@@ -16,10 +16,10 @@
 
     <link href="/admin/layouts/modern-dark-menu/css/light/plugins.css" rel="stylesheet" type="text/css"/>
     <link href="/admin/src/assets/css/light/authentication/auth-cover.css" rel="stylesheet" type="text/css"/>
+
     <link href="/admin/layouts/modern-dark-menu/css/dark/plugins.css" rel="stylesheet" type="text/css"/>
     <link href="/admin/src/assets/css/dark/authentication/auth-cover.css" rel="stylesheet" type="text/css"/>
     <!-- END GLOBAL MANDATORY STYLES -->
-
 
 </head>
 <body class="form" style="background: #060818;background-image: url('/admin/assets/img/back.jpg')">
@@ -58,6 +58,7 @@
                     </div>
 
                 </div>
+
             </div>
 
             <div
@@ -67,13 +68,12 @@
 
                         <div class="row">
 
-                            <div class="col-md-12">
+            <div class="col-md-12">
                                 <div class="mb-3">
                                     <label style="color: inherit" class="form-label">Referral Code</label>
                                     <input type="text" class="form-control add-billing-address-input">
                                 </div>
                             </div>
-
 
                             <div class="col-12 text-end">
                                 <div class="mb-4">
@@ -83,6 +83,7 @@
                                     </button>
                                 </div>
                             </div>
+
 
                         </div>
 
@@ -99,6 +100,7 @@
 <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
 <script src="/admin/src/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- END GLOBAL MANDATORY SCRIPTS -->
+
 
 </body>
 </html>
