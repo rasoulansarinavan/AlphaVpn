@@ -15,7 +15,7 @@
 
                         <div class="mb-4">
                             <label class="form-label" for="name">Server Name</label>
-                            <input value="{{$name}}" wire:model="name" name="name" class="form-control" id="name" type="text"
+                            <input value="{{$name}}" name="name" class="form-control" id="name" type="text"
                                    placeholder="Type here">
                             @foreach ($errors->get('name') as $message)
                                 <span wire:loading.remove
@@ -25,7 +25,7 @@
 
                         <div class="mb-4">
                             <label class="form-label" for="password">Password</label>
-                            <input value="{{$password}}" wire:model="password" name="password" class="form-control" id="password"
+                            <input value="{{$password}}" name="password" class="form-control" id="password"
                                    type="text" placeholder="Type here">
                             @foreach ($errors->get('password') as $message)
                                 <span wire:loading.remove
@@ -35,7 +35,7 @@
 
                         <div class="mb-4">
                             <label class="form-label" for="ip">IP</label>
-                            <input value="{{$ip}}" wire:model="ip" name="ip" class="form-control" id="ip"
+                            <input value="{{$ip}}" name="ip" class="form-control" id="ip"
                                    type="text" placeholder="Type here">
                             @foreach ($errors->get('ip') as $message)
                                 <span wire:loading.remove

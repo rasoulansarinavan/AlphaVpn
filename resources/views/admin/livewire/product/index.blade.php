@@ -1,6 +1,3 @@
-
-
-
 <section class="content-main">
     <div class="content-header">
         <div>
@@ -18,7 +15,7 @@
                         <div class="mb-4">
                             <label class="form-label" for="server_id">choose Server</label>
                             <select class="form-select  @error('server_id') error-input-border @enderror"
-                                    name="server_id" id="server_id" wire:model="server_id">
+                                    name="server_id" id="server_id">
                                 <option></option>
                                 @foreach($servers as $server)
                                     <option
@@ -36,7 +33,7 @@
 
                         <div class="mb-4">
                             <label class="form-label" for="name">Product Name</label>
-                            <input value="{{$name}}" wire:model="name" name="name" id="name" class="form-control"
+                            <input value="{{$name}}" name="name" id="name" class="form-control"
                                    placeholder="Type here">
                             @foreach ($errors->get('name') as $message)
                                 <span wire:loading.remove
@@ -45,7 +42,7 @@
                         </div>
                         <div class="mb-4">
                             <label class="form-label" for="discount">Discount</label>
-                            <input value="{{$discount}}" wire:model="discount" name="discount" id="discount"
+                            <input value="{{$discount}}" name="discount" id="discount"
                                    class="form-control"
                                    placeholder="Type here">
                             @foreach ($errors->get('discount') as $message)
@@ -56,15 +53,15 @@
                         <div class="mb-4">
                             <label class="form-label" for="type">choose Type</label>
                             <select class="form-select  @error('type') error-input-border @enderror"
-                                    name="type" id="type" wire:model="type">
+                                    name="type" id="type">
                                 <option></option>
 
                                 @foreach($types as $type)
-                                <option
-                                    @if($server_id==$server->id)
-                                        selected="selected"
-                                    @endif
-                                    value="{{$type->id}}">{{$type->name}}</option>
+                                    <option
+                                        @if($server_id==$server->id)
+                                            selected="selected"
+                                        @endif
+                                        value="{{$type->id}}">{{$type->name}}</option>
                                 @endforeach
                             </select>
                             @foreach($errors->get('type') as $message)
@@ -75,7 +72,7 @@
 
                         <div class="mb-4">
                             <label class="form-label" for="price">Price</label>
-                            <input value="{{$price}}" wire:model="price" name="price" id="price" class="form-control"
+                            <input value="{{$price}}" name="price" id="price" class="form-control"
                                    placeholder="Type here">
                             @foreach ($errors->get('price') as $message)
                                 <span wire:loading.remove
@@ -119,7 +116,14 @@
                                     <td><b>{{optional($product->parent)->name}}</b></td>
                                     <td><b>{{$product->name}}</b></td>
                                     <td><b>{{$product->price}}</b></td>
-                                    <td><b>{{$product->discount}}</b></td>
+
+                                    <td>
+                                        @if(isset($product->discount))
+                                            <b>{{$product->discount}} %</b>
+                                        @else
+                                            <b>0</b>
+                                        @endif
+                                    </td>
                                     <td>{{optional($product->category)->name}}</td>
                                     <td class="text-end">
                                         <div class="dropdown"><a class="btn btn-light rounded btn-sm font-sm" href="#"

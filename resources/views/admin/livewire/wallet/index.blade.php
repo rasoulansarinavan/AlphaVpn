@@ -15,7 +15,7 @@
                         <div class="mb-4">
                             <label class="form-label" for="user_id">Choose USer</label>
                             <select class="form-select  @error('user_id') error-input-border @enderror"
-                                    name="user_id" id="user_id" wire:model="user_id">
+                                    name="user_id" id="user_id">
                                 <option></option>
                                 @foreach($users as $user)
                                     <option
@@ -33,7 +33,7 @@
 
                         <div class="mb-4">
                             <label class="form-label" for="address_wallet">Address Wallet</label>
-                            <textarea wire:model="address_wallet" name="address_wallet" id="address_wallet" class="form-control"
+                            <textarea name="address_wallet" id="address_wallet" class="form-control"
                                       placeholder="Type here">{{$address_wallet}}</textarea>
                             @foreach ($errors->get('address_wallet') as $message)
                                 <span wire:loading.remove

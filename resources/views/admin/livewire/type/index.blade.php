@@ -15,7 +15,7 @@
 
                         <div class="mb-4">
                             <label class="form-label" for="name">Name</label>
-                            <input value="{{$name}}" wire:model="name" class="form-control" name="name" id="name"
+                            <input value="{{$name}}" class="form-control" name="name" id="name"
                                    type="text" placeholder="Type here">
                             @foreach($errors->get('name') as $message)
                                 <sapan wire:loading.remove

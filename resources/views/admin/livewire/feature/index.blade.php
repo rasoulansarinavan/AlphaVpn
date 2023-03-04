@@ -16,7 +16,7 @@
                             <label class="form-label" for="product_id">choose product</label>
 
                             <select class="form-select  @error('product_id') error-input-border @enderror"
-                                    name="product_id" id="product_id" wire:model="product_id">
+                                    name="product_id" id="product_id">
                                 <option></option>
                                 @foreach($products as $product)
                                     <option
@@ -34,7 +34,7 @@
 
                         <div class="mb-4">
                             <label class="form-label" for="description">Description</label>
-                            <textarea wire:model="description" name="description" id="description" class="form-control"
+                            <textarea  name="description" id="description" class="form-control"
                                       placeholder="Type here">{{$description}}</textarea>
                             @foreach ($errors->get('description') as $message)
                                 <span wire:loading.remove
