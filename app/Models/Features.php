@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class features extends Model
+class Features extends Model
 {
     use HasFactory;
 
@@ -13,7 +13,7 @@ class features extends Model
 
     public function saveFeature($formData, $feature_id)
     {
-        features::query()->updateOrCreate(
+        Features::query()->updateOrCreate(
             [
                 'id' => $feature_id
             ],

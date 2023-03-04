@@ -68,7 +68,7 @@
 
                         <div class="row">
 
-                            <div class="col-md-12">
+            <div class="col-md-12">
                                 <div class="mb-3">
                                     <label style="color: inherit" class="form-label">Referral Code</label>
                                     <input type="text" class="form-control add-billing-address-input">

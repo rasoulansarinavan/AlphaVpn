@@ -1,17 +1,14 @@
 <?php
 
-namespace App\Http\Livewire\Admin\Order;
+namespace App\Http\Livewire\Admin\Withdrawal;
 
-use App\Models\Order;
-use App\Models\Product;
-use App\Models\Servers;
-use App\Models\User;
+use App\Models\withdrawal;
 use Livewire\Component;
 
 class Index extends Component
+
 {
-    public $order_id;
-    protected $listeners = ['delete', 'changeStatus'];
+    protected $listeners = ['delete', 'changeStatus', 'deleteConfirm','update'];
 
     public $statuses = [
         "Rejected",
@@ -19,16 +16,27 @@ class Index extends Component
         "Confirmed",
     ];
 
+    public function update($id)
+    {
+        $this->dispatchBrowserEvent('swal:confirm', [
+            'type' => 'warning',
+            'title' => trans('Are you sure???'),
+            'text' => '',
+            'id' => $id
+        ]);
+    }
+
     public function changeStatus($value)
     {
-        $order_id = explode('/', $value)[1];
+        $withdrawal_id = explode('/', $value)[1];
+
         $status = explode('/', $value)[0];
 
         $status_list = ['Pending', 'Confirmed', 'Rejected'];
         if (in_array($status, $status_list)) {
-            Order::query()
+            withdrawal::query()
                 ->where([
-                    'id' => $order_id,
+                    'id' => $withdrawal_id,
                 ])
                 ->update(['status' => $status]);
         }
@@ -36,6 +44,7 @@ class Index extends Component
             'message' => 'The operation was successful'
         ]);
     }
+
 
     public function deleteConfirm($id)
     {
@@ -48,18 +57,19 @@ class Index extends Component
     }
 
 
-    public function delete($order_id)
+    public function delete($withdrawal_id)
     {
-        Order::query()->where('id', $order_id)->delete();
+        withdrawal::query()->where('id', $withdrawal_id)->delete();
 
         $this->dispatchBrowserEvent('success', [
             'message' => 'The operation was successful'
         ]);
     }
 
+
     public function render()
     {
-        $orders = Order::all();
-        return view('admin.livewire.order.index', ['orders' => $orders])->extends('admin.layouts.app');
+        $withdrawals = withdrawal::all();
+        return view('admin.livewire.withdrawal.index', ['withdrawals' => $withdrawals])->extends('admin.layouts.app');
     }
 }

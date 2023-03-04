@@ -1,18 +1,14 @@
 <?php
 
-namespace App\Http\Livewire\Admin\Order;
+namespace App\Http\Livewire\Admin\Deposit;
 
-use App\Models\Order;
-use App\Models\Product;
-use App\Models\Servers;
-use App\Models\User;
+use App\Models\Deposit;
 use Livewire\Component;
 
 class Index extends Component
 {
-    public $order_id;
+    public $deposit_id;
     protected $listeners = ['delete', 'changeStatus'];
-
     public $statuses = [
         "Rejected",
         "Pending",
@@ -21,14 +17,14 @@ class Index extends Component
 
     public function changeStatus($value)
     {
-        $order_id = explode('/', $value)[1];
+        $deposit_id = explode('/', $value)[1];
         $status = explode('/', $value)[0];
 
         $status_list = ['Pending', 'Confirmed', 'Rejected'];
         if (in_array($status, $status_list)) {
-            Order::query()
+            Deposit::query()
                 ->where([
-                    'id' => $order_id,
+                    'id' => $deposit_id,
                 ])
                 ->update(['status' => $status]);
         }
@@ -36,6 +32,7 @@ class Index extends Component
             'message' => 'The operation was successful'
         ]);
     }
+
 
     public function deleteConfirm($id)
     {
@@ -48,18 +45,19 @@ class Index extends Component
     }
 
 
-    public function delete($order_id)
+    public function delete($deposit_id)
     {
-        Order::query()->where('id', $order_id)->delete();
+        Deposit::query()->where('id', $deposit_id)->delete();
 
         $this->dispatchBrowserEvent('success', [
             'message' => 'The operation was successful'
         ]);
     }
 
+
     public function render()
     {
-        $orders = Order::all();
-        return view('admin.livewire.order.index', ['orders' => $orders])->extends('admin.layouts.app');
+        $deposits = Deposit::all();
+        return view('admin.livewire.deposit.index', ['deposits' => $deposits])->extends('admin.layouts.app');
     }
 }

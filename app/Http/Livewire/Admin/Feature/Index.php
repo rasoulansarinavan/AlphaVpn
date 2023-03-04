@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Livewire\Client\Feature;
+namespace App\Http\Livewire\Admin\Feature;
 
-use App\Models\features;
+
+use App\Models\Features;
 use App\Models\Product;
 use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
@@ -11,8 +12,10 @@ class Index extends Component
 {
     public $product_id = '', $description = '', $feature_id;
     protected $listeners = ['delete', 'saveFeature'];
-    public function saveFeature($formData, features $features)
+
+    public function saveFeature($formData, Features $features)
     {
+
 
         if ($this->feature_id != null) {
             $feature_id = $this->feature_id;
@@ -45,7 +48,7 @@ class Index extends Component
 
     public function editFeature($feature_id)
     {
-        $feature = features::query()->where('id', $feature_id)->first();
+        $feature = Features::query()->where('id', $feature_id)->first();
 
         $this->product_id = $feature->product_id;
         $this->description = $feature->description;
@@ -65,7 +68,7 @@ class Index extends Component
 
     public function delete($feature_id)
     {
-        features::query()->where('id', $feature_id)->delete();
+        Features::query()->where('id', $feature_id)->delete();
 
         $this->dispatchBrowserEvent('success', [
             'message' => 'The operation was successful'
@@ -75,7 +78,7 @@ class Index extends Component
     public function render()
     {
         $products = Product::all();
-        $features = features::all();
-        return view('client.livewire.feature.index', ['products' => $products, 'features' => $features])->extends('client.layouts.app');
+        $features = Features::all();
+        return view('admin.livewire.feature.index', ['products' => $products, 'features' => $features])->extends('admin.layouts.app');
     }
 }

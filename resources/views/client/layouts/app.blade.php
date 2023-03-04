@@ -5,7 +5,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+
     <title>WLF VPN</title>
+
+    <title>CORK Admin - Multipurpose Bootstrap Dashboard Template </title>
+
     <link rel="icon" type="image/x-icon" href="/admin/src/assets/img/favicon.ico"/>
     <link href="/admin/layouts/modern-dark-menu/css/light/loader.css" rel="stylesheet" type="text/css"/>
     <link href="/admin/layouts/modern-dark-menu/css/dark/loader.css" rel="stylesheet" type="text/css"/>
@@ -21,13 +25,19 @@
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
     <link href="/admin/src/plugins/src/apex/apexcharts.css" rel="stylesheet" type="text/css">
     <link href="/admin/src/assets/css/dark/dashboard/dash_1.css" rel="stylesheet" type="text/css"/>
+
     <link rel="stylesheet" href="/admin/assets/css/toastr.min.css">
+
     <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
     @stack('link')
     @livewireStyles
 </head>
 <livewire:client.layouts.header/>
+
 <body class="layout-boxed dark" style="background-image: url(/admin/assets/img/back.jpg);background-size: cover;">
+
+<body class="layout-boxed dark">
+
 
 <div class="main-container" id="container">
     <div class="overlay"></div>
@@ -49,8 +59,10 @@
 @livewireScripts
 
 <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
+
 <script src="/admin/assets/js/vendors/jquery-3.6.0.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 <script src="/admin/src/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="/admin/src/plugins/src/perfect-scrollbar/perfect-scrollbar.min.js"></script>
 <script src="/admin/src/plugins/src/mousetrap/mousetrap.min.js"></script>
@@ -62,6 +74,7 @@
 <script src="/admin/src/plugins/src/apex/apexcharts.min.js"></script>
 <script src="/admin/src/assets/js/dashboard/dash_1.js"></script>
 <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
+
 <script>
     window.addEventListener('swal:confirm', event => {
         swal({
@@ -128,6 +141,7 @@
         })
     })
 </script>
+
 
 @stack('script')
 </body>
