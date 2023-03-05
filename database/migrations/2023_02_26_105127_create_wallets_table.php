@@ -14,9 +14,12 @@ return new class extends Migration {
         Schema::create('wallets', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
-            $table->integer('price');
+            $table->string('wallet_address');
+            $table->integer('amount');
+            $table->string('hash')->nullable()->unique();
             $table->text('description')->nullable();
-            $table->text('type');
+            $table->string('type');
+            $table->string('status')->default('pending');
             $table->timestamps();
         });
     }

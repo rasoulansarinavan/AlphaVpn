@@ -2,20 +2,41 @@
 
 namespace App\Http\Livewire\Client\Wallet;
 
-use App\Models\Deposit;
+
+use App\Models\Wallet;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class Index extends Component
 {
+    use WithPagination;
+
+
     public $amount = '';
     public $wallet_address = '';
     public $hash = '';
+    public $wallet_total = '';
 
-    // display hash code when deposit is action
 
+    public function mount()
+    {
 
-    public function deposit(Deposit $deposit)
+        $deposit = Wallet::query()->where([
+            'user_id' => Auth::user()->id,
+            'status' => 'confirmed',
+        ])->whereIn('type', ['deposit', 'commission'])->sum('amount');
+        $withdraw = Wallet::query()->where([
+            'user_id' => Auth::user()->id,
+            'status' => 'confirmed',
+        ])->whereIn('type', ['withdraw', 'buy'])->sum('amount');;
+
+        $this->wallet_total = $deposit - $withdraw;
+
+    }
+
+    public function deposit(Wallet $wallet)
     {
 
 
@@ -27,26 +48,25 @@ class Index extends Component
         $validator = Validator::make($formData, [
             'amount' => 'required | integer | min:10',
             'wallet_address' => 'required | string',
-            'hash' => 'required|unique:deposits,hash|size:64 | string',
+            'hash' => 'required|unique:wallets,hash|size:64 | string',
         ]);
 
 
         $validator->validate();
         $this->resetValidation();
-        $deposit->deposit($formData);
+        $wallet->deposit($formData);
 
-        $this->wallet_address='';
-        $this->hash='';
-        $this->amount='';
+        $this->wallet_address = '';
+        $this->hash = '';
+        $this->amount = '';
         $this->dispatchBrowserEvent('success', [
             'message' => trans('alerts.success')
         ]);
 
 
-
     }
 
-    public function withdrawal()
+    public function withdrawal(Wallet $wallet)
     {
 
 
@@ -58,14 +78,23 @@ class Index extends Component
             'amount' => 'required | integer | min:10',
             'wallet_address' => 'required ',
         ]);
-
         $validator->validate();
         $this->resetValidation();
+        $wallet->withdrawal($formData);
+
+        $this->wallet_address = '';
+        $this->hash = '';
+        $this->amount = '';
+        $this->dispatchBrowserEvent('success', [
+            'message' => trans('alerts.success')
+        ]);
+
 
     }
 
     public function render()
     {
-        return view('Client.livewire.wallet.index')->extends('client.layouts.app');
+        $wallet = Wallet::query()->where('user_id', Auth::user()->id)->paginate(10);
+        return view('Client.livewire.wallet.index', ['wallet' => $wallet])->extends('client.layouts.app');
     }
 }

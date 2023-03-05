@@ -6,7 +6,7 @@
 
 
             <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 layout-spacing">
-                <div class="widget widget-card-five">
+                <div class="widget widget-card-five" style="background: transparent;border: 1px solid #191e3a" >
                     <div class="widget-content">
                         <div class="account-box">
 
@@ -19,7 +19,7 @@
 
                                 <div class="balance-info">
                                     <h6>Total Balance</h6>
-                                    <p>$41,741.42</p>
+                                    <h1 class="d-flex align-items-center justify-content-around"><span style="display:inherit;"><img width="40" src="/admin/assets/img/tether.png" alt=""> </span><b>{{number_format($wallet_total)}}</b></h1>
                                 </div>
                             </div>
 
@@ -28,7 +28,7 @@
 
                                 <div class="simple-pill">
 
-                                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist" wire:ignore >
+                                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist" wire:ignore>
                                         <li class="nav-item w-50 d-flex justify-content-center" role="presentation">
                                             <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
                                                     data-bs-target="#pills-home" type="button" role="tab"
@@ -43,11 +43,12 @@
                                         </li>
                                     </ul>
                                     <div class="tab-content" id="pills-tabContent">
-                                        <div class="tab-pane fade show active"  wire:ignore.self id="pills-home" role="tabpanel"
+                                        <div class="tab-pane fade show active" wire:ignore.self id="pills-home"
+                                             role="tabpanel"
                                              aria-labelledby="pills-home-tab" tabindex="0">
                                             <div class="form-group col-12 ">
 
-                                                <label for="amount" class="mt-3 mb-3">Amount</label>
+                                                <label for="amount" class="mt-2 mb-3">Amount</label>
                                                 <input wire:model="amount"
                                                        class="form-control mb-3 @error('amount') error-input-border  @enderror"
                                                        id="amount"
@@ -90,7 +91,8 @@
                                             <button class="btn btn-danger _effect--ripple waves-effect waves-light mt-3"
                                                     wire:click="deposit">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                     viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                     stroke-width="2"
                                                      stroke-linecap="round" stroke-linejoin="round"
                                                      class="feather feather-plus-circle">
                                                     <circle cx="12" cy="12" r="10"></circle>
@@ -100,7 +102,7 @@
                                                 <span class="btn-text-inner">Deposit</span>
                                             </button>
                                         </div>
-                                        <div class="tab-pane fade" id="pills-profile" wire:ignore.self  role="tabpanel"
+                                        <div class="tab-pane fade" id="pills-profile" wire:ignore.self role="tabpanel"
                                              aria-labelledby="pills-profilXe-tab" tabindex="0">
                                             <div class="form-group col-12 ">
 
@@ -130,8 +132,9 @@
                                                 @endforeach
 
                                             </div>
-                                            <button class="btn btn-success _effect--ripple waves-effect waves-light mt-3"
-                                                    wire:click="withdrawal">
+                                            <button
+                                                class="btn btn-success _effect--ripple waves-effect waves-light mt-3"
+                                                wire:click="withdrawal">
                                                 <svg xmlns="http://www.w3.org/2000/svg"
                                                      xmlns:xlink="http://www.w3.org/1999/xlink"
                                                      style="fill: #fff;"
@@ -156,34 +159,49 @@
             </div>
 
             <div class="col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12 layout-spacing">
-                <div class="widget widget-card-three">
-                    <div class="widget-content">
-                        <div class="account-box">
-                            <div class="info">
-                                <div class="inv-title">
-                                    <h5 class="">Total Balance</h5>
-                                </div>
-                                <div class="inv-balance-info">
-                                    <p class="inv-balance">$ 41,741.42</p>
-                                    <span class="inv-stats balance-credited">+ 2453</span>
-                                </div>
-                            </div>
-                            <div class="acc-action">
-                                <div class="">
-                                    <a href="javascript:void(0);" class="btn-wallet">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                             stroke-linecap="round" stroke-linejoin="round"
-                                             class="feather feather-credit-card">
-                                            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
-                                            <line x1="1" y1="10" x2="23" y2="10"></line>
-                                        </svg>
-                                    </a>
-                                </div>
-                                <a href="javascript:void(0);" class="btn-add-balance">Add Balance</a>
-                            </div>
-                        </div>
-                    </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th scope="col">Amount</th>
+                            <th scope="col" style="width: 50px;">Info</th>
+                            <th class="text-center" scope="col">Type</th>
+                            <th class="text-center" scope="col">Status</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @forelse($wallet  as $item)
+                            @php
+                                $class='';
+                                if ($item->status=='pending'){
+                                    $class='info';
+                                }elseif ($item->status=='confirmed'){
+                                    $class='success';
+
+                                }elseif ($item->status=='rejected'){
+                                    $class='danger';
+                                }
+                            @endphp
+                            <tr>
+                                <td> <h1 class="d-flex align-items-center justify-content-start-"><span style="display:inherit;"><img width="40" src="/admin/assets/img/tether.png" alt=""> </span><b class="ms-3">{{number_format($item->amount)}}</b></h1>
+                                    {{$item->created_at}}
+                                </td>
+                                <td>
+                                    Wallet Address: <br> <p>{{$item->wallet_address}}</p>
+                                    Transaction Hash: <br> <p>{{$item->type!='deposit'?'-------------------':$item->hash}}</p>
+
+                                </td>
+                                <td class="text-center">{{$item->type}}</td>
+                                <td class="text-center">
+                                    <span class="badge badge-light-{{$class}}">{{$item->status}}</span>
+                                </td>
+
+                            </tr>
+
+                        @empty
+                        @endforelse
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
