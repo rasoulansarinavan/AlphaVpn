@@ -13,12 +13,8 @@ return new class extends Migration
     {
         Schema::create('user_wallets', function (Blueprint $table) {
             $table->id();
-            $table->string('user_name')->unique();
-            $table->string('email')->unique();
-            $table->integer('user_id')->nullable();
-            $table->string('avatar')->nullable();
-            $table->boolean('blocked')->default(false);
-            $table->rememberToken();
+            $table->foreignId('user_id')->constrained();
+            $table->text('address_wallet');
             $table->timestamps();
         });
     }

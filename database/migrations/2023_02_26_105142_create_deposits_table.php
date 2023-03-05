@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('deposits', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
-            $table->integer('price');
+            $table->string('wallet_address');
+            $table->string('hash')->unique();
+            $table->integer('amount');
             $table->string('status')->default('pending');
             $table->timestamps();
         });

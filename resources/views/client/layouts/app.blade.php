@@ -25,8 +25,11 @@
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
     <link href="/admin/src/plugins/src/apex/apexcharts.css" rel="stylesheet" type="text/css">
     <link href="/admin/src/assets/css/dark/dashboard/dash_1.css" rel="stylesheet" type="text/css"/>
-
+    <link href="/admin/src/assets/css/dark/components/modal.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="/admin/assets/css/toastr.min.css">
+    <link href="/admin/src/assets/css/light/components/tabs.css" rel="stylesheet" type="text/css">
+
+
 
     <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
     @stack('link')

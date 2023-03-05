@@ -36,7 +36,7 @@ $(document).ready(function(){
     });
 
 
-    // Date 
+    // Date
 
     $("#date").inputmask("99/99/9999");
     $("#date2").inputmask("99-99-9999");
@@ -66,7 +66,7 @@ $(document).ready(function(){
     $("#ph-number").inputmask({mask:"(999) 999-9999"});
 
     // Currency
-    $("#currency").inputmask({mask:"$999,9999,999.99"});
+    $("#currency").inputmask('999,9');
 
     /*
     ==================
@@ -82,14 +82,14 @@ $(document).ready(function(){
     // On InComplete
     $("#onincomplete").inputmask("99/99/9999",{ onincomplete: function(){ $('#onincompleteHelp').css('display', 'block'); } });
 
-    
+
     // On Cleared
     $("#oncleared").inputmask("99/99/9999",{ oncleared: function(){ $('#onclearedHelp').css('display', 'block'); } });
 
 
     // Repeater
     $("#repeater").inputmask({ "mask": "2", "repeat": 4});  // ~ mask "9999999999"
-    
+
 
     // isComplete
 
