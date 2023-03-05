@@ -27,7 +27,7 @@ Route::get('/', function () {
 //Route::get('/index', Index::class)->name('index');
 
 
-Route::prefix('client')->name('client.')->group(function () {
+Route::name('client.')->group(function () {
     Route::get('/login', Login::class)->name('login');
     Route::get('/register', Register::class)->name('register');
     Route::get('/register/gmail', [Register::class, 'redirectToProvider'])->name('register.gmail');
