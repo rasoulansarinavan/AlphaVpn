@@ -11,7 +11,7 @@
                     </a>
                 </div>
                 <div class="nav-item theme-text">
-                    <a href="./index.html" class="nav-link"> CORK </a>
+                    <a href="./index.html" class="nav-link"> </a>
                 </div>
             </div>
             <div class="nav-item sidebar-toggle">
@@ -28,11 +28,11 @@
         <div class="profile-info">
             <div class="user-info">
                 <div class="profile-img">
-                    <img src="/admin/src/assets/img/profile-30.png" alt="avatar">
+                    <img src="{{\Illuminate\Support\Facades\Auth::user()->avatar}}" alt="avatar">
                 </div>
                 <div class="profile-content">
-                    <h6 class="">Shaun Park</h6>
-                    <p class="">Project Leader</p>
+                    <h6 class="">{{\Illuminate\Support\Facades\Auth::user()->name}}</h6>
+                    <p class="">{{\Illuminate\Support\Facades\Auth::user()->email}}</p>
                 </div>
             </div>
         </div>
@@ -41,7 +41,7 @@
         <ul class="list-unstyled menu-categories" id="accordionExample">
 
             <li class="menu">
-                <a href="{{route('client.dashboard')}}" aria-expanded="false" class="dropdown-toggle">
+                <a href="{{route('client.profile.dashboard')}}" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
                         <span>Dashboard</span>
@@ -49,7 +49,7 @@
                 </a>
             </li>
             <li class="menu">
-                <a href="{{route('client.account-setting')}}" aria-expanded="false" class="dropdown-toggle">
+                <a href="{{route('client.profile.account-setting')}}" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -63,7 +63,7 @@
                 </a>
             </li>
             <li class="menu">
-                <a href="{{route('client.pricing-table')}}" aria-expanded="false" class="dropdown-toggle">
+                <a href="{{route('client.profile.pricing-table')}}" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -77,7 +77,7 @@
                 </a>
             </li>
             <li class="menu">
-                <a href="{{route('client.pricing-table')}}" aria-expanded="false" class="dropdown-toggle">
+                <a href="{{route('client.profile.pricing-table')}}" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"

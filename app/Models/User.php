@@ -6,6 +6,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -20,7 +22,10 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
-        'password',
+        'user_id',
+        'referral',
+        'avatar',
+        'blocked',
     ];
 
     /**
@@ -33,12 +38,52 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    public function gmailRegister($gmailUser)
+    {
+
+        $user = User::query()
+            ->where('email', $gmailUser->getEmail())
+            ->first();
+
+        $referral = Session::get('referral');
+        $user_id = User::query()->where('referral', $referral)->pluck('id')->first();
+
+        if (!$user) {
+
+            $user = User::query()->create([
+                'name' =>$gmailUser->name,
+                'email' => $gmailUser->getEmail(),
+                'user_id' => @$user_id,
+                'referral' =>$this->generateAffiliateIdCode(),
+                'avatar' => $gmailUser->getAvatar(),
+            ]);
+
+            //send welcome email
+
+
+        }
+
+        if ($user->blocked) {
+            return false;
+        }
+
+
+        Auth::login($user, true);
+
+        return true;
+
+        //Todo assign role
+    }
+
+    public function generateAffiliateIdCode(): string
+    {
+        do {
+            $code = rand(1000, 1000000);
+            $affiliate_id = User::query()->where('referral', $code)->get();
+        } while (!$affiliate_id->isEmpty());
+
+        return $code;
+    }
+
+
 }

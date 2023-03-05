@@ -20,22 +20,24 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-//Route::get('/index', Index::class)->name('index');
-
+Route::get('/logout', [Register::class, 'clientLogout'])->name('client.logout')->middleware('auth:web');
 
 Route::name('client.')->group(function () {
     Route::get('/login', Login::class)->name('login');
-    Route::get('/register', Register::class)->name('register');
-    Route::get('/register/gmail', [Register::class, 'redirectToProvider'])->name('register.gmail');
-    Route::get('/register/gmail/callback', [Register::class, 'handleProviderCallback'])->name('register.gmail.callback');
-    Route::get('/dashboard', Dashboard::class)->name('dashboard');
-    Route::get('/account-setting', Setting::class)->name('account-setting');
-    Route::get('/pricing-table', Table::class)->name('pricing-table');
-    Route::get('/my-team', Members::class)->name('my-team');
+
+    Route::group(['prefix' => 'register', 'middleware' => 'guest'], function () {
+        Route::get('', Register::class)->name('register');
+        Route::get('/gmail', [Register::class, 'redirectToProvider'])->name('register.gmail');
+        Route::get('/gmail/callback', [Register::class, 'handleProviderCallback'])->name('register.gmail.callback');
+    });
+
+    Route::group(['prefix' => 'profile', 'middleware' => 'auth:web'], function () {
+
+        Route::get('/dashboard', Dashboard::class)->name('profile.dashboard');
+        Route::get('/account-setting', Setting::class)->name('profile.account-setting');
+        Route::get('/pricing-table', Table::class)->name('profile.pricing-table');
+        Route::get('/my-team', Members::class)->name('profile.my-team');
+    });
 });
 
 

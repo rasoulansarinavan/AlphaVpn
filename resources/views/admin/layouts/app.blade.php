@@ -46,7 +46,7 @@
     </div>
 </div>
 
-@livewireScripts
+
 
 <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
 <script src="/admin/assets/js/vendors/jquery-3.6.0.min.js"></script>
@@ -120,5 +120,7 @@
 </script>
 
 @stack('script')
+
+@livewireScripts
 </body>
 </html>
