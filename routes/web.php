@@ -30,6 +30,8 @@ Route::get('/', function () {
 Route::prefix('client')->name('client.')->group(function () {
     Route::get('/login', Login::class)->name('login');
     Route::get('/register', Register::class)->name('register');
+    Route::get('/register/gmail', [Register::class, 'redirectToProvider'])->name('register.gmail');
+    Route::get('/register/gmail/callback', [Register::class, 'handleProviderCallback'])->name('register.gmail.callback');
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
     Route::get('/account-setting', Setting::class)->name('account-setting');
     Route::get('/pricing-table', Table::class)->name('pricing-table');

@@ -77,10 +77,10 @@
 
                             <div class="col-12 text-end">
                                 <div class="mb-4">
-                                    <button class="btn  btn-social-login ">
+                                    <a href="{{route('client.register.gmail')}}" class="btn  btn-social-login ">
                                         <img src="/admin/src/assets/img/google-gmail.svg" alt="" class="img-fluid">
                                         <span class="btn-text-inner">Google</span>
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
 

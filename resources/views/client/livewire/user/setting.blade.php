@@ -30,7 +30,7 @@
 
             <div class="account-content">
                 <div class="row mb-3">
-                    <div class="col-md-12">
+                    <div class="col-md-12" wire:ignore>
                         <h2>Settings</h2>
 
                         <ul class="nav nav-pills" id="animateLine" role="tablist">
@@ -64,10 +64,10 @@
                     </div>
                 </div>
 
-                <div class="tab-content" id="animateLineContent-4">
-                    <div class="tab-pane fade show active" id="animated-underline-home" role="tabpanel"
-                         aria-labelledby="animated-underline-home-tab">
-                        <div class="row">
+                <div class="tab-content" id="animateLineContent-4" >
+                    <div class="tab-pane fade show active" id="animated-underline-home" wire:ignore.self role="tabpanel"
+                         aria-labelledby="animated-underline-home-tab" >
+                        <div class="row" >
                             <div class="col-xl-12 col-lg-12 col-md-12 layout-spacing">
                                 <form class="section general-info">
                                     <div class="info">
@@ -197,7 +197,7 @@
 
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="animated-underline-profile" role="tabpanel"
+                    <div class="tab-pane fade" id="animated-underline-profile" wire:ignore.self role="tabpanel"
                          aria-labelledby="animated-underline-profile-tab">
                         <div class="row">
                             <div class="col-xl-12 col-lg-12 col-md-12 layout-spacing">
