@@ -1,14 +1,14 @@
-<section class="content-main">
-    <div class="content-header">
-        <div>
-            <h2 class="content-title card-title">Types</h2>
-        </div>
-        <div>
-            <input class="form-control bg-white" type="text" placeholder="Search Categories">
-        </div>
+<div class="container">
+    <div class="page-meta">
+        <nav class="breadcrumb-style-one" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">User Interface</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Maps</li>
+            </ol>
+        </nav>
     </div>
-    <div class="card">
-        <div class="card-body">
+    <div class="statbox widget box box-shadow layout-top-spacing">
+
             <div class="row">
                 <div class="col-md-3">
                     <form wire:submit.prevent="saveType(Object.fromEntries(new FormData($event.target)))">
@@ -73,6 +73,6 @@
                     </div>
                 </div>
             </div>
-        </div>
+        
     </div>
-</section>
+</div>
