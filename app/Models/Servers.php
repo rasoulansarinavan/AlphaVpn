@@ -21,6 +21,7 @@ class Servers extends Model
                 'name' => $formData['name'],
                 'password' => $formData['password'],
                 'ip' => $formData['ip'],
+                'type_id' => $formData['type_id'],
             ]
         );
     }

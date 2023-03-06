@@ -15,6 +15,7 @@ return new class extends Migration {
             $table->string('name');
             $table->string('password');
             $table->string('ip');
+            $table->foreignId('type_id')->constrained();
             $table->timestamps();
         });
     }

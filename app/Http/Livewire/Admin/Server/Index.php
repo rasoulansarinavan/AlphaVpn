@@ -4,13 +4,20 @@ namespace App\Http\Livewire\Admin\Server;
 
 
 use App\Models\Servers;
+use App\Models\Types;
 use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
 
 class Index extends Component
 {
-    public $name = '', $password = '', $ip = '', $server_id;
+    public $name = '', $password = '', $ip = '', $server_id,$types,$type_id='';
     protected $listeners = ['delete', 'saveServer'];
+
+    public function mount()
+    {
+        $this->types=Types::all();
+
+    }
 
     public function saveServer($formData, Servers $servers)
     {
@@ -19,14 +26,16 @@ class Index extends Component
             $validator = Validator::make($formData, [
                 'name' => 'required | regex:/^[ا-یa-zA-Z0-9@$#^%&*!]+$/u',
                 'password' => 'required | regex:/^[ا-یa-zA-Z0-9@$#^%&*!]+$/u',
-                'ip' => 'required | regex:/^[ا-یa-zA-Z0-9@$#^%&*!]+$/u',
+                'ip' => 'required |string',
+                'type_id' => 'required | exists:types:id',
             ]);
         } else {
             $server_id = 0;
             $validator = Validator::make($formData, [
                 'name' => 'required | regex:/^[ا-یa-zA-Z0-9@$#^%&*!]+$/u',
                 'password' => 'required | regex:/^[ا-یa-zA-Z0-9@$#^%&*!]+$/u',
-                'ip' => 'required | regex:/^[ا-یa-zA-Z0-9@$#^%&*!]+$/u',
+                'ip' => 'required | string',
+                'type_id' => 'required | exists:types,id',
             ]);
         }
 
@@ -51,6 +60,7 @@ class Index extends Component
         $this->password = $server->password;
         $this->ip = $server->ip;
         $this->server_id = $server->id;
+        $this->type_id = $server->type_id;
     }
 
     public function deleteConfirm($id)
