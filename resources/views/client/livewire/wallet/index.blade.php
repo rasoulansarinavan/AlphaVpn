@@ -6,7 +6,7 @@
 
 
             <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 layout-spacing">
-                <div class="widget widget-card-five" style="background: transparent;border: 1px solid #191e3a" >
+                <div class="widget widget-card-five" style="background: transparent;border: 1px solid #191e3a">
                     <div class="widget-content">
                         <div class="account-box">
 
@@ -19,7 +19,10 @@
 
                                 <div class="balance-info">
                                     <h6>Total Balance</h6>
-                                    <h1 class="d-flex align-items-center justify-content-around"><span style="display:inherit;"><img width="40" src="/admin/assets/img/tether.png" alt=""> </span><b>{{number_format($wallet_total)}}</b></h1>
+                                    <h1 class="d-flex align-items-center justify-content-around"><span
+                                            style="display:inherit;"><img width="40" src="/admin/assets/img/tether.png"
+                                                                          alt=""> </span><b>{{number_format($wallet_total)}}</b>
+                                    </h1>
                                 </div>
                             </div>
 
@@ -183,12 +186,17 @@
                                 }
                             @endphp
                             <tr>
-                                <td> <h1 class="d-flex align-items-center justify-content-start-"><span style="display:inherit;"><img width="40" src="/admin/assets/img/tether.png" alt=""> </span><b class="ms-3">{{number_format($item->amount)}}</b></h1>
+                                <td><h1 class="d-flex align-items-center justify-content-start-"><span
+                                            style="display:inherit;"><img width="40" src="/admin/assets/img/tether.png"
+                                                                          alt=""> </span><b
+                                            class="ms-3">{{number_format($item->amount)}}</b></h1>
                                     {{$item->created_at}}
                                 </td>
                                 <td>
-                                    Wallet Address: <br> <p>{{$item->wallet_address}}</p>
-                                    Transaction Hash: <br> <p>{{$item->type!='deposit'?'-------------------':$item->hash}}</p>
+                                    Wallet Address: <br>
+                                    <p>{{$item->wallet_address}}</p>
+                                    Transaction Hash: <br>
+                                    <p>{{$item->type!='deposit'?'-------------------':$item->hash}}</p>
 
                                 </td>
                                 <td class="text-center">{{$item->type}}</td>
