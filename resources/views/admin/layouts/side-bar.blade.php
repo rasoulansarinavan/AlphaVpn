@@ -1,4 +1,8 @@
 <!--  BEGIN SIDEBAR  -->
+@php
+    $prefix=\Illuminate\Support\Facades\Route::current()->getPrefix();
+    $rout_name=\Illuminate\Support\Facades\Route::current()->getName();
+@endphp
 <div class="sidebar-wrapper sidebar-theme">
 
     <nav id="sidebar">
@@ -41,7 +45,7 @@
         <ul class="list-unstyled menu-categories" id="accordionExample">
 
 
-            <li class="menu">
+            <li class="menu {{$rout_name=='admin.dashboard' ? 'active' : ''}}">
                 <a href="{{route('admin.dashboard')}}" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -55,7 +59,7 @@
                 </a>
             </li>
 
-            <li class="menu">
+            <li class="menu {{$rout_name=='admin.user' ? 'active' : ''}}">
                 <a href="{{route('admin.user')}}" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -69,7 +73,7 @@
                     </div>
                 </a>
             </li>
-            <li class="menu">
+            <li class="menu {{$rout_name=='admin.orders' ? 'active' : ''}}">
                 <a href="{{route('admin.orders')}}" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -83,7 +87,7 @@
                     </div>
                 </a>
             </li>
-            <li class="menu">
+            <li class="menu {{$rout_name=='admin.products' ? 'active' : ''}}">
                 <a href="{{route('admin.products')}}" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -97,7 +101,7 @@
                     </div>
                 </a>
             </li>
-            <li class="menu">
+            <li class="menu {{$rout_name=='admin.feature' ? 'active' : ''}}">
                 <a href="{{route('admin.feature')}}" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -111,7 +115,7 @@
                     </div>
                 </a>
             </li>
-            <li class="menu">
+            <li class="menu {{$rout_name=='admin.server' ? 'active' : ''}}">
                 <a href="{{route('admin.server')}}" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -125,7 +129,7 @@
                     </div>
                 </a>
             </li>
-            <li class="menu">
+            <li class="menu {{$rout_name=='admin.types' ? 'active' : ''}}">
                 <a href="{{route('admin.types')}}" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -139,7 +143,7 @@
                     </div>
                 </a>
             </li>
-            <li class="menu">
+            <li class="menu {{$rout_name=='admin.deposits' ? 'active' : ''}}">
                 <a href="{{route('admin.deposits')}}" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -167,7 +171,7 @@
 {{--                    </div>--}}
 {{--                </a>--}}
 {{--            </li>--}}
-            <li class="menu">
+            <li class="menu {{$rout_name=='admin.withdrawals' ? 'active' : ''}}">
                 <a href="{{route('admin.withdrawals')}}" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
