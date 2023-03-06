@@ -2,8 +2,8 @@
     <div class="page-meta">
         <nav class="breadcrumb-style-one" aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">User Interface</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Maps</li>
+                <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Features</li>
             </ol>
         </nav>
     </div>
