@@ -23,16 +23,7 @@ class Index extends Component
     public function mount()
     {
 
-        $deposit = Wallet::query()->where([
-            'user_id' => Auth::user()->id,
-            'status' => 'confirmed',
-        ])->whereIn('type', ['deposit', 'commission'])->sum('amount');
-        $withdraw = Wallet::query()->where([
-            'user_id' => Auth::user()->id,
-            'status' => 'confirmed',
-        ])->whereIn('type', ['withdraw', 'buy'])->sum('amount');;
-
-        $this->wallet_total = $deposit - $withdraw;
+        $this->wallet_total = user_wallet(Auth::user()->id);
 
     }
 
