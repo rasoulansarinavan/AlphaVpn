@@ -193,7 +193,7 @@ body.dark .pricing-table-2 .pricing-plan {
 }
 body.dark .pricing-table-2 .pricing-plan span.badge {
   position: absolute;
-  top: -11px;
+  top: -20px;
   color: #000;
   display: none;
   font-weight: 700;

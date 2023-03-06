@@ -9,7 +9,7 @@
         <div class="page-meta">
             <nav class="breadcrumb-style-one" aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Components</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('client.profile.dashboard')}}">Dashboard</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Pricing Table</li>
                 </ol>
             </nav>
@@ -25,38 +25,22 @@
 
                         <div class="pricing-table-2 ">
 
-                            <!-- Billing Cycle  -->
-                            <div class="billing-cycle-radios mt-5">
-
-                                <div
-                                    class="switch form-switch-custom switch-inline form-switch-primary form-switch-custom inner-label-toggle show">
-                                    <div class="input-checkbox">
-                                        <span class="switch-chk-label label-left">Monthly</span>
-                                        <input class="switch-input" type="checkbox" role="switch" id="toggle-1" checked
-                                               onchange="this.checked ? this.closest('.inner-label-toggle').classList.add('show') : this.closest('.inner-label-toggle').classList.remove('show')">
-                                        <span class="switch-chk-label label-right">Yearly</span>
-                                    </div>
-                                </div>
-
-                            </div>
 
                             <!-- Pricing Plans Container -->
                             <div class="pricing-plans-container mt-5 billed-yearly">
                                 <!-- Plan -->
                                 <div class="pricing-plan mb-5">
 
-                                    <span class="badge badge-pill badge-warning show">45% Off</span>
-
                                     <div class="pricing-header-section">
                                         <div class="pricing-header">
-                                            <h3>Basic</h3>
-                                            <p>Most Popular</p>
+                                            <h3>Monthly</h3>
+                                            <p>Family VPN</p>
                                         </div>
 
                                         <div class="pricing-header-pricing">
-                                            <p class="pricing monthly-pricing">$ 9.50</p>
-                                            <p class="pricing yearly-pricing">$ 5.50</p>
-                                            <p class="sub-title monthly-pricing-label">Per month</p>
+
+                                            <p class="pricing yearly-pricing" style="font-size: 28px"> 19</p>
+                                            <p class="sub-title monthly-pricing-label" style="letter-spacing: 4px">USDT</p>
                                         </div>
                                     </div>
 
@@ -66,8 +50,7 @@
                                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                                            stroke-width="2" stroke-linecap="round"
                                                            stroke-linejoin="round" class="feather feather-check"><polyline
-                                                            points="20 6 9 17 4 12"></polyline></svg></span> 100MB
-                                                Storage
+                                                            points="20 6 9 17 4 12"></polyline></svg></span> Unlimited volume
                                             </li>
                                             <li><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -111,18 +94,17 @@
                                 <!-- Plan -->
                                 <div class="pricing-plan mb-5 recommanded">
 
-                                    <span class="badge badge-pill badge-warning show">45% Off</span>
+                                    <span class="badge badge-pill badge-warning show"><span style="font-size: 18px">8</span> USDT Off</span>
 
                                     <div class="pricing-header-section">
                                         <div class="pricing-header">
-                                            <h3>Plus</h3>
-                                            <p>Recommended</p>
+                                            <h3>3 Months</h3>
+                                            <p>Family VPN</p>
                                         </div>
 
                                         <div class="pricing-header-pricing">
-                                            <p class="pricing monthly-pricing">$ 19.50</p>
-                                            <p class="pricing yearly-pricing">$ 9.50</p>
-                                            <p class="sub-title monthly-pricing-label">Per month</p>
+                                            <p class="pricing yearly-pricing" style="font-size: 28px"> 49</p>
+                                            <p class="sub-title monthly-pricing-label" style="letter-spacing: 4px">USDT</p>
                                         </div>
                                     </div>
 
@@ -132,7 +114,7 @@
                                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                                            stroke-width="2" stroke-linecap="round"
                                                            stroke-linejoin="round" class="feather feather-check"><polyline
-                                                            points="20 6 9 17 4 12"></polyline></svg></span> Unlimited
+                                                            points="20 6 9 17 4 12"></polyline></svg></span> Unlimited volume
                                             </li>
                                             <li><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -176,18 +158,17 @@
                                 <!-- Plan -->
                                 <div class="pricing-plan mb-5">
 
-                                    <span class="badge badge-pill badge-warning show">45% Off</span>
+                                    <span class="badge badge-pill badge-info show"><span style="font-size: 22px">15</span> USDT Off</span>
 
                                     <div class="pricing-header-section">
                                         <div class="pricing-header">
-                                            <h3>Business</h3>
-                                            <p>Best Value</p>
+                                            <h3>6 Months</h3>
+                                            <p>Family VPN</p>
                                         </div>
 
                                         <div class="pricing-header-pricing">
-                                            <p class="pricing monthly-pricing">$ 29.50</p>
-                                            <p class="pricing yearly-pricing">$ 19.50</p>
-                                            <p class="sub-title monthly-pricing-label">Per month</p>
+                                            <p class="pricing yearly-pricing" style="font-size: 28px"> 99</p>
+                                            <p class="sub-title monthly-pricing-label" style="letter-spacing: 4px">USDT</p>
                                         </div>
                                     </div>
 
@@ -197,7 +178,70 @@
                                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                                            stroke-width="2" stroke-linecap="round"
                                                            stroke-linejoin="round" class="feather feather-check"><polyline
-                                                            points="20 6 9 17 4 12"></polyline></svg></span> Unlimited
+                                                            points="20 6 9 17 4 12"></polyline></svg></span> Unlimited volume
+                                            </li>
+                                            <li><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                           viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                           stroke-width="2" stroke-linecap="round"
+                                                           stroke-linejoin="round" class="feather feather-check"><polyline
+                                                            points="20 6 9 17 4 12"></polyline></svg></span> 10 Guests +
+                                                5 per extra seat
+                                            </li>
+                                            <li><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                           viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                           stroke-width="2" stroke-linecap="round"
+                                                           stroke-linejoin="round" class="feather feather-check"><polyline
+                                                            points="20 6 9 17 4 12"></polyline></svg></span> 20k
+                                                Automations/mo
+                                            </li>
+                                            <li><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                           viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                           stroke-width="2" stroke-linecap="round"
+                                                           stroke-linejoin="round" class="feather feather-check"><polyline
+                                                            points="20 6 9 17 4 12"></polyline></svg></span> 10 Domains
+                                            </li>
+                                            <li><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                           viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                           stroke-width="2" stroke-linecap="round"
+                                                           stroke-linejoin="round" class="feather feather-check"><polyline
+                                                            points="20 6 9 17 4 12"></polyline></svg></span> 2 Year
+                                                Update
+                                            </li>
+                                            <li><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                           viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                           stroke-width="2" stroke-linecap="round"
+                                                           stroke-linejoin="round" class="feather feather-check"><polyline
+                                                            points="20 6 9 17 4 12"></polyline></svg></span> Priority
+                                                Support
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <a href="javascript:void(0);" class="button btn btn-dark btn-block margin-top-20">Get
+                                        Started</a>
+                                </div>
+                                <div class="pricing-plan mb-5" style="margin: 0 24px">
+
+                                    <span class="badge badge-pill badge-danger show"><span style="font-size: 25px">74</span> USDT Off</span>
+
+                                    <div class="pricing-header-section">
+                                        <div class="pricing-header">
+                                            <h3>Yearly</h3>
+                                            <p>Family VPN</p>
+                                        </div>
+
+                                        <div class="pricing-header-pricing">
+                                            <p class="pricing yearly-pricing" style="font-size: 28px"> 150</p>
+                                            <p class="sub-title monthly-pricing-label" style="letter-spacing: 4px">USDT</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="pricing-plan-features mb-4">
+                                        <ul>
+                                            <li><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                           viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                           stroke-width="2" stroke-linecap="round"
+                                                           stroke-linejoin="round" class="feather feather-check"><polyline
+                                                            points="20 6 9 17 4 12"></polyline></svg></span> Unlimited volume
                                             </li>
                                             <li><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"

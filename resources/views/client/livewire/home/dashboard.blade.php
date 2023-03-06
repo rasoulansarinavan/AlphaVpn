@@ -1,7 +1,16 @@
 <div class="layout-px-spacing">
 
     <div class="middle-content container-xxl p-0">
+        <!-- BREADCRUMB -->
+        <div class="page-meta">
+            <nav class="breadcrumb-style-one" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{route('client.profile.dashboard')}}">Dashboard</a></li>
 
+                </ol>
+            </nav>
+        </div>
+        <!-- /BREADCRUMB -->
         <div class="row layout-top-spacing">
 
             <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 layout-spacing">
@@ -18,9 +27,7 @@
 
                                 <div class="balance-info" >
                                     <h6>Total Balance</h6>
-                                    <h2 class="d-flex align-items-center justify-content-around"><span
-                                            style="display:inherit;"><img class="me-md-2" width="40" src="/admin/assets/img/tether.png"
-                                                                          alt=""> </span><b>47,878</b>
+                                    <h2 class="d-flex align-items-center mt-2 justify-content-around"><span class="me-2" style="font-size: 20px">USDT</span><b>47,878</b>
                                     </h2>
                                 </div>
                             </div>
