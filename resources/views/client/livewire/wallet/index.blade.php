@@ -20,8 +20,8 @@
                                 <div class="balance-info">
                                     <h6>Total Balance</h6>
                                     <h1 class="d-flex align-items-center justify-content-around"><span
-                                            style="display:inherit;"><img width="40" src="/admin/assets/img/tether.png"
-                                                                          alt=""> </span><b>{{number_format($wallet_total)}}</b>
+                                            style="font-size: 20px"
+                                            class="me-3">USDT</span><b>{{number_format($wallet_total)}}</b>
                                     </h1>
                                 </div>
                             </div>
@@ -186,10 +186,10 @@
                                 }
                             @endphp
                             <tr>
-                                <td><h1 class="d-flex align-items-center justify-content-start-"><span
-                                            style="display:inherit;"><img width="40" src="/admin/assets/img/tether.png"
-                                                                          alt=""> </span><b
-                                            class="ms-3">{{number_format($item->amount)}}</b></h1>
+                                <td><h1 class="text-center"><b>{{number_format($item->amount)}}</b>
+                                        <br>
+                                        <span class="d-block mt-1" style="font-size: 20px">USDT</span>
+                                    </h1>
                                     {{$item->created_at}}
                                 </td>
                                 <td>

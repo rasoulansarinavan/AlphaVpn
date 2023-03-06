@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->string('name');
             $table->integer('discount');
-            $table->string('type');
+            $table->foreignId('type_id')->constrained();
             $table->integer('price');
             $table->foreignId('server_id')->constrained();
             $table->timestamps();
