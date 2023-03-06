@@ -17,12 +17,12 @@ class Index extends Component
         if ($this->type_id != null) {
             $type_id = $this->type_id;
             $validator = Validator::make($formData, [
-                'name' => 'required | regex:/^[ا-یa-zA-Z0-9@$#^%&*!]+$/u',
+                'name' => 'required | string',
             ]);
         } else {
             $type_id = 0;
             $validator = Validator::make($formData, [
-                'name' => 'required | regex:/^[ا-یa-zA-Z0-9@$#^%&*!]+$/u',
+                'name' => 'required | string',
             ]);
         }
 
