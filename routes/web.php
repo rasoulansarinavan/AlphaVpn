@@ -38,6 +38,7 @@ Route::name('client.')->group(function () {
         Route::get('/pricing-table', Table::class)->name('profile.pricing-table');
         Route::get('/my-team', Members::class)->name('profile.my-team');
         Route::get('/wallet-details', \App\Http\Livewire\Client\Wallet\Index::class)->name('profile.wallet-index');
+        Route::get('/orders', App\Http\Livewire\Client\Orders\Index::class)->name('profile.orders');
     });
 });
 
