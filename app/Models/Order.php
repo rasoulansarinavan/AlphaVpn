@@ -23,5 +23,11 @@ class Order extends Model
         return $this->belongsTo(Product::class, 'product_id');
     }
 
+    public function files()
+    {
+        return $this->hasMany(File::class, 'order_id');
+
+    }
+
 
 }

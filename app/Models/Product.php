@@ -10,7 +10,7 @@ class Product extends Model
     use HasFactory;
 
     protected $guarded = [];
-
+    protected $with = ['type','parent'];
 
     public function saveProduct($formData, $product_id)
     {
@@ -27,6 +27,7 @@ class Product extends Model
             ]
         );
     }
+
     public function parent()
     {
         return $this->belongsTo(Servers::class, 'server_id');

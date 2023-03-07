@@ -7,6 +7,8 @@ use App\Models\Product;
 use App\Models\Wallet;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Livewire\Component;
 
 class Table extends Component
@@ -53,6 +55,7 @@ class Table extends Component
     {
 
         DB::transaction(function () {
+
             //add to wallet
             Wallet::query()->create([
                 'user_id' => Auth::user()->id,
