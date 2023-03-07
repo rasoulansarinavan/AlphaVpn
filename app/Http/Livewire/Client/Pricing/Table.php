@@ -2,14 +2,17 @@
 
 namespace App\Http\Livewire\Client\Pricing;
 
+use App\Models\Order;
 use App\Models\Product;
 use App\Models\Wallet;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
 class Table extends Component
 {
     public $products;
+    public $product_id;
     public $productPrice;
 
     protected $listeners = ['buy'];
@@ -21,7 +24,7 @@ class Table extends Component
 
     public function checkWalletBalance($product_id)
     {
-
+        $this->product_id = $product_id;
         //get selected product
         $this->productPrice = $productPrice = Product::query()->where('id', $product_id)->pluck('price')->first();
 
@@ -48,12 +51,23 @@ class Table extends Component
 
     public function buy()
     {
-        Wallet::query()->create([
-            'user_id' => Auth::user()->id,
-            'type' => 'buy',
-            'status' => 'confirmed',
-            'amount' => $this->productPrice,
-        ]);
+
+        DB::transaction(function () {
+            //add to wallet
+            Wallet::query()->create([
+                'user_id' => Auth::user()->id,
+                'type' => 'buy',
+                'status' => 'confirmed',
+                'amount' => $this->productPrice,
+            ]);
+            //add to orders
+            Order::query()->create([
+                'user_id' => Auth::user()->id,
+                'product_id' => $this->product_id,
+                'price' => $this->productPrice,
+            ]);
+        });
+
 
     }
 

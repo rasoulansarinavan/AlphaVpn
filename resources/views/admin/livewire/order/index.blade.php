@@ -14,38 +14,52 @@
         </thead>
         <tbody>
         @foreach($orders as $order)
+            @php
+                $color='';
+                    if ($order->status=='pending'){
+                        $color='#fff';
+
+                    }elseif($order->status=='confirmed'){
+                    $color='#00ab55';
+                    }elseif($order->status=='rejected'){
+                        $color='#e7515a';
+                    }
+            @endphp
+
             <tr>
                 <td class="checkbox-column">{{$loop->index+1}}</td>
-                <td><a href="./app-invoice-preview.html"><span
-                            class="inv-number">{{optional($order->parent)->name}}</span></a></td>
-                <td><a href="./app-invoice-preview.html"><span
+                <td>
+                    <a href="javascript:0">
+                        <span class="inv-number">{{optional($order->parent)->name}}</span>
+                        <br>
+                        <span class="inv-number">{{optional($order->parent)->email}}</span>
+                    </a>
+                </td>
+                <td><a href="javascript:0"><span
                             class="inv-number">{{optional($order->product)->name}}</span></a></td>
-                <td><a href="./app-invoice-preview.html"><span
+                <td><a href="javascript:0"><span
                             class="inv-number">{{optional($order->product)->price}}</span></a></td>
 
-                <td><a href="./app-invoice-preview.html"><span
+                <td><a href="javascript:0"><span
                             class="inv-number">{{optional($order->product)->parent->name}}</span></a></td>
-                <td><a href="./app-invoice-preview.html"><span
+                <td><a href="javascript:0"><span
                             class="inv-number">{{optional($order->product)->parent->ip}}</span></a></td>
 
                 <td>
-                    <div class="mb-4">
-                        <label for="changeStatus">Select Status:</label>
-                        <select name="changeStatus" id="changeStatus"
-                                class="form-select @error('changeStatus') error-input-border @enderror"
-                                wire:change="changeStatus($event.target.value)">
-                            <option>{{$order->status}}</option>
-                            @foreach($statuses as  $status)
-                                <option
-                                    @if($status==$order->status)
-                                        selected="selected"
-                                    @endif
+                    <select name="changeStatus" id="changeStatus" style="background: {{$color}};color: #000"
+                            class="form-select @error('changeStatus') error-input-border @enderror"
+                            wire:change="changeStatus($event.target.value)">
 
-                                    value="{{$status}}/{{$order->id}}"
-                                >{{$status}}</option>
-                            @endforeach
-                        </select>
-                    </div>
+                        @foreach($statuses as  $status)
+                            <option
+                                @if($status==$order->status)
+                                    selected="selected"
+                                @endif
+
+                                value="{{$status}}/{{$order->id}}"
+                            >{{$status}}</option>
+                        @endforeach
+                    </select>
                 </td>
 
                 <td>

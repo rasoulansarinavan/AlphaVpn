@@ -14,9 +14,9 @@ class Index extends Component
     protected $listeners = ['delete', 'changeStatus'];
 
     public $statuses = [
-        "Rejected",
-        "Pending",
-        "Confirmed",
+        "rejected",
+        "pending",
+        "confirmed",
     ];
 
     public function changeStatus($value)
@@ -24,7 +24,7 @@ class Index extends Component
         $order_id = explode('/', $value)[1];
         $status = explode('/', $value)[0];
 
-        $status_list = ['Pending', 'Confirmed', 'Rejected'];
+        $status_list = ['pending', 'confirmed', 'rejected'];
         if (in_array($status, $status_list)) {
             Order::query()
                 ->where([
