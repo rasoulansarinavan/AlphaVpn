@@ -30,7 +30,6 @@ class Index extends Component
     public function deposit(Wallet $wallet)
     {
 
-
         $formData = [
             'amount' => $this->amount,
             'wallet_address' => $this->wallet_address,
@@ -59,8 +58,6 @@ class Index extends Component
 
     public function withdrawal(Wallet $wallet)
     {
-
-
         $formData = [
             'amount' => $this->amount,
             'wallet_address' => $this->wallet_address,
@@ -79,7 +76,6 @@ class Index extends Component
         $this->dispatchBrowserEvent('success', [
             'message' => trans('alerts.success')
         ]);
-
 
     }
 

@@ -202,7 +202,7 @@ document.querySelector('.widget-content .mixin').addEventListener('click', funct
           toast.addEventListener('mouseleave', Swal.resumeTimer)
         }
     })
-      
+
     Toast.fire({
         icon: 'success',
         title: 'Signed in successfully'

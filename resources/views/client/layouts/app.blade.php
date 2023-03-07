@@ -25,10 +25,9 @@
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
     <link href="/admin/src/plugins/src/apex/apexcharts.css" rel="stylesheet" type="text/css">
     <link href="/admin/src/assets/css/dark/dashboard/dash_1.css" rel="stylesheet" type="text/css"/>
-    <link href="/admin/src/assets/css/dark/components/modal.css" rel="stylesheet" type="text/css" />
+    <link href="/admin/src/assets/css/dark/components/modal.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="/admin/assets/css/toastr.min.css">
     <link href="/admin/src/assets/css/light/components/tabs.css" rel="stylesheet" type="text/css">
-
 
 
     <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
@@ -64,7 +63,8 @@
 <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
 
 <script src="/admin/assets/js/vendors/jquery-3.6.0.min.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="/admin/src/plugins/src/sweetalerts2/sweetalerts2.min.js"></script>
+
 
 <script src="/admin/src/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="/admin/src/plugins/src/perfect-scrollbar/perfect-scrollbar.min.js"></script>
@@ -135,12 +135,27 @@
 
 
     window.addEventListener('swal:warning', event => {
-
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
             text: event.detail.text,
             footer: ''
+        })
+    })
+    window.addEventListener('swal:confirm', event => {
+        Swal.fire({
+            title: event.detail.title,
+            text: '',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'OK'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.livewire.emit('buy', event.detail.id);
+               // window.location = '/profile/wallet-details'
+            }
         })
     })
 </script>

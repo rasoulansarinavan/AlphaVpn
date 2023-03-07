@@ -27,7 +27,7 @@
 
                                 <div class="balance-info" >
                                     <h6>Total Balance</h6>
-                                    <h2 class="d-flex align-items-center mt-2 justify-content-around"><span class="me-2" style="font-size: 20px">USDT</span><b>47,878</b>
+                                    <h2 class="d-flex align-items-center mt-2 justify-content-around"><span class="me-2" style="font-size: 20px">USDT</span><b>{{$wallet_total}}</b>
                                     </h2>
                                 </div>
                             </div>

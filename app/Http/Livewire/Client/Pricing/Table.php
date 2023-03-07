@@ -3,20 +3,57 @@
 namespace App\Http\Livewire\Client\Pricing;
 
 use App\Models\Product;
+use App\Models\Wallet;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Table extends Component
 {
     public $products;
+    public $productPrice;
+
+    protected $listeners = ['buy'];
 
     public function mount()
     {
         $this->products = Product::all();
     }
 
-    public function buy($product_id)
+    public function checkWalletBalance($product_id)
     {
-        //check user wallet
+
+        //get selected product
+        $this->productPrice = $productPrice = Product::query()->where('id', $product_id)->pluck('price')->first();
+
+        //get user wallet
+        $userWallet = user_wallet(Auth::user()->id);
+
+        //check wallet
+        if ($productPrice > $userWallet) {
+            $this->dispatchBrowserEvent('swal:warning', [
+                'type' => 'success',
+                'message' => 'User Delete Successfully!',
+                'text' => 'Your account balance is insufficient.'
+            ]);
+        } else {
+            $this->dispatchBrowserEvent('swal:confirm', [
+                'type' => 'success',
+                'title' => 'The amount of ' . $productPrice . ' USDT will be deducted from your wallet',
+                'message' => 'User Delete Successfully!',
+                'text' => 'It will not list on users table soon.'
+            ]);
+        }
+
+    }
+
+    public function buy()
+    {
+        Wallet::query()->create([
+            'user_id' => Auth::user()->id,
+            'type' => 'buy',
+            'status' => 'confirmed',
+            'amount' => $this->productPrice,
+        ]);
 
     }
 

@@ -2,6 +2,8 @@
     @push('link')
         <link rel="stylesheet" type="text/css" href="/admin/src/assets/css/dark/forms/switches.css">
         <link href="/admin/src/plugins/css/dark/pricing-table/css/component.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="/admin/src/plugins/src/sweetalerts2/sweetalerts2.css">
+        <link href="/admin/src/plugins/css/dark/sweetalerts2/custom-sweetalert.css" rel="stylesheet" type="text/css" />
     @endpush
     <div class="middle-content container-xxl p-0">
 
@@ -86,7 +88,7 @@
 
                                         </ul>
                                     </div>
-                                    <a wire:click="buy('{{$products[0]->id}}')" href="javascript:void(0);" class="button btn btn-dark btn-block margin-top-20">Get
+                                    <a wire:click="checkWalletBalance('{{$products[0]->id}}')" href="javascript:void(0);" class="button btn btn-dark btn-block margin-top-20">Get
                                         Started</a>
                                 </div>
                                 <!-- Plan -->
@@ -149,7 +151,7 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <a wire:click="buy('{{$products[1]->id}}')" href="javascript:void(0);" class="button btn btn-dark btn-block margin-top-20">Get
+                                    <a wire:click="checkWalletBalance('{{$products[1]->id}}')" href="javascript:void(0);" class="button btn btn-dark btn-block margin-top-20">Get
                                         Started</a>
                                 </div>
                                 <!-- Plan -->
@@ -212,7 +214,7 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <a wire:click="buy('{{$products[2]->id}}')" href="javascript:void(0);" class="button btn btn-dark btn-block margin-top-20">Get
+                                    <a wire:click="checkWalletBalance('{{$products[2]->id}}')" href="javascript:void(0);" class="button btn btn-dark btn-block margin-top-20">Get
                                         Started</a>
                                 </div>
 
@@ -231,27 +233,5 @@
         </div>
 
     </div>
-    @push('script')
-        <script>
-            var getSwithchInput = document.querySelector('#toggle-1');
-            var pricingContainer = document.querySelector('.pricing-plans-container')
 
-            getSwithchInput.addEventListener('change', function () {
-                var isChecked = getSwithchInput.checked;
-                if (isChecked) {
-                    pricingContainer.classList.add('billed-yearly');
-
-                    pricingContainer.querySelectorAll('.badge').forEach(element => {
-                        element.classList.add('show')
-                    });
-
-                } else {
-                    pricingContainer.classList.remove('billed-yearly')
-                    pricingContainer.querySelectorAll('.badge').forEach(element => {
-                        element.classList.remove('show')
-                    });
-                }
-            })
-        </script>
-    @endpush
 </div>
