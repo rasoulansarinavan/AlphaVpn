@@ -243,5 +243,28 @@
         </div>
 
     </div>
+    @push('script')
+        <script>
+            function copyToClipboard(element) {
+
+                var $temp = $("<input>");
+                $("body").append($temp);
+                $temp.val($(element).text()).select();
+                document.execCommand("copy");
+                $temp.remove();
+
+
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Copied',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            }
+
+
+        </script>
+    @endpush
 
 </div>

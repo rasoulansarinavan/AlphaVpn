@@ -41,9 +41,6 @@
 
 <body class="layout-boxed dark" style="background-image: url(/admin/assets/img/back.jpg);background-size: cover;">
 
-<body class="layout-boxed dark">
-
-
 <div class="main-container" id="container">
     <div class="overlay"></div>
     <div class="search-overlay"></div>
@@ -161,27 +158,6 @@
             }
         })
     })
-
-</script>
-<script>
-    function copyToClipboard(element) {
-
-        var $temp = $("<input>");
-        $("body").append($temp);
-        $temp.val($(element).text()).select();
-        document.execCommand("copy");
-        $temp.remove();
-
-        Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Copied',
-            showConfirmButton: false,
-            timer: 1500
-        })
-
-    }
-
 
 </script>
 

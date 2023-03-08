@@ -25,26 +25,21 @@
                                                 </span>
                                 </div>
 
-                                <div class="balance-info" >
+                                <div class="balance-info">
                                     <h6>Total Balance</h6>
-                                    <h2 class="d-flex align-items-center mt-2 justify-content-around"><span class="me-2" style="font-size: 20px">USDT</span><b>{{$wallet_total}}</b>
+                                    <h2 class="d-flex align-items-center mt-2 justify-content-around"><span class="me-2"
+                                                                                                            style="font-size: 20px">USDT</span><b>{{$wallet_total}}</b>
                                     </h2>
                                     <div class="card-bottom-section" style="margin-top:0">
 
-                                        <a href="javascript:void(0);" class="">View Report</a>
+                                        <a href="{{route('client.profile.wallet-index')}}" class="">View Report</a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group  position-relative mt-1 " wire:ignore.self>
+                            <div class="form-group  position-relative mt-1 "  wire:ignore.self>
 
-                                <label for="clipboard" class="mt-2 mb-2">Referral code</label>
-                                <textarea style="padding-right: 50px;color: #e67980;
-    background-color: #2c1c2b;
-    border: 1px solid #2c1c2b;"
-                                          class="form-control mb-2  "
-                                          id="clipboard"
-
-                                          readonly>TH4pz5cBNvcocyaGkfV3KnbwdNxKBXArJD</textarea>
+                                <label for="clipboard" class="mt-2 mb-2" >Referral code</label>
+                                <textarea style="{{$referral?'':' filter: blur(1px);'}}" class="form-control mb-2  " id="clipboard" readonly  disabled>{{$referral?route('client.register').'/?referral='.\Illuminate\Support\Facades\Auth::user()->referral:'"Before recommending our services to others, we suggest you try them out for yourself first."'}}</textarea>
                                 <div class="position-absolute copy"
                                      onclick="copyToClipboard('#clipboard')"
                                      style="top: 61px;right: 13px;color: #fff;cursor: pointer">
@@ -87,8 +82,6 @@
                     </div>
                 </div>
             </div> -->
-
-
 
 
             <div class="col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -149,7 +142,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div
+                    </div>
                 </div>
             </div>
 
@@ -157,5 +150,32 @@
         </div>
 
     </div>
+    @push('script')
+        <script>
+            function copyToClipboard(element) {
+
+                var $temp = $("<input>");
+                $("body").append($temp);
+                $temp.val($(element).text()).select();
+                document.execCommand("copy");
+                $temp.remove();
+
+                Swal.fire({
+                    title: '"Before recommending our services to others, we suggest you try them out for yourself first."',
+                    icon: 'warning',
+                    showCancelButton: false,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Lets go!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location = '/profile/pricing-table'
+                    }
+                })
+            }
+
+
+        </script>
+    @endpush
 
 </div>
