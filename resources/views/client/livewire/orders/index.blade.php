@@ -76,7 +76,7 @@
                                     <ul class="d-flex flex-wrap p-0">
                                         @forelse($order->files as $file)
 
-                                            <li class="badge badge-primary mb-2 me-4"><a target="_blank"
+                                            <li class="badge badge-primary mb-2 me-4"><a target="_blank" download
                                                                                          href="{{$file->path}}">{{$file->name}}
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                          style="background: white;border-radius: 50%"
