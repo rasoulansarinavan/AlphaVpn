@@ -157,7 +157,7 @@
         }).then((result) => {
             if (result.isConfirmed) {
                 window.livewire.emit('buy', event.detail.id);
-               // window.location = '/profile/wallet-details'
+                window.location = '/profile/orders'
             }
         })
     })

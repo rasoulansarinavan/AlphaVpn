@@ -4,7 +4,7 @@
         <tr>
             <th class="checkbox-column">#</th>
             <th>Name</th>
-            <th>Name</th>
+            <th>Period</th>
             <th width="20">Price</th>
             <th>Configs</th>
             <th width="160">Status</th>

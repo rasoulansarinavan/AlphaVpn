@@ -4,11 +4,6 @@ namespace App\Http\Livewire\Admin\Order;
 
 use App\Models\File;
 use App\Models\Order;
-use App\Models\Product;
-use App\Models\Servers;
-use App\Models\User;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -32,7 +27,7 @@ class Index extends Component
         $this->validate([
             'files.*' => 'required|max:10', // 1MB Max
         ]);
-        $user_id = Order::query()->with('id', $order_id)->pluck('user_id')->first();
+        $user_id = Order::query()->where('id', $order_id)->pluck('user_id')->first();
         $folder = time() . '_' . Str::random(5);
         foreach ($this->files as $file) {
             $filename = $file->getClientOriginalName();
@@ -46,6 +41,8 @@ class Index extends Component
                 'order_id' => $order_id,
             ]);
         }
+        Order::query()->where('id', $order_id)->update(['status' => 'confirmed']);
+
         return redirect()->route('admin.orders');
     }
 
@@ -91,7 +88,7 @@ class Index extends Component
 
     public function render()
     {
-        $orders = Order::query()->with('product', 'parent')->get();
+        $orders = Order::query()->with('product', 'parent', 'files')->get();
         return view('admin.livewire.order.index', ['orders' => $orders])->extends('admin.layouts.app');
     }
 }

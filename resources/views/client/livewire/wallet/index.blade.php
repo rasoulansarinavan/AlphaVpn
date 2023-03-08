@@ -212,7 +212,7 @@
                                 }
                             @endphp
                             <tr>
-                                <td><h3 class="text-center"><b>{{number_format($item->amount)}}</b>
+                                <td><h3 class="text-left"><b>{{number_format($item->amount)}}</b>
 
                                         <span class="d-inline mt-1" style="font-size: 18px">USDT</span>
                                     </h3>
