@@ -17,9 +17,9 @@
                     <table class="table table-bordered" style="width:100%">
                         <thead>
                         <tr>
-                            <th class="checkbox-column">#</th>
-                            <th>Name</th>
-                            <th>Period</th>
+                            <th class="checkbox-column" width="30">#</th>
+                            <th width="100">Name</th>
+                            <th width="50">Period</th>
                             <th>Configs</th>
                             <th width="160">Status</th>
                         </tr>
@@ -58,17 +58,18 @@
                                 </td>
                                 <td><a href="javascript:0"><span
                                             class="inv-number">{{optional($order->product->type)->name}}</span></a>
-                                    <div id="clock-builder-output" data-countdown="{{$expiredData}}"
-                                         style="letter-spacing: 1px;font-weight: 600;font-size: 20px;"
-                                         wire:ignore
-                                         class=" text-start label label-light color-2 d-block clock-builder-output"></div>
-
+                                    @if($order->status!='pending')
+                                        <div id="clock-builder-output" data-countdown="{{$expiredData}}"
+                                             style="letter-spacing: 1px;font-weight: 600;font-size: 20px;"
+                                             wire:ignore
+                                             class=" text-start label label-light color-2 d-block clock-builder-output"></div>
+                                    @endif
                                 </td>
 
                                 <td>
                                     @if($order->status=='pending')
                                         <div class="d-flex align-items-center"><span
-                                                class="spinner-border text-white me-2 align-self-center loader-sm "></span><span>Please wait . . . </span>
+                                                class="spinner-border text-white me-2 align-self-center loader-sm "></span><span class="ms-3">Please wait . . . </span>
                                         </div>
                                     @endif
 

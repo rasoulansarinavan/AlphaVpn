@@ -29,18 +29,35 @@
                                     <h6>Total Balance</h6>
                                     <h2 class="d-flex align-items-center mt-2 justify-content-around"><span class="me-2" style="font-size: 20px">USDT</span><b>{{$wallet_total}}</b>
                                     </h2>
+                                    <div class="card-bottom-section" style="margin-top:0">
+
+                                        <a href="javascript:void(0);" class="">View Report</a>
+                                    </div>
                                 </div>
                             </div>
+                            <div class="form-group  position-relative mt-1 " wire:ignore.self>
 
-                            <div class="card-bottom-section" style="margin-top: 109px">
-                                <div><span class="badge badge-light-success">+ 13.6% <svg
-                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round"
-                                            class="feather feather-trending-up"><polyline
-                                                points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline
-                                                points="17 6 23 6 23 12"></polyline></svg></span></div>
-                                <a href="javascript:void(0);" class="">View Report</a>
+                                <label for="clipboard" class="mt-2 mb-2">Referral code</label>
+                                <textarea style="padding-right: 50px;color: #e67980;
+    background-color: #2c1c2b;
+    border: 1px solid #2c1c2b;"
+                                          class="form-control mb-2  "
+                                          id="clipboard"
+
+                                          readonly>TH4pz5cBNvcocyaGkfV3KnbwdNxKBXArJD</textarea>
+                                <div class="position-absolute copy"
+                                     onclick="copyToClipboard('#clipboard')"
+                                     style="top: 61px;right: 13px;color: #fff;cursor: pointer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                         viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                         class="feather feather-copy">
+                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                        <path
+                                            d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                    </svg>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -123,6 +140,7 @@
                                         <p class="w-value">1,900</p>
                                         <h5 class="">Referral</h5>
                                     </div>
+
                                 </div>
                             </div>
                             <div class="widget-content">
