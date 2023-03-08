@@ -51,12 +51,12 @@
                                              aria-labelledby="pills-home-tab" tabindex="0">
                                             <div class="form-group  position-relative " wire:ignore.self>
 
-                                                <label for="clipboard" class="mt-2 mb-3">Destination USDT
+                                                <label for="clipboard" class="mt-2 mb-2">Destination USDT
                                                     Address</label>
                                                 <textarea style="padding-right: 50px;color: #e67980;
     background-color: #2c1c2b;
     border: 1px solid #2c1c2b;"
-                                                          class="form-control mb-3  "
+                                                          class="form-control mb-2  "
                                                           id="clipboard"
 
                                                           readonly>TH4pz5cBNvcocyaGkfV3KnbwdNxKBXArJD</textarea>
@@ -76,9 +76,9 @@
                                             </div>
                                             <div class="form-group col-12 ">
 
-                                                <label for="amount" class="mt-2 mb-3">Amount</label>
+                                                <label for="amount" class="mt-1 mb-1">Amount</label>
                                                 <input wire:model="amount"
-                                                       class="form-control mb-3 @error('amount') error-input-border  @enderror"
+                                                       class="form-control mb-1 @error('amount') error-input-border  @enderror"
                                                        id="amount"
 
                                                        maxlength="9">
@@ -90,9 +90,9 @@
                                             </div>
                                             <div class="form-group col-12 ">
 
-                                                <label for="wallet_address" class="mt-2 mb-3">Wallet Address</label>
+                                                <label for="wallet_address" class="mt-2 mb-1">Wallet Address</label>
                                                 <textarea wire:model="wallet_address"
-                                                          class="form-control mb-3 @error('wallet_address') error-input-border  @enderror"
+                                                          class="form-control mb-1 @error('wallet_address') error-input-border  @enderror"
                                                           id="wallet_address"
 
                                                           maxlength="40"></textarea>
@@ -104,9 +104,9 @@
                                             </div>
                                             <div class="form-group col-12 " wire:ignore.self>
 
-                                                <label for="hash" class="mt-2 mb-3">Transaction Hash</label>
+                                                <label for="hash" class="mt-2 mb-1">Transaction Hash</label>
                                                 <textarea wire:model="hash"
-                                                          class="form-control mb-3 @error('hash') error-input-border  @enderror"
+                                                          class="form-control mb-1 @error('hash') error-input-border  @enderror"
                                                           id="hash"
 
                                                           maxlength="64" rows="3"></textarea>
@@ -135,9 +135,9 @@
                                              aria-labelledby="pills-profilXe-tab" tabindex="0">
                                             <div class="form-group col-12 ">
 
-                                                <label for="amount" class="mt-3 mb-3">Amount</label>
+                                                <label for="amount" class="mt-2 mb-1">Amount</label>
                                                 <input wire:model="amount"
-                                                       class="form-control mb-3 @error('amount') error-input-border  @enderror"
+                                                       class="form-control mb-1 @error('amount') error-input-border  @enderror"
                                                        id="amount"
 
                                                        maxlength="9">
@@ -149,9 +149,9 @@
                                             </div>
                                             <div class="form-group col-12 ">
 
-                                                <label for="wallet_address" class="mt-2 mb-3">Wallet Address</label>
+                                                <label for="wallet_address" class="mt-2 mb-1">Wallet Address</label>
                                                 <input wire:model="wallet_address"
-                                                       class="form-control mb-3 @error('wallet_address') error-input-border  @enderror"
+                                                       class="form-control mb-1 @error('wallet_address') error-input-border  @enderror"
                                                        id="wallet_address"
 
                                                        maxlength="40">
@@ -214,7 +214,7 @@
                             <tr>
                                 <td><h3 class="text-center"><b>{{number_format($item->amount)}}</b>
 
-                                        <span class="d-inline mt-1" style="font-size: 20px">USDT</span>
+                                        <span class="d-inline mt-1" style="font-size: 18px">USDT</span>
                                     </h3>
                                     {{$item->created_at}}
                                 </td>
