@@ -762,7 +762,7 @@ body.dark .widget.widget-card-five .account-box .info-box .balance-info p {
 body.dark .widget.widget-card-five .account-box .card-bottom-section {
   display: flex;
   justify-content: space-between;
-  margin-top: 82px;
+  margin-top: 42px;
   align-items: end;
 }
 body.dark .widget.widget-card-five .account-box .card-bottom-section p svg {

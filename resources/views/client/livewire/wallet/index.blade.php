@@ -26,7 +26,7 @@
                                 </div>
                             </div>
 
-                            <div class="card-bottom-section row">
+                            <div class="card-bottom-section row" style="margin-top: 60px">
 
 
                                 <div class="simple-pill">
@@ -66,11 +66,11 @@
                                             <div class="form-group col-12 ">
 
                                                 <label for="wallet_address" class="mt-2 mb-3">Wallet Address</label>
-                                                <input wire:model="wallet_address"
-                                                       class="form-control mb-3 @error('wallet_address') error-input-border  @enderror"
-                                                       id="wallet_address"
+                                                <textarea wire:model="wallet_address"
+                                                          class="form-control mb-3 @error('wallet_address') error-input-border  @enderror"
+                                                          id="wallet_address"
 
-                                                       maxlength="40">
+                                                          maxlength="40"></textarea>
                                                 @foreach ($errors->get('wallet_address') as $message)
                                                     <span wire:loading.remove
                                                           class=" text-danger w-100 d-block">{{ $message}}</span>
@@ -89,6 +89,32 @@
                                                     <span wire:loading.remove
                                                           class=" text-danger w-100 d-block">{{ $message}}</span>
                                                 @endforeach
+
+                                            </div>
+
+                                            <div class="form-group  position-relative " wire:ignore.self>
+
+                                                <label for="clipboard" class="mt-2 mb-3">Destination USDT
+                                                    Address</label>
+                                                <textarea style="padding-right: 50px;color: #e67980;
+    background-color: #2c1c2b;
+    border: 1px solid #2c1c2b;"
+                                                          class="form-control mb-3  "
+                                                          id="clipboard"
+
+                                                          readonly>TH4pz5cBNvcocyaGkfV3KnbwdNxKBXArJD</textarea>
+                                                <div class="position-absolute copy"
+                                                     onclick="copyToClipboard('#clipboard')"
+                                                     style="top: 61px;right: 13px;color: #fff;cursor: pointer">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                         viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                         class="feather feather-copy">
+                                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                                        <path
+                                                            d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                                    </svg>
+                                                </div>
 
                                             </div>
                                             <button class="btn btn-danger _effect--ripple waves-effect waves-light mt-3"
@@ -186,10 +212,10 @@
                                 }
                             @endphp
                             <tr>
-                                <td><h1 class="text-center"><b>{{number_format($item->amount)}}</b>
-                                        <br>
-                                        <span class="d-block mt-1" style="font-size: 20px">USDT</span>
-                                    </h1>
+                                <td><h3 class="text-center"><b>{{number_format($item->amount)}}</b>
+
+                                        <span class="d-inline mt-1" style="font-size: 20px">USDT</span>
+                                    </h3>
                                     {{$item->created_at}}
                                 </td>
                                 <td>
@@ -217,4 +243,5 @@
         </div>
 
     </div>
+
 </div>

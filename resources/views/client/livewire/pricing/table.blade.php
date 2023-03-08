@@ -1,10 +1,4 @@
 <div class="layout-px-spacing">
-    @push('link')
-        <link rel="stylesheet" type="text/css" href="/admin/src/assets/css/dark/forms/switches.css">
-        <link href="/admin/src/plugins/css/dark/pricing-table/css/component.css" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/admin/src/plugins/src/sweetalerts2/sweetalerts2.css">
-        <link href="/admin/src/plugins/css/dark/sweetalerts2/custom-sweetalert.css" rel="stylesheet" type="text/css" />
-    @endpush
     <div class="middle-content container-xxl p-0">
 
         <!-- BREADCRUMB -->

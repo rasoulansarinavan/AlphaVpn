@@ -25,6 +25,7 @@ body.dark .swal2-icon.swal2-success .swal2-success-ring {
 }
 body.dark .swal2-icon.swal2-success [class^=swal2-success-line] {
   background-color: #00ab55;
+    z-index: 1000;
 }
 body.dark .swal2-icon.swal2-error {
   border-color: #2c1c2b;

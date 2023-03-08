@@ -29,6 +29,9 @@
     <link rel="stylesheet" href="/admin/assets/css/toastr.min.css">
     <link href="/admin/src/assets/css/light/components/tabs.css" rel="stylesheet" type="text/css">
 
+    <link href="/admin/src/plugins/css/dark/pricing-table/css/component.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="/admin/src/plugins/src/sweetalerts2/sweetalerts2.css">
+    <link href="/admin/src/plugins/css/dark/sweetalerts2/custom-sweetalert.css" rel="stylesheet" type="text/css" />
 
     <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
     @stack('link')
@@ -158,6 +161,28 @@
             }
         })
     })
+
+</script>
+<script>
+    function copyToClipboard(element) {
+
+        var $temp = $("<input>");
+        $("body").append($temp);
+        $temp.val($(element).text()).select();
+        document.execCommand("copy");
+        $temp.remove();
+
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Copied',
+            showConfirmButton: false,
+            timer: 1500
+        })
+
+    }
+
+
 </script>
 
 
