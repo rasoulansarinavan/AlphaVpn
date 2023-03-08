@@ -36,7 +36,7 @@ class Index extends Component
             'hash' => $this->hash
         ];
         $validator = Validator::make($formData, [
-            'amount' => 'required | integer | min:10',
+            'amount' => 'required | integer | min:20',
             'wallet_address' => 'required | string',
             'hash' => 'required|unique:wallets,hash|size:64 | string',
         ]);
@@ -63,7 +63,7 @@ class Index extends Component
             'wallet_address' => $this->wallet_address,
         ];
         $validator = Validator::make($formData, [
-            'amount' => 'required | integer | min:10',
+            'amount' => 'required | integer | min:50',
             'wallet_address' => 'required ',
         ]);
         $validator->validate();

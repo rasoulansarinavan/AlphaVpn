@@ -5,7 +5,7 @@
         <div class="row layout-top-spacing">
 
 
-            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 layout-spacing">
+            <div class=" col-md-4  layout-spacing">
                 <div class="widget widget-card-five" style="background: transparent;border: 1px solid #191e3a">
                     <div class="widget-content">
                         <div class="account-box">
@@ -49,6 +49,31 @@
                                         <div class="tab-pane fade show active" wire:ignore.self id="pills-home"
                                              role="tabpanel"
                                              aria-labelledby="pills-home-tab" tabindex="0">
+                                            <div class="form-group  position-relative " wire:ignore.self>
+
+                                                <label for="clipboard" class="mt-2 mb-3">Destination USDT
+                                                    Address</label>
+                                                <textarea style="padding-right: 50px;color: #e67980;
+    background-color: #2c1c2b;
+    border: 1px solid #2c1c2b;"
+                                                          class="form-control mb-3  "
+                                                          id="clipboard"
+
+                                                          readonly>TH4pz5cBNvcocyaGkfV3KnbwdNxKBXArJD</textarea>
+                                                <div class="position-absolute copy"
+                                                     onclick="copyToClipboard('#clipboard')"
+                                                     style="top: 61px;right: 13px;color: #fff;cursor: pointer">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                         viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                         class="feather feather-copy">
+                                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                                        <path
+                                                            d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                                    </svg>
+                                                </div>
+
+                                            </div>
                                             <div class="form-group col-12 ">
 
                                                 <label for="amount" class="mt-2 mb-3">Amount</label>
@@ -84,7 +109,7 @@
                                                           class="form-control mb-3 @error('hash') error-input-border  @enderror"
                                                           id="hash"
 
-                                                          maxlength="64"></textarea>
+                                                          maxlength="64" rows="3"></textarea>
                                                 @foreach ($errors->get('hash') as $message)
                                                     <span wire:loading.remove
                                                           class=" text-danger w-100 d-block">{{ $message}}</span>
@@ -92,31 +117,6 @@
 
                                             </div>
 
-                                            <div class="form-group  position-relative " wire:ignore.self>
-
-                                                <label for="clipboard" class="mt-2 mb-3">Destination USDT
-                                                    Address</label>
-                                                <textarea style="padding-right: 50px;color: #e67980;
-    background-color: #2c1c2b;
-    border: 1px solid #2c1c2b;"
-                                                          class="form-control mb-3  "
-                                                          id="clipboard"
-
-                                                          readonly>TH4pz5cBNvcocyaGkfV3KnbwdNxKBXArJD</textarea>
-                                                <div class="position-absolute copy"
-                                                     onclick="copyToClipboard('#clipboard')"
-                                                     style="top: 61px;right: 13px;color: #fff;cursor: pointer">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                         viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                         class="feather feather-copy">
-                                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                                                        <path
-                                                            d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                                                    </svg>
-                                                </div>
-
-                                            </div>
                                             <button class="btn btn-danger _effect--ripple waves-effect waves-light mt-3"
                                                     wire:click="deposit">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -187,7 +187,7 @@
                 </div>
             </div>
 
-            <div class="col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12 layout-spacing">
+            <div class=" col-md-8 layout-spacing">
                 <div class="table-responsive">
                     <table class="table table-bordered">
                         <thead>
