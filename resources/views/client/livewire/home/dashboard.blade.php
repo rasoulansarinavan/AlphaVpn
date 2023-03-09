@@ -36,10 +36,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group  position-relative mt-1 "  wire:ignore.self>
+                            <div class="form-group  position-relative mt-1 " wire:ignore.self>
 
-                                <label for="clipboard" class="mt-2 mb-2" >Referral code</label>
-                                <textarea style="{{$referral?'':' filter: blur(1px);'}}" class="form-control mb-2  " id="clipboard" readonly  disabled>{{$referral?route('client.register').'/?referral='.\Illuminate\Support\Facades\Auth::user()->referral:'"Before recommending our services to others, we suggest you try them out for yourself first."'}}</textarea>
+                                <label for="clipboard" class="mt-2 mb-2">Referral code</label>
+                                <textarea style="{{$referral?'':' filter: blur(1px);'}}" class="form-control mb-2  "
+                                          id="clipboard" readonly
+                                          disabled>{{$referral?route('client.register').'/?referral='.\Illuminate\Support\Facades\Auth::user()->referral:'"Before recommending our services to others, we suggest you try them out for yourself first."'}}</textarea>
                                 <div class="position-absolute copy"
                                      onclick="copyToClipboard('#clipboard')"
                                      style="top: 61px;right: 13px;color: #fff;cursor: pointer">
@@ -160,6 +162,8 @@
                 document.execCommand("copy");
                 $temp.remove();
 
+
+                @if(!$referral)
                 Swal.fire({
                     title: '"Before recommending our services to others, we suggest you try them out for yourself first."',
                     icon: 'warning',
@@ -172,6 +176,17 @@
                         window.location = '/profile/pricing-table'
                     }
                 })
+
+                @else
+
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Copied',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+                @endif
             }
 
 
