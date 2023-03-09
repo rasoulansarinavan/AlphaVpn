@@ -31,11 +31,11 @@
 
     <link href="/admin/src/plugins/css/dark/pricing-table/css/component.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="/admin/src/plugins/src/sweetalerts2/sweetalerts2.css">
-    <link href="/admin/src/plugins/css/dark/sweetalerts2/custom-sweetalert.css" rel="stylesheet" type="text/css" />
+    <link href="/admin/src/plugins/css/dark/sweetalerts2/custom-sweetalert.css" rel="stylesheet" type="text/css"/>
 
 
     <link href="/admin/src/assets/css/dark/components/list-group.css" rel="stylesheet" type="text/css">
-    <link href="/admin/src/assets/css/dark/dashboard/dash_2.css" rel="stylesheet" type="text/css" />
+    <link href="/admin/src/assets/css/dark/dashboard/dash_2.css" rel="stylesheet" type="text/css"/>
 
     <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
     @stack('link')
@@ -143,9 +143,27 @@
             icon: 'error',
             title: 'Oops...',
             text: event.detail.text,
-            footer: ''
+            footer: '',
+            confirmButtonText: 'OK'
         })
     })
+    //warning for pricing table
+    window.addEventListener('swal:pricing', event => {
+        Swal.fire({
+
+            text:  event.detail.text,
+            icon: 'warning',
+            showCancelButton: false,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Lets go to balance!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location = '/profile/wallet-details'
+            }
+        })
+    })
+
     window.addEventListener('swal:confirm', event => {
         Swal.fire({
             title: event.detail.title,

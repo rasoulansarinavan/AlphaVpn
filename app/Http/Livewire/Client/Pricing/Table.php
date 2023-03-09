@@ -35,9 +35,8 @@ class Table extends Component
 
         //check wallet
         if ($productPrice > $userWallet) {
-            $this->dispatchBrowserEvent('swal:warning', [
+            $this->dispatchBrowserEvent('swal:pricing', [
                 'type' => 'success',
-                'message' => 'User Delete Successfully!',
                 'text' => 'Your account balance is insufficient.'
             ]);
         } else {

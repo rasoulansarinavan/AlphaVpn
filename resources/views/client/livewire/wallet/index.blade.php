@@ -263,8 +263,32 @@
                 })
             }
 
+            window.addEventListener('swal:deposit', event => {
+                Swal.fire({
+                    icon: 'success',
+                    title: event.detail.text,
+                    showConfirmButton: true,
 
+                })
+            })
+            window.addEventListener('swal:withdrawal', event => {
+                Swal.fire({
+                    icon: 'success',
+                    title: event.detail.text,
+                    showConfirmButton: true,
+
+                })
+            })
+            window.addEventListener('swal:withdrawalError', event => {
+                Swal.fire({
+                    icon: 'warning',
+                    title: event.detail.text,
+                    showConfirmButton: true,
+
+                })
+            })
         </script>
+
     @endpush
 
 </div>

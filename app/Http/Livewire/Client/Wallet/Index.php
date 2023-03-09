@@ -49,8 +49,8 @@ class Index extends Component
         $this->wallet_address = '';
         $this->hash = '';
         $this->amount = '';
-        $this->dispatchBrowserEvent('success', [
-            'message' => trans('alerts.success')
+        $this->dispatchBrowserEvent('swal:deposit', [
+            'text' => 'Your payment will be confirmed after verification'
         ]);
 
 
@@ -68,20 +68,32 @@ class Index extends Component
         ]);
         $validator->validate();
         $this->resetValidation();
-        $wallet->withdrawal($formData);
 
-        $this->wallet_address = '';
-        $this->hash = '';
-        $this->amount = '';
-        $this->dispatchBrowserEvent('success', [
-            'message' => trans('alerts.success')
-        ]);
+        //check account balance
+        $balance=user_wallet(Auth::user()->id);
+
+        if ($balance<$formData['amount']){
+            $this->dispatchBrowserEvent('swal:withdrawalError', [
+                'text' => 'Your account balance is insufficient !'
+            ]);
+        }else{
+            $wallet->withdrawal($formData);
+
+            $this->wallet_address = '';
+            $this->hash = '';
+            $this->amount = '';
+            $this->dispatchBrowserEvent('swal:withdrawal', [
+                'text' => 'Withdrawal from the account will be done after confirmation'
+            ]);
+        }
+
+
 
     }
 
     public function render()
     {
-        $wallet = Wallet::query()->where('user_id', Auth::user()->id)->paginate(10);
+        $wallet = Wallet::query()->where('user_id', Auth::user()->id)->latest()->paginate(10);
         return view('Client.livewire.wallet.index', ['wallet' => $wallet])->extends('client.layouts.app');
     }
 }
