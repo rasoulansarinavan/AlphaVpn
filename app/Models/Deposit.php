@@ -12,9 +12,6 @@ class Deposit extends Model
     protected $guarded = [];
 
 
-    public function parent()
-    {
-        return $this->belongsTo(User::class, 'user_id');
-    }
+
 
 }

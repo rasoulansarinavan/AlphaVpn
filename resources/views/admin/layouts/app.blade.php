@@ -22,6 +22,9 @@
     <link href="/admin/src/plugins/src/apex/apexcharts.css" rel="stylesheet" type="text/css">
     <link href="/admin/src/assets/css/dark/dashboard/dash_1.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="/admin/assets/css/toastr.min.css">
+
+    <link rel="stylesheet" href="/admin/src/plugins/src/sweetalerts2/sweetalerts2.css">
+    <link href="/admin/src/plugins/css/dark/sweetalerts2/custom-sweetalert.css" rel="stylesheet" type="text/css"/>
     <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
     @stack('link')
     @livewireStyles
@@ -50,7 +53,7 @@
 
 <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
 <script src="/admin/assets/js/vendors/jquery-3.6.0.min.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="/admin/src/plugins/src/sweetalerts2/sweetalerts2.min.js"></script>
 <script src="/admin/src/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="/admin/src/plugins/src/perfect-scrollbar/perfect-scrollbar.min.js"></script>
 <script src="/admin/src/plugins/src/mousetrap/mousetrap.min.js"></script>
