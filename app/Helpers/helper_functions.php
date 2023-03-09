@@ -3,7 +3,7 @@
 use App\Models\Order;
 use App\Models\User;
 use App\Models\Wallet;
-use Illuminate\Support\Facades\Auth;
+
 
 function user_wallet($user_id)
 {
@@ -31,7 +31,7 @@ function getTeamCountWithProfit($user_id): array
         $teams[] = $level;
     }
 
-    $profits = ['20', '10', '5', '5'];
+
     foreach ($teams as $key => $team) {
         $orders = Order::query()
             ->whereIn('user_id', $team)
@@ -41,7 +41,7 @@ function getTeamCountWithProfit($user_id): array
         $members[$key]['members'] = $team;
 
     }
-
+    $profits = ['20', '10', '5', '5'];
     foreach ($profits as $key => $profit) {
         $members[$key]['profit'] = $profit;
     }

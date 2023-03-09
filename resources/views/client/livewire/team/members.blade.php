@@ -43,8 +43,8 @@
                                         <table class="table table-bordered">
                                             <thead>
                                             <tr>
-                                                <th scope="col">Level</th>
-                                                <th scope="col">Total Members</th>
+                                                <th class="text-center class="text-center" " scope="col">Level</th>
+                                                <th class="text-center" scope="col">Total Members</th>
                                                 <th class="text-center" scope="col">Sales (USDT)</th>
                                                 <th class="text-center" scope="col">Profit (USDT)</th>
                                             </tr>
@@ -52,8 +52,8 @@
                                             <tbody>
                                             @forelse($team as $item)
                                                 <tr>
-                                                    <td>{{$loop->index+1}}</td>
-                                                    <td>{{number_format(count($item['members']))}}</td>
+                                                    <td class="text-center">{{$loop->index+1}}</td>
+                                                    <td class="text-center">{{number_format(count($item['members']))}}</td>
                                                     <td class="text-center">{{number_format($item['sale'])}}</td>
                                                     <td class="text-center">
 
