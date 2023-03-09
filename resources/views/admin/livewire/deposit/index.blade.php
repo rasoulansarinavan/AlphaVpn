@@ -1,6 +1,6 @@
 <div class="widget-content widget-content-area br-8">
 
-    <table id="invoice-list" class="table dt-table-hover" style="width:100%">
+    <table id="invoice-list" class="table dt-table-hover" style="width:100%"  >
         <thead>
         <tr>
             <th class="checkbox-column">#</th>
@@ -23,7 +23,6 @@
                     }elseif($deposit->status=='rejected'){
                         $color='#e7515a';
                     }
-
             @endphp
             <tr>
                 <td class="checkbox-column">{{$loop->index+1}}</td>
@@ -57,20 +56,20 @@
                     </div>
                     Transaction Hash: <br>
                     <div class="d-flex justify-content-start align-items-center">
-                   <p class="hash{{$deposit->id}}">{{$deposit->hash}}</p>
-                   <div class="copy ms-3"
-                        onclick="copyToClipboard('.hash{{$deposit->id}}')"
-                        style="color: #fff;cursor: pointer">
-                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="feather feather-copy">
-                           <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                           <path
-                               d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                       </svg>
-                   </div>
-               </div>
+                        <p class="hash{{$deposit->id}}">{{$deposit->hash}}</p>
+                        <div class="copy ms-3"
+                             onclick="copyToClipboard('.hash{{$deposit->id}}')"
+                             style="color: #fff;cursor: pointer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                 viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                 class="feather feather-copy">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path
+                                    d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                        </div>
+                    </div>
 
                 </td>
                 <td>

@@ -18,14 +18,8 @@ class Index extends Component
     public $wallet_address = '';
     public $hash = '';
     public $wallet_total = '';
-
-
-    public function mount()
-    {
-
-        $this->wallet_total = user_wallet(Auth::user()->id);
-
-    }
+    //for send request to tron scan
+    public $pendingDeposit = null;
 
     public function deposit(Wallet $wallet)
     {
@@ -35,6 +29,9 @@ class Index extends Component
             'wallet_address' => $this->wallet_address,
             'hash' => $this->hash
         ];
+
+        //  dd(transactionHistory($formData));
+
         $validator = Validator::make($formData, [
             'amount' => 'required | integer | min:20',
             'wallet_address' => 'required | string',
@@ -49,9 +46,11 @@ class Index extends Component
         $this->wallet_address = '';
         $this->hash = '';
         $this->amount = '';
-        $this->dispatchBrowserEvent('swal:deposit', [
-            'text' => 'Your payment will be confirmed after verification'
-        ]);
+        $this->pendingDeposit = null;
+
+        $this->redirect('/profile/wallet-details');
+
+        //$this->dispatchBrowserEvent('swal:waitingTimer');
 
 
     }
@@ -70,13 +69,13 @@ class Index extends Component
         $this->resetValidation();
 
         //check account balance
-        $balance=user_wallet(Auth::user()->id);
+        $balance = user_wallet(Auth::user()->id);
 
-        if ($balance<$formData['amount']){
+        if ($balance < $formData['amount']) {
             $this->dispatchBrowserEvent('swal:withdrawalError', [
                 'text' => 'Your account balance is insufficient !'
             ]);
-        }else{
+        } else {
             $wallet->withdrawal($formData);
 
             $this->wallet_address = '';
@@ -88,12 +87,30 @@ class Index extends Component
         }
 
 
-
     }
 
     public function render()
     {
+        $balance = user_wallet(Auth::user()->id);
         $wallet = Wallet::query()->where('user_id', Auth::user()->id)->latest()->paginate(10);
-        return view('Client.livewire.wallet.index', ['wallet' => $wallet])->extends('client.layouts.app');
+        $x = $this->pendingDeposit = Wallet::query()->where([
+            'user_id' => Auth::user()->id,
+            'status' => 'pending',
+            'type' => 'deposit',
+        ])->first();
+
+        //dd($this->pendingDeposit);
+        /*  if ($this->pendingDeposit != null) {
+              $formData = [
+                  'amount' => $this->pendingDeposit->amount,
+                  'hash' => $this->pendingDeposit->hash,
+                  'wallet_address' => $this->pendingDeposit->wallet_address,
+              ];
+
+           transactionHistory($formData);
+          }*/
+
+
+        return view('Client.livewire.wallet.index', ['wallet' => $wallet, 'balance' => $balance])->extends('client.layouts.app');
     }
 }

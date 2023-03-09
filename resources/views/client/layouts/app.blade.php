@@ -37,6 +37,9 @@
     <link href="/admin/src/assets/css/dark/components/list-group.css" rel="stylesheet" type="text/css">
     <link href="/admin/src/assets/css/dark/dashboard/dash_2.css" rel="stylesheet" type="text/css"/>
 
+    <link href="/admin/src/assets/css/light/components/modal.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/admin/src/assets/css/dark/elements/alert.css">
+
     <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
     @stack('link')
     @livewireStyles

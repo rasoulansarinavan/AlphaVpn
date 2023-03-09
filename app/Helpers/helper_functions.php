@@ -1,8 +1,10 @@
 <?php
 
 use App\Models\Order;
+use App\Models\TransactionHistory;
 use App\Models\User;
 use App\Models\Wallet;
+use Illuminate\Support\Facades\Http;
 
 
 function user_wallet($user_id)
@@ -46,4 +48,37 @@ function getTeamCountWithProfit($user_id): array
         $members[$key]['profit'] = $profit;
     }
     return $members;
+}
+
+//for Destination USDT wallet address
+function transactionHistory()
+{
+
+    $response = Http::get('https://apilist.tronscan.org/api/transaction?sort=-timestamp&count=true&limit=10&start=0&address=TKpiZFZFvFJFc5C7Pe47tQxpUuM56Y4mTk');
+
+    if ($response->status() == 200) {
+        $data = $response->json()['data'];
+
+        $hash = [];
+        foreach ($data as $item) {
+            if ($item['confirmed']) {
+                $transaction = TransactionHistory::query()->updateOrCreate(
+                    [
+                        'ownerAddress' => $item['ownerAddress'],
+                        'hash' => $item['hash'],
+
+                    ],
+                    [
+                        'ownerAddress' => $item['ownerAddress'],
+                        'hash' => $item['hash'],
+                        'amount' => $item['trigger_info']['parameter']['_value'],
+                        'created_at' => \Carbon\Carbon::createFromTimestampMs($data[0]['timestamp'])->format('Y-m-d H:i:s'),
+                    ]);
+                $hash[] = $transaction->hash;
+            }
+        }
+
+        Wallet::query()->whereIn('hash', $hash)->update(['status' => 'confirmed']);
+
+    }
 }
