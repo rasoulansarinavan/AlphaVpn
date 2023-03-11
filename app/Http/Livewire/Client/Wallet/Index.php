@@ -57,33 +57,35 @@ class Index extends Component
 
     public function withdrawal(Wallet $wallet)
     {
-        $formData = [
-            'amount' => $this->amount,
-            'wallet_address' => $this->wallet_address,
-        ];
-        $validator = Validator::make($formData, [
-            'amount' => 'required | integer | min:50',
-            'wallet_address' => 'required ',
-        ]);
-        $validator->validate();
-        $this->resetValidation();
-
-        //check account balance
-        $balance = user_wallet(Auth::user()->id);
-
-        if ($balance < $formData['amount']) {
-            $this->dispatchBrowserEvent('swal:withdrawalError', [
-                'text' => 'Your account balance is insufficient !'
+        if (\Illuminate\Support\Carbon::now()->getTranslatedDayName() == 'Monday') {
+            $formData = [
+                'amount' => $this->amount,
+                'wallet_address' => $this->wallet_address,
+            ];
+            $validator = Validator::make($formData, [
+                'amount' => 'required | integer | min:20',
+                'wallet_address' => 'required ',
             ]);
-        } else {
-            $wallet->withdrawal($formData);
+            $validator->validate();
+            $this->resetValidation();
 
-            $this->wallet_address = '';
-            $this->hash = '';
-            $this->amount = '';
-            $this->dispatchBrowserEvent('swal:withdrawal', [
-                'text' => 'Withdrawal from the account will be done after confirmation'
-            ]);
+            //check account balance
+            $balance = user_wallet(Auth::user()->id);
+
+            if ($balance < $formData['amount']) {
+                $this->dispatchBrowserEvent('swal:withdrawalError', [
+                    'text' => 'Your account balance is insufficient !'
+                ]);
+            } else {
+                $wallet->withdrawal($formData);
+
+                $this->wallet_address = '';
+                $this->hash = '';
+                $this->amount = '';
+                $this->dispatchBrowserEvent('swal:withdrawal', [
+                    'text' => 'Withdrawal from the account will be done after confirmation'
+                ]);
+            }
         }
 
 
@@ -93,22 +95,11 @@ class Index extends Component
     {
         $balance = user_wallet(Auth::user()->id);
         $wallet = Wallet::query()->where('user_id', Auth::user()->id)->latest()->paginate(10);
-        $x = $this->pendingDeposit = Wallet::query()->where([
+        $this->pendingDeposit = Wallet::query()->where([
             'user_id' => Auth::user()->id,
             'status' => 'pending',
             'type' => 'deposit',
         ])->first();
-
-        //dd($this->pendingDeposit);
-        /*  if ($this->pendingDeposit != null) {
-              $formData = [
-                  'amount' => $this->pendingDeposit->amount,
-                  'hash' => $this->pendingDeposit->hash,
-                  'wallet_address' => $this->pendingDeposit->wallet_address,
-              ];
-
-           transactionHistory($formData);
-          }*/
 
 
         return view('Client.livewire.wallet.index', ['wallet' => $wallet, 'balance' => $balance])->extends('client.layouts.app');

@@ -5,7 +5,7 @@
         <div class="row layout-top-spacing">
 
 
-            <div class=" col-md-4  layout-spacing" wire:poll.10s>
+            <div class=" col-md-4  layout-spacing" {{$pendingDeposit==null?'': 'wire:poll.10s'}}>
                 <div class="widget widget-card-five" style="background: transparent;border: 1px solid #191e3a">
                     <div class="widget-content">
                         <div class="account-box">
@@ -138,10 +138,21 @@
                                                 </button>
                                             </div>
 
+
                                             <div class="tab-pane fade" id="pills-profile" wire:ignore.self
                                                  role="tabpanel"
                                                  aria-labelledby="pills-profilXe-tab" tabindex="0">
                                                 <div class="form-group col-12 ">
+                                                    <div
+                                                        class="alert alert-light-danger alert-dismissible fade show border-0 mb-4"
+                                                        role="alert">
+
+                                                        <ul>
+                                                            <li>The minimum amount to withdraw from the account is <b>20 USDT</b></li>
+                                                            <li>The withdrawal button is activated only on <b>Mondays</b></li>
+                                                        </ul>
+
+                                                    </div>
 
                                                     <label for="amount" class="mt-2 mb-1">Amount</label>
                                                     <input wire:model="amount"
@@ -169,9 +180,10 @@
                                                     @endforeach
 
                                                 </div>
+
                                                 <button
                                                     class="btn btn-success _effect--ripple waves-effect waves-light mt-3"
-                                                    wire:click="withdrawal">
+                               {{\Illuminate\Support\Carbon::now()->getTranslatedDayName()!='Monday'?' wire:click=withdrawal':'disabled'}}>
                                                     <svg xmlns="http://www.w3.org/2000/svg"
                                                          xmlns:xlink="http://www.w3.org/1999/xlink"
                                                          style="fill: #fff;"
@@ -199,7 +211,7 @@
 
                                         <strong>Warning !</strong> You have a <b>Pending</b> transaction!
                                         please wait.
-                                        <div  id="clock-builder-output" data-countdown="{{$expiredData}}"
+                                        <div id="clock-builder-output" data-countdown="{{$expiredData}}"
                                              style="letter-spacing: 1px;font-weight: 600;font-size: 20px;"
                                              wire:ignore
                                              class=" text-center label label-light mt-2 color-2 d-block clock-builder-output"></div>
