@@ -144,11 +144,11 @@
                                                  aria-labelledby="pills-profilXe-tab" tabindex="0">
                                                 <div class="form-group col-12 ">
                                                     <div
-                                                        class="alert alert-light-danger alert-dismissible fade show border-0 mb-4"
+                                                        class="alert alert-light-danger alert-dismissible fade show border-0 mb-1"
                                                         role="alert">
 
                                                         <ul>
-                                                            <li>The minimum amount to withdraw from the account is <b>20
+                                                            <li>The minimum amount to withdraw is <b>20
                                                                     USDT</b></li>
                                                             <li>The withdrawal button is activated only on
                                                                 <b>Mondays</b></li>
@@ -185,7 +185,7 @@
 
                                                 <button
                                                     class="btn btn-success _effect--ripple waves-effect waves-light mt-3"
-                                                    {{\Illuminate\Support\Carbon::now()->getTranslatedDayName()!='Monday'?' wire:click=withdrawal':'disabled'}}>
+                                                    {{\Illuminate\Support\Carbon::now()->getTranslatedDayName()=='Monday'?' wire:click=withdrawal':'disabled'}}>
                                                     <svg xmlns="http://www.w3.org/2000/svg"
                                                          xmlns:xlink="http://www.w3.org/1999/xlink"
                                                          style="fill: #fff;"

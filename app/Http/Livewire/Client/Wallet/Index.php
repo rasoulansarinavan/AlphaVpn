@@ -57,6 +57,8 @@ class Index extends Component
 
     public function withdrawal(Wallet $wallet)
     {
+
+
         if (\Illuminate\Support\Carbon::now()->getTranslatedDayName() == 'Monday') {
             $formData = [
                 'amount' => $this->amount,
