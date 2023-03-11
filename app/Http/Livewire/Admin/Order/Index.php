@@ -56,8 +56,7 @@ class Index extends Component
             Order::query()
                 ->where([
                     'id' => $order_id,
-                ])
-                ->update(['status' => $status]);
+                ])->update(['status' => $status]);
         }
         $this->dispatchBrowserEvent('success', [
             'message' => 'The operation was successful'

@@ -15,19 +15,17 @@ class Index extends Component
 
     public function saveFeature($formData, Features $features)
     {
-
-
         if ($this->feature_id != null) {
             $feature_id = $this->feature_id;
             $validator = Validator::make($formData, [
                 'product_id' => 'required | regex:/^[ا-یa-zA-Z0-9@$#^%&*!]+$/u',
-                'description' => 'required | regex:/^[ا-یa-zA-Z0-9@$#^%&*!]+$/u',
+                'description' => 'required | max:1000',
             ]);
         } else {
             $feature_id = 0;
             $validator = Validator::make($formData, [
                 'product_id' => 'required | regex:/^[ا-یa-zA-Z0-9@$#^%&*!]+$/u',
-                'description' => 'required | regex:/^[ا-یa-zA-Z0-9@$#^%&*!]+$/u',
+                'description' => 'required | max:1000',
             ]);
         }
 

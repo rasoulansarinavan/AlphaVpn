@@ -19,8 +19,9 @@
         <div class="page-meta">
             <nav class="breadcrumb-style-one" aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Users</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Account Settings</li>
+                    <li class="breadcrumb-item"><a href="#">@lang('account-setting.Users')</a></li>
+                    <li class="breadcrumb-item active"
+                        aria-current="page">@lang('account-setting.Account Settings')</li>
                 </ol>
             </nav>
         </div>
@@ -31,7 +32,7 @@
             <div class="account-content">
                 <div class="row mb-3">
                     <div class="col-md-12" wire:ignore>
-                        <h2>Settings</h2>
+                        <h2>@lang('account-setting.Settings')</h2>
 
                         <ul class="nav nav-pills" id="animateLine" role="tablist">
                             <li class="nav-item" role="presentation">
@@ -57,17 +58,17 @@
                                         <line x1="12" y1="1" x2="12" y2="23"></line>
                                         <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
                                     </svg>
-                                    Payment Details
+                                    @lang('account-setting.Payment Details')
                                 </button>
                             </li>
                         </ul>
                     </div>
                 </div>
 
-                <div class="tab-content" id="animateLineContent-4" >
+                <div class="tab-content" id="animateLineContent-4">
                     <div class="tab-pane fade show active" id="animated-underline-home" wire:ignore.self role="tabpanel"
-                         aria-labelledby="animated-underline-home-tab" >
-                        <div class="row" >
+                         aria-labelledby="animated-underline-home-tab">
+                        <div class="row">
                             <div class="col-xl-12 col-lg-12 col-md-12 layout-spacing">
                                 <form class="section general-info">
                                     <div class="info">
@@ -203,9 +204,9 @@
                             <div class="col-xl-12 col-lg-12 col-md-12 layout-spacing">
                                 <div class="section general-info payment-info">
                                     <div class="info">
-                                        <h6 class="">Payment Method</h6>
-                                        <p>Changes your</p>
-                                        <div  class="list-group mt-4">
+                                        <h6 class="">@lang('account-setting.Payment Method')</h6>
+                                        <p>@lang('account-setting.Change your Address Wallet')</p>
+                                        <div class="list-group mt-4">
                                             <label class="list-group-item">
                                                 @foreach($wallets as $wallet)
                                                     <div class="d-flex w-100">
@@ -216,27 +217,29 @@
                                                             </div>
                                                         </div>
                                                         <div class="billing-content">
-                                                            <div class="fw-bold">Address Wallet</div>
+                                                            <div
+                                                                class="fw-bold">@lang('account-setting.Address Wallet')</div>
                                                             <p>{{$wallet->address_wallet}}</p>
                                                         </div>
                                                         <div class="billing-edit align-self-center ms-auto">
                                                             <button type="button"
                                                                     wire:click="editWallet('{{$wallet->id}}')"
-                                                                    class="btn btn-dark">Edit
+                                                                    class="btn btn-dark">@lang('btn.Edit')
                                                             </button>
                                                         </div>
                                                     </div>
                                                 @endforeach
                                             </label>
                                         </div>
-                                        <form  wire:submit.prevent="saveAddressWallet(Object.fromEntries(new FormData($event.target)))">
+                                        <form
+                                            wire:submit.prevent="saveAddressWallet(Object.fromEntries(new FormData($event.target)))">
                                             <div class="info">
-                                                <h6 class="">Add Wallet Address</h6>
+                                                <h6 class="">@lang('account-setting.Add Wallet Address')</h6>
                                                 <div class="row mt-4">
                                                     <div class="col-md-12">
                                                         <div class="mb-3">
-                                                            <label class="form-label" for="address_wallet">Address
-                                                                Wallet</label>
+                                                            <label class="form-label"
+                                                                   for="address_wallet">@lang('account-setting.Address Wallet')</label>
                                                             <input value="{{$address_wallet}}"
                                                                    class="form-control add-payment-method-input col-md-12 @error('address_wallet') error-input-border  @enderror"
                                                                    name="address_wallet" id="address_wallet"
@@ -248,8 +251,8 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <button type="submit" class="btn btn-secondary mt-4 add-payment">Add
-                                                    Address Wallet
+                                                <button type="submit"
+                                                        class="btn btn-secondary mt-4 add-payment">@lang('btn.Add Address Wallet')
                                                 </button>
                                             </div>
                                         </form>
