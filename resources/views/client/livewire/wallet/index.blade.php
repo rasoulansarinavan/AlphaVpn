@@ -148,8 +148,10 @@
                                                         role="alert">
 
                                                         <ul>
-                                                            <li>The minimum amount to withdraw from the account is <b>20 USDT</b></li>
-                                                            <li>The withdrawal button is activated only on <b>Mondays</b></li>
+                                                            <li>The minimum amount to withdraw from the account is <b>20
+                                                                    USDT</b></li>
+                                                            <li>The withdrawal button is activated only on
+                                                                <b>Mondays</b></li>
                                                         </ul>
 
                                                     </div>
@@ -183,7 +185,7 @@
 
                                                 <button
                                                     class="btn btn-success _effect--ripple waves-effect waves-light mt-3"
-                               {{\Illuminate\Support\Carbon::now()->getTranslatedDayName()!='Monday'?' wire:click=withdrawal':'disabled'}}>
+                                                    {{\Illuminate\Support\Carbon::now()->getTranslatedDayName()!='Monday'?' wire:click=withdrawal':'disabled'}}>
                                                     <svg xmlns="http://www.w3.org/2000/svg"
                                                          xmlns:xlink="http://www.w3.org/1999/xlink"
                                                          style="fill: #fff;"
@@ -238,18 +240,24 @@
                         <tbody>
                         @forelse($wallet  as $item)
                             @php
-                                $class='';
-                                if ($item->status=='pending'){
-                                    $class='info';
-                                }elseif ($item->status=='confirmed'){
-                                    $class='success';
+                                $info='';
+                                     $class='';
+                                     if ($item->status=='pending'){
+                                         $class='info';
+                                     }elseif ($item->status=='confirmed'){
+                                         $class='success';
 
-                                }elseif ($item->status=='rejected'){
-                                    $class='danger';
-                                }
+                                     }elseif ($item->status=='rejected'){
+                                         $class='danger';
+                                     }
+
+
+
 
                             @endphp
+
                             <tr>
+
                                 <td><h3 class="text-left"><b>{{number_format($item->amount)}}</b>
 
                                         <span class="d-inline mt-1" style="font-size: 18px">USDT</span>
@@ -257,10 +265,20 @@
                                     {{$item->created_at}}
                                 </td>
                                 <td>
-                                    Wallet Address: <br>
-                                    <p>{{$item->wallet_address}}</p>
-                                    Transaction Hash: <br>
-                                    <p>{{$item->type!='deposit'?'-------------------':$item->hash}}</p>
+
+                                    @if ($item->type=='buy')
+                                        @php
+                                            $info = unserialize($item->description);
+
+                                        @endphp
+                                       <p> VPN : {{$info['name']}} - {{$info['type']}} - {{$info['price']}} USDT</p>
+                                    @else
+
+                                        Wallet Address: <br>
+                                        <p>{{$item->wallet_address}}</p>
+                                        Transaction Hash: <br>
+                                        <p>{{$item->type!='deposit'?'-------------------':$item->hash}}</p>
+                                    @endif
 
                                 </td>
                                 <td class="text-center">{{$item->type}}</td>

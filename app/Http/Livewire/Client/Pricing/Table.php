@@ -53,13 +53,21 @@ class Table extends Component
     public function buy()
     {
 
-        DB::transaction(function () {
+
+        DB::transaction(function ($data) {
+            $product=Product::query()->where('id','=',$this->product_id)->first();
+            $data = [
+                'name' =>$product->name,
+                'type' => $product->type->name,
+                'price' => $this->productPrice
+            ];
 
             //add to wallet
             Wallet::query()->create([
                 'user_id' => Auth::user()->id,
                 'type' => 'buy',
                 'status' => 'confirmed',
+                'description' => serialize($data),
                 'amount' => $this->productPrice,
             ]);
             //add to orders
