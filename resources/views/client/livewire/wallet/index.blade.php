@@ -247,6 +247,7 @@
                                 }elseif ($item->status=='rejected'){
                                     $class='danger';
                                 }
+
                             @endphp
                             <tr>
                                 <td><h3 class="text-left"><b>{{number_format($item->amount)}}</b>
