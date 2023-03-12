@@ -259,7 +259,7 @@
                                      };
                             @endphp
 
-                            <tr style="background: {{$background}}">
+                            <tr >
 
                                 <td><h3 class="text-left"><b>{{number_format($item->amount)}}</b>
 
@@ -288,13 +288,13 @@
                                             $info = unserialize($item->description);
 
                                         @endphp
-                                        <p> Selling at level : 21 - Amount : {{$info['amount']}} - Your Commission
-                                            : {{$info['commission']}} USDT</p>
+                                        <p> Selling at level : {{@$info['level']}} - Amount : {{$info['amount']}} - Your Commission
+                                            : {{$info['commission']}} %</p>
 
                                     @endif
 
                                 </td>
-                                <td class="text-center">{{$item->type}}</td>
+                                <td style="background: {{$background}}" class="text-center">{{$item->type}}</td>
                                 <td class="text-center">
                                     <span class="badge badge-light-{{$class}}">{{$item->status}}</span>
                                 </td>

@@ -43,7 +43,7 @@ class Wallet extends Model
     }
 
 
-    public function insertCommissions($user_id,$order)
+    public function insertCommissions($user_id, $order)
     {
 
         $upLines = (new \App\Models\User())->getUpLines($user_id);
@@ -57,21 +57,23 @@ class Wallet extends Model
 
         for ($i = 0; $i < count($profits); $i++) {
 
-            $userWithProfits[] = $upLines[$i] . '-' . $profits[$i].'-'.serialize($order);
+            $userWithProfits[] = ($i + 1) . '-' . $upLines[$i] . '-' . $profits[$i] . '-' . serialize($order);
         }
+
 
         foreach ($userWithProfits as $transaction) {
 
             $transaction = explode('-', $transaction);
-            $upLine = $transaction[0];
-            $commission = $transaction[1];
+            $level = $transaction[0];
+            $upLine = $transaction[1];
+            $commission = $transaction[2];
             $commission_amount = ($commission * $order->price) / 100;
-            $product = $transaction[2];
-            $level_percent = $transaction[1];
+            $product = $transaction[3];
+            $level_percent = $transaction[2];
             $data = [
                 'product' => $product,
                 'commission' => $level_percent,
-//                'level' => $level,
+                'level' => $level,
                 'amount' => $order->price,
             ];
 
