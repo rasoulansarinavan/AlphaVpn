@@ -92,7 +92,7 @@ class Index extends Component
 
     public function render()
     {
-        $orders = Order::query()->with('product', 'parent', 'files')->get();
+        $orders = Order::query()->with('product', 'parent', 'files')->latest()->get();
         return view('admin.livewire.order.index', ['orders' => $orders])->extends('admin.layouts.app');
     }
 }

@@ -55,11 +55,14 @@ class Wallet extends Model
         //dd(($order));
 
 
+     //   dd($upLines);
         for ($i = 0; $i < count($profits); $i++) {
+            if (isset($upLines[$i])){
 
-            $userWithProfits[] = ($i + 1) . '-' . $upLines[$i] . '-' . $profits[$i] . '-' . serialize($order);
+                $userWithProfits[] = ($i + 1) . '-' . $upLines[$i] . '-' . $profits[$i] . '-' . serialize($order);
+            }
+
         }
-
 
         foreach ($userWithProfits as $transaction) {
 
