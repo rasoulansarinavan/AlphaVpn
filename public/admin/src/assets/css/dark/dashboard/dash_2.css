@@ -15,8 +15,8 @@ body.dark .widget {
   position: relative;
   padding: 20px;
   border-radius: 6px;
-  border: none;
-  background: #0e1726;
+  /*border: none;*/
+  /*background: #0e1726;*/
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;

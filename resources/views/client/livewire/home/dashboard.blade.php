@@ -30,7 +30,7 @@
                                     <h2 class="d-flex align-items-center mt-2 justify-content-around"><span class="me-2"
                                                                                                             style="font-size: 20px">USDT</span><b>{{$wallet_total}}</b>
                                     </h2>
-                                    <div class="card-bottom-section" style="margin-top:0">
+                                    <div class="card-bottom-section justify-content-end" style="margin-top:0">
 
                                         <a href="{{route('client.profile.wallet-index')}}" class="">View Report</a>
                                     </div>

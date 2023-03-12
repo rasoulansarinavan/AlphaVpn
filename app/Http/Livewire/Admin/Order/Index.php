@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin\Order;
 
 use App\Models\File;
 use App\Models\Order;
+use App\Models\Wallet;
 use Illuminate\Support\Str;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -46,18 +47,21 @@ class Index extends Component
         return redirect()->route('admin.orders');
     }
 
-    public function changeStatus($value)
+    public function changeStatus($value, Wallet $wallet)
     {
         $order_id = explode('/', $value)[1];
         $status = explode('/', $value)[0];
+        $order = Order::query()->where('id', $order_id);
 
         $status_list = ['pending', 'confirmed', 'rejected'];
         if (in_array($status, $status_list)) {
-            Order::query()
-                ->where([
-                    'id' => $order_id,
-                ])
-                ->update(['status' => $status]);
+           $order->update(['status' => $status]);
+
+        }
+
+        if ($status=='confirmed'){
+            //todo insert commissions
+            $wallet->insertCommissions($order->pluck('user_id')->first(),$order->first());
         }
         $this->dispatchBrowserEvent('success', [
             'message' => 'The operation was successful'

@@ -42,4 +42,49 @@ class Wallet extends Model
     }
 
 
+    public function insertCommissions($user_id,$order)
+    {
+
+        $upLines = (new \App\Models\User())->getUpLines($user_id);
+
+        $profits = ['20', '10', '5'];
+
+        $transactions = [];
+        $userWithProfits = [];
+        //dd(($order));
+
+
+        for ($i = 0; $i < count($upLines); $i++) {
+            $userWithProfits[] = $upLines[$i] . '-' . $profits[$i].'-'.serialize($order);
+        }
+
+
+        foreach ($userWithProfits as $transaction) {
+
+            $transaction = explode('-', $transaction);
+            $upLine = $transaction[0];
+            $commission = $transaction[1];
+            $commission_amount = ($commission * $order->price) / 100;
+            $product = $transaction[2];
+            $level_percent = $transaction[1];
+            $data = [
+                'product' => $product,
+                'commission' => $level_percent,
+//                'level' => $level,
+                'amount' => $order->price,
+            ];
+
+            Wallet::query()->create([
+                'user_id' => $upLine,
+                'amount' => $commission_amount,
+                'type' => 'commission',
+                'description' => serialize($data),
+                'status' => 'confirmed',
+            ]);
+
+            //$this->insertUserCommissionToWallet($upLine, $commission, $transaction_id);
+
+        }
+    }
+
 }
