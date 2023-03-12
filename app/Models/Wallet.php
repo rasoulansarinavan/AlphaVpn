@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Dflydev\DotAccessData\Data;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -54,10 +55,10 @@ class Wallet extends Model
         //dd(($order));
 
 
-        for ($i = 0; $i < count($upLines); $i++) {
+        for ($i = 0; $i < count($profits); $i++) {
+
             $userWithProfits[] = $upLines[$i] . '-' . $profits[$i].'-'.serialize($order);
         }
-
 
         foreach ($userWithProfits as $transaction) {
 

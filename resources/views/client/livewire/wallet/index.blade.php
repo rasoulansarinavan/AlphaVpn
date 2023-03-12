@@ -241,6 +241,7 @@
                         @forelse($wallet  as $item)
                             @php
                                 $info='';
+                                $background='';
                                      $class='';
                                      if ($item->status=='pending'){
                                          $class='info';
@@ -250,13 +251,15 @@
                                      }elseif ($item->status=='rejected'){
                                          $class='danger';
                                      }
+                                     if ($item->type=='deposit' || $item->type=='commission'){
+                                         $background='rgb(0 255 185 / 15%);';
+                                     }elseif ($item->type=='withdraw' || $item->type=='buy'){
 
-
-
-
+                                           $background='rgb(255 0 0 / 15%)';
+                                     };
                             @endphp
 
-                            <tr>
+                            <tr style="background: {{$background}}">
 
                                 <td><h3 class="text-left"><b>{{number_format($item->amount)}}</b>
 
@@ -271,13 +274,23 @@
                                             $info = unserialize($item->description);
 
                                         @endphp
-                                       <p> VPN : {{$info['name']}} - {{$info['type']}} - {{$info['price']}} USDT</p>
-                                    @else
+                                        <p> VPN : {{$info['name']}} - {{$info['type']}} - {{$info['price']}} USDT</p>
+                                    @elseif($item->type=='deposit')
 
                                         Wallet Address: <br>
                                         <p>{{$item->wallet_address}}</p>
                                         Transaction Hash: <br>
                                         <p>{{$item->type!='deposit'?'-------------------':$item->hash}}</p>
+
+                                    @elseif($item->type=='commission')
+
+                                        @php
+                                            $info = unserialize($item->description);
+
+                                        @endphp
+                                        <p> Selling at level : 21 - Amount : {{$info['amount']}} - Your Commission
+                                            : {{$info['commission']}} USDT</p>
+
                                     @endif
 
                                 </td>
