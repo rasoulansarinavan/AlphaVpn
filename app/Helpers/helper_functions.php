@@ -66,7 +66,6 @@ function transactionHistory()
                     [
                         'ownerAddress' => $item['ownerAddress'],
                         'hash' => $item['hash'],
-
                     ],
                     [
                         'ownerAddress' => $item['ownerAddress'],
@@ -74,6 +73,9 @@ function transactionHistory()
                         'amount' => $item['trigger_info']['parameter']['_value'],
                         'created_at' => \Carbon\Carbon::createFromTimestampMs($data[0]['timestamp'])->format('Y-m-d H:i:s'),
                     ]);
+
+                Wallet::query()->where('hash', $item['hash'])->update(['amount' => ($item['trigger_info']['parameter']['_value'])/1000000]);
+
                 $hash[] = $transaction->hash;
             }
         }
