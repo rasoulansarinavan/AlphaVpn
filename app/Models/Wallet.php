@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Dflydev\DotAccessData\Data;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
