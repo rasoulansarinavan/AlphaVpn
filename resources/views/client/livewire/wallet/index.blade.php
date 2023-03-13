@@ -5,7 +5,7 @@
         <div class="row layout-top-spacing">
 
 
-            <div class=" col-md-4  layout-spacing" wire:poll.10s>
+            <div class=" col-md-4  layout-spacing" {{$pendingDeposit==null?'': 'wire:poll.10s'}}>
                 <div class="widget widget-card-five" style="background: transparent;border: 1px solid #191e3a">
                     <div class="widget-content">
                         <div class="account-box">
@@ -142,10 +142,23 @@
                                                 </button>
                                             </div>
 
+
                                             <div class="tab-pane fade" id="pills-profile" wire:ignore.self
                                                  role="tabpanel"
                                                  aria-labelledby="pills-profilXe-tab" tabindex="0">
                                                 <div class="form-group col-12 ">
+                                                    <div
+                                                        class="alert alert-light-danger alert-dismissible fade show border-0 mb-1"
+                                                        role="alert">
+
+                                                        <ul>
+                                                            <li>The minimum amount to withdraw is <b>20
+                                                                    USDT</b></li>
+                                                            <li>The withdrawal button is activated only on
+                                                                <b>Mondays</b></li>
+                                                        </ul>
+
+                                                    </div>
 
                                                     <label for="amount"
                                                            class="mt-2 mb-1">@lang('wallet-details.Amount')</label>
@@ -175,9 +188,10 @@
                                                     @endforeach
 
                                                 </div>
+
                                                 <button
                                                     class="btn btn-success _effect--ripple waves-effect waves-light mt-3"
-                                                    wire:click="withdrawal">
+                                                    {{\Illuminate\Support\Carbon::now()->getTranslatedDayName()=='Monday'?' wire:click=withdrawal':'disabled'}}>
                                                     <svg xmlns="http://www.w3.org/2000/svg"
                                                          xmlns:xlink="http://www.w3.org/1999/xlink"
                                                          style="fill: #fff;"
@@ -203,7 +217,8 @@
                                     <div class="alert alert-gradient alert-dismissible fade show mb-1 text-center"
                                          role="alert">
 
-                                        <strong>@lang('wallet-details.Warning') !</strong>@lang('wallet-details.You have a Pending transaction!please wait').
+                                        <strong>Warning !</strong> You have a <b>Pending</b> transaction!
+                                        please wait.
                                         <div id="clock-builder-output" data-countdown="{{$expiredData}}"
                                              style="letter-spacing: 1px;font-weight: 600;font-size: 20px;"
                                              wire:ignore
@@ -231,17 +246,27 @@
                         <tbody>
                         @forelse($wallet  as $item)
                             @php
-                                $class='';
-                                if ($item->status=='pending'){
-                                    $class='info';
-                                }elseif ($item->status=='confirmed'){
-                                    $class='success';
+                                $info='';
+                                $background='';
+                                     $class='';
+                                     if ($item->status=='pending'){
+                                         $class='info';
+                                     }elseif ($item->status=='confirmed'){
+                                         $class='success';
 
-                                }elseif ($item->status=='rejected'){
-                                    $class='danger';
-                                }
+                                     }elseif ($item->status=='rejected'){
+                                         $class='danger';
+                                     }
+                                     if ($item->type=='deposit' || $item->type=='commission'){
+                                         $background='rgb(0 255 185 / 15%);';
+                                     }elseif ($item->type=='withdraw' || $item->type=='buy'){
+
+                                           $background='rgb(255 0 0 / 15%)';
+                                     };
                             @endphp
-                            <tr>
+
+                            <tr >
+
                                 <td><h3 class="text-left"><b>{{number_format($item->amount)}}</b>
 
                                         <span class="d-inline mt-1"
@@ -250,13 +275,32 @@
                                     {{$item->created_at}}
                                 </td>
                                 <td>
-                                    @lang('wallet-details.Wallet Address'): <br>
-                                    <p>{{$item->wallet_address}}</p>
-                                    @lang('wallet-details.Transaction Hash'): <br>
-                                    <p>{{$item->type!='deposit'?'-------------------':$item->hash}}</p>
+                                    @if ($item->type=='buy')
+                                        @php
+                                            $info = unserialize($item->description);
+
+                                        @endphp
+                                        <p> VPN : {{$info['name']}} - {{$info['type']}} - {{$info['price']}} USDT</p>
+                                    @elseif($item->type=='deposit')
+
+                                        Wallet Address: <br>
+                                        <p>{{$item->wallet_address}}</p>
+                                        Transaction Hash: <br>
+                                        <p>{{$item->type!='deposit'?'-------------------':$item->hash}}</p>
+
+                                    @elseif($item->type=='commission')
+
+                                        @php
+                                            $info = unserialize($item->description);
+
+                                        @endphp
+                                        <p> Selling at level : {{@$info['level']}} - Amount : {{$info['amount']}} - Your Commission
+                                            : {{$info['commission']}} %</p>
+
+                                    @endif
 
                                 </td>
-                                <td class="text-center">{{$item->type}}</td>
+                                <td style="background: {{$background}}" class="text-center">{{$item->type}}</td>
                                 <td class="text-center">
                                     <span class="badge badge-light-{{$class}}">{{$item->status}}</span>
                                 </td>

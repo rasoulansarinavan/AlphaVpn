@@ -17,6 +17,6 @@ class Index extends Component
     public function render()
     {
         $orders = Order::query()->where('user_id', Auth::user()->id)->with('product', 'parent','files')->paginate(10);
-        return view('Client.livewire.orders.index',['orders' => $orders])->extends('client.layouts.app');
+        return view('client.livewire.orders.index',['orders' => $orders])->extends('client.layouts.app');
     }
 }

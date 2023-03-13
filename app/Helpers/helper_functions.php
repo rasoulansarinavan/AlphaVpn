@@ -24,7 +24,7 @@ function user_wallet($user_id)
 function getTeamCountWithProfit($user_id): array
 {
     $level = User::query()->where('user_id', $user_id)->pluck('id')->toArray();
-    $commission_level = 3;
+    $commission_level = 2;
 
     $teams = [$level];
 
@@ -43,7 +43,7 @@ function getTeamCountWithProfit($user_id): array
         $members[$key]['members'] = $team;
 
     }
-    $profits = ['20', '10', '5', '5'];
+    $profits = ['20', '10', '5'];
     foreach ($profits as $key => $profit) {
         $members[$key]['profit'] = $profit;
     }

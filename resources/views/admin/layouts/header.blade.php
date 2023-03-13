@@ -1,8 +1,4 @@
 
-
-
-
-
 <!--  BEGIN NAVBAR  -->
 <div class="header-container container-xxl">
     <header class="header navbar navbar-expand-sm expand-header">

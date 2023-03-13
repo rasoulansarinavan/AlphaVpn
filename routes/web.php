@@ -1,13 +1,13 @@
 <?php
 
-use App\Http\Livewire\client\Auth\Login;
-use App\Http\Livewire\client\Auth\Register;
+use App\Http\Controllers\AdminLoginController;
+use App\Http\Livewire\Client\Auth\Register;
 
 use App\Http\Livewire\Admin\Feature\Index;
-use App\Http\Livewire\client\Home\Dashboard;
-use App\Http\Livewire\client\Pricing\Table;
-use App\Http\Livewire\client\Team\Members;
-use App\Http\Livewire\client\User\Setting;
+use App\Http\Livewire\Client\Home\Dashboard;
+use App\Http\Livewire\Client\Pricing\Table;
+use App\Http\Livewire\Client\Team\Members;
+use App\Http\Livewire\Client\User\Setting;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,10 +20,17 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('language/{locale}', function ($locale) {
+    app()->setLocale($locale);
+    session()->put('locale', $locale);
+    return redirect()->back();
+})->name('lang');
+
 Route::get('/logout', [Register::class, 'clientLogout'])->name('client.logout')->middleware('auth:web');
+Route::get('/', Register::class)->name('register');
 
 Route::name('client.')->group(function () {
-    Route::get('/login', Login::class)->name('login');
 
     Route::group(['prefix' => 'register', 'middleware' => 'guest'], function () {
         Route::get('', Register::class)->name('register');
@@ -44,8 +51,19 @@ Route::name('client.')->group(function () {
 });
 
 
-Route::prefix('admin')->name('admin.')->group(function () {
-    Route::get('/dashboard', \App\Http\Livewire\Admin\Home\Dashboard::class)->name('dashboard');
+
+
+Route::middleware(['guest:admin'])->get('admin/authentication', [AdminLoginController::class, 'index'])->name('admin.authentication');
+Route::middleware(['auth:admin'])->get('admin/log-out', function () {
+    auth()->logout();
+    return redirect()->back();
+})->name('admin.log-out');
+Route::post('admin/authentication/login', [AdminLoginController::class, 'login'])->name('admin.authentication.login');
+
+/***>>authentication <<***/
+
+
+Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(function () {Route::get('/dashboard', \App\Http\Livewire\Admin\Home\Dashboard::class)->name('dashboard');
     Route::get('/orders', \App\Http\Livewire\Admin\Order\Index::class)->name('orders');
     Route::get('/user', \App\Http\Livewire\Admin\User\Index::class)->name('user');
     Route::get('/feature', Index::class)->name('feature');

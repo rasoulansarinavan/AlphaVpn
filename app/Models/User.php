@@ -84,6 +84,26 @@ class User extends Authenticatable
 
         return $code;
     }
+    public function upLine()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+
+    }
+    public function getUpLines($user_id)
+    {
+
+
+        $upLine1 = User::query()->where('id', $user_id)->with('upLine')->first();
+
+
+        return array_filter([$upLine1->upline->id ?? ''
+            , $upLine1->upline->upline->id ?? ''
+            , $upLine1->upline->upline->upLine->id ?? ''
+            , $upLine1->upline->upline->upLine->upLine->id ?? '',]);
+
+    }
+
+
 
 
 }

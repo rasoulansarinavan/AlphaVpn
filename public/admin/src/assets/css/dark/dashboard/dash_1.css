@@ -15,12 +15,12 @@ body.dark .widget {
   position: relative;
   padding: 0;
   border-radius: 6px;
-  border: none;
-  -webkit-box-shadow: none;
+  /*border: none;*/
+/*  -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
   box-shadow: 0 3px 8px 0 rgba(85, 85, 85, 0.08), 0 1px 0px 0 rgba(0, 0, 0, 0.07), 0px 1px 4px 0px rgba(0, 0, 0, 0.07);
-  box-shadow: 0 0.1px 0px rgba(0, 0, 0, 0.002), 0 0.2px 0px rgba(0, 0, 0, 0.003), 0 0.4px 0px rgba(0, 0, 0, 0.004), 0 0.6px 0px rgba(0, 0, 0, 0.004), 0 0.9px 0px rgba(0, 0, 0, 0.005), 0 1.2px 0px rgba(0, 0, 0, 0.006), 0 1.8px 0px rgba(0, 0, 0, 0.006), 0 2.6px 0px rgba(0, 0, 0, 0.007), 0 3.9px 0px rgba(0, 0, 0, 0.008), 0 7px 0px rgba(0, 0, 0, 0.01);
+  box-shadow: 0 0.1px 0px rgba(0, 0, 0, 0.002), 0 0.2px 0px rgba(0, 0, 0, 0.003), 0 0.4px 0px rgba(0, 0, 0, 0.004), 0 0.6px 0px rgba(0, 0, 0, 0.004), 0 0.9px 0px rgba(0, 0, 0, 0.005), 0 1.2px 0px rgba(0, 0, 0, 0.006), 0 1.8px 0px rgba(0, 0, 0, 0.006), 0 2.6px 0px rgba(0, 0, 0, 0.007), 0 3.9px 0px rgba(0, 0, 0, 0.008), 0 7px 0px rgba(0, 0, 0, 0.01);*/
 }
 body.dark .apexcharts-xaxis text, body.dark .apexcharts-yaxis text {
   fill: #888ea8;
@@ -449,8 +449,9 @@ body.dark .widget.widget-activity-five .timeline-line .item-timeline:last-child 
 	===============================
 */
 body.dark .widget-one_hybrid {
-  background: #fff;
-  background: #0e1726;
+
+/*background: #0e1726;*/
+    border: 1px solid #2b3a6b;
   padding: 0 !important;
 }
 body.dark .widget-one_hybrid .widget-heading {
@@ -714,8 +715,9 @@ body.dark .widget-card-one .widget-content .w-action .read-more a:hover {
 */
 body.dark .widget.widget-card-five {
   padding: 25px 23px;
-  background-color: #0e1726;
+  /*background-color: #0e1726;*/
   overflow: hidden;
+    border: 1px solid #2b3a6b
 }
 body.dark .widget.widget-card-five .account-box .info-box {
   display: flex;
