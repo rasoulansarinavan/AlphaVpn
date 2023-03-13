@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminLoginController;
 use App\Http\Livewire\Client\Auth\Register;
 
 use App\Http\Livewire\Admin\Feature\Index;
@@ -43,8 +44,19 @@ Route::name('client.')->group(function () {
 });
 
 
-Route::prefix('admin')->name('admin.')->group(function () {
-    Route::get('/dashboard', \App\Http\Livewire\Admin\Home\Dashboard::class)->name('dashboard');
+
+
+Route::middleware(['guest:admin'])->get('admin/authentication', [AdminLoginController::class, 'index'])->name('admin.authentication');
+Route::middleware(['auth:admin'])->get('admin/log-out', function () {
+    auth()->logout();
+    return redirect()->back();
+})->name('admin.log-out');
+Route::post('admin/authentication/login', [AdminLoginController::class, 'login'])->name('admin.authentication.login');
+
+/***>>authentication <<***/
+
+
+Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(function () {Route::get('/dashboard', \App\Http\Livewire\Admin\Home\Dashboard::class)->name('dashboard');
     Route::get('/orders', \App\Http\Livewire\Admin\Order\Index::class)->name('orders');
     Route::get('/user', \App\Http\Livewire\Admin\User\Index::class)->name('user');
     Route::get('/feature', Index::class)->name('feature');
