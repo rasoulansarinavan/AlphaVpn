@@ -41,17 +41,16 @@
     <div class="container mx-auto align-self-center">
 
         <div class="row">
-            @if(session('error'))
-                <div class="alert alert-danger">
-                    {{session('error')}}
-                </div>
-            @endif
             <form action="{{route('admin.authentication.login')}}" method="post">
                 @csrf
                 <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-8 col-12 d-flex flex-column align-self-center mx-auto">
                     <div class="card mt-3 mb-3">
                         <div class="card-body">
-
+                            @if(session('error'))
+                                <div class="alert alert-danger">
+                                    {{session('error')}}
+                                </div>
+                            @endif
                             <div class="row">
                                 <div class="col-md-12 mb-3">
 

@@ -8,6 +8,6 @@ class Footer extends Component
 {
     public function render()
     {
-        return view('Admin.layouts.footer');
+        return view('admin.layouts.footer');
     }
 }
