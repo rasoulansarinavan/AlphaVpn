@@ -12,7 +12,7 @@ use Livewire\Component;
 class Index extends Component
 {
 
-    public $server_id, $name = '', $discount = '', $type = '', $price = '', $product_id;
+    public $server_id, $name = '', $discount = '', $type_id = '', $price = '', $product_id;
 
     protected $listeners = ['delete', 'saveProduct'];
 
@@ -24,7 +24,7 @@ class Index extends Component
                 'server_id' => 'required | regex:/^[ا-یa-zA-Z0-9@$#^%&*!]+$/u',
                 'name' => 'required | regex:/^[ا-یa-zA-Z0-9@$#^%&*!]+$/u',
                 'discount' => 'required | regex:/^[ا-یa-zA-Z0-9@$#^%&*!]+$/u',
-                'type' => 'required | regex:/^[ا-یa-zA-Z0-9@$#^%&*!]+$/u',
+                'type_id' => 'required | regex:/^[ا-یa-zA-Z0-9@$#^%&*!]+$/u',
                 'price' => 'required | regex:/^[ا-یa-zA-Z0-9@$#^%&*!]+$/u',
             ]);
         } else {
@@ -33,7 +33,7 @@ class Index extends Component
                 'server_id' => 'required | regex:/^[ا-یa-zA-Z0-9@$#^%&*!]+$/u',
                 'name' => 'required | regex:/^[ا-یa-zA-Z0-9@$#^%&*!]+$/u',
                 'discount' => 'required | regex:/^[ا-یa-zA-Z0-9@$#^%&*!]+$/u',
-                'type' => 'required | regex:/^[ا-یa-zA-Z0-9@$#^%&*!]+$/u',
+                'type_id' => 'required | regex:/^[ا-یa-zA-Z0-9@$#^%&*!]+$/u',
                 'price' => 'required | regex:/^[ا-یa-zA-Z0-9@$#^%&*!]+$/u',
             ]);
         }
@@ -48,7 +48,7 @@ class Index extends Component
         $this->server_id = '';
         $this->name = '';
         $this->discount = '';
-        $this->type = '';
+        $this->type_id = '';
         $this->price = '';
         $this->product_id = '';
 
@@ -60,7 +60,7 @@ class Index extends Component
         $this->server_id = $product->server_id;
         $this->name = $product->name;
         $this->discount = $product->discount;
-        $this->type = $product->type;
+        $this->type_id = $product->type_id;
         $this->price = $product->price;
         $this->product_id = $product->id;
     }

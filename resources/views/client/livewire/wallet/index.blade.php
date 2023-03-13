@@ -18,10 +18,10 @@
                                 </div>
 
                                 <div class="balance-info">
-                                    <h6>Total Balance</h6>
+                                    <h6>@lang('wallet-details.Total Balance')</h6>
                                     <h1 class="d-flex align-items-center justify-content-around"><span
                                             style="font-size: 20px"
-                                            class="me-3">USDT</span><b>{{number_format($balance)}}</b>
+                                            class="me-3">@lang('wallet-details.USDT')</span><b>{{number_format($balance)}}</b>
                                     </h1>
                                 </div>
                             </div>
@@ -37,13 +37,16 @@
                                                 <button class="nav-link active" id="pills-home-tab"
                                                         data-bs-toggle="pill"
                                                         data-bs-target="#pills-home" type="button" role="tab"
-                                                        aria-controls="pills-home" aria-selected="true">Deposit
+                                                        aria-controls="pills-home"
+                                                        aria-selected="true">@lang('btn.Deposit')
                                                 </button>
                                             </li>
                                             <li class="nav-item w-50 d-flex justify-content-center" role="presentation">
                                                 <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
                                                         data-bs-target="#pills-profile" type="button" role="tab"
-                                                        aria-controls="pills-profile" aria-selected="false">withdrawal
+                                                        aria-controls="pills-profile"
+                                                        aria-selected="false">@lang('btn.withdrawal')
+
                                                 </button>
                                             </li>
                                         </ul>
@@ -53,8 +56,8 @@
                                                  aria-labelledby="pills-home-tab" tabindex="0">
                                                 <div class="form-group  position-relative " wire:ignore.self>
 
-                                                    <label for="clipboard" class="mt-2 mb-2">Destination USDT
-                                                        Address</label>
+                                                    <label for="clipboard"
+                                                           class="mt-2 mb-2">@lang('wallet-details.Destination USDT Address')</label>
                                                     <textarea style="padding-right: 50px;color: #e67980;
     background-color: #2c1c2b;
     border: 1px solid #2c1c2b;"
@@ -80,12 +83,11 @@
                                                 </div>
                                                 <div class="form-group col-12 ">
 
-                                                    <label for="amount" class="mt-1 mb-1">Amount</label>
+                                                    <label for="amount"
+                                                           class="mt-1 mb-1">@lang('wallet-details.Amount')</label>
                                                     <input wire:model="amount"
                                                            class="form-control mb-1 @error('amount') error-input-border  @enderror"
-                                                           id="amount"
-
-                                                           maxlength="9">
+                                                           id="amount" maxlength="9">
                                                     @foreach ($errors->get('amount') as $message)
                                                         <span wire:loading.remove
                                                               class=" text-danger w-100 d-block">{{ $message}}</span>
@@ -94,7 +96,8 @@
                                                 </div>
                                                 <div class="form-group col-12 ">
 
-                                                    <label for="wallet_address" class="mt-2 mb-1">Wallet Address</label>
+                                                    <label for="wallet_address"
+                                                           class="mt-2 mb-1">@lang('wallet-details.Wallet Address')</label>
                                                     <textarea wire:model="wallet_address"
                                                               class="form-control mb-1 @error('wallet_address') error-input-border  @enderror"
                                                               id="wallet_address"
@@ -108,7 +111,8 @@
                                                 </div>
                                                 <div class="form-group col-12 " wire:ignore.self>
 
-                                                    <label for="hash" class="mt-2 mb-1">Transaction Hash</label>
+                                                    <label for="hash"
+                                                           class="mt-2 mb-1">@lang('wallet-details.Transaction Hash')</label>
                                                     <textarea wire:model="hash"
                                                               class="form-control mb-1 @error('hash') error-input-border  @enderror"
                                                               id="hash"
@@ -134,7 +138,7 @@
                                                         <line x1="12" y1="8" x2="12" y2="16"></line>
                                                         <line x1="8" y1="12" x2="16" y2="12"></line>
                                                     </svg>
-                                                    <span class="btn-text-inner">Deposit</span>
+                                                    <span class="btn-text-inner">@lang('btn.Deposit')</span>
                                                 </button>
                                             </div>
 
@@ -156,7 +160,8 @@
 
                                                     </div>
 
-                                                    <label for="amount" class="mt-2 mb-1">Amount</label>
+                                                    <label for="amount"
+                                                           class="mt-2 mb-1">@lang('wallet-details.Amount')</label>
                                                     <input wire:model="amount"
                                                            class="form-control mb-1 @error('amount') error-input-border  @enderror"
                                                            id="amount"
@@ -170,7 +175,8 @@
                                                 </div>
                                                 <div class="form-group col-12 ">
 
-                                                    <label for="wallet_address" class="mt-2 mb-1">Wallet Address</label>
+                                                    <label for="wallet_address"
+                                                           class="mt-2 mb-1">@lang('wallet-details.Wallet Address')</label>
                                                     <input wire:model="wallet_address"
                                                            class="form-control mb-1 @error('wallet_address') error-input-border  @enderror"
                                                            id="wallet_address"
@@ -197,7 +203,7 @@
                                                 d="M406.6,608.2c2.1,2.1,4.2,4.2,10.4,6.2c4.2,2.1,10.4,4.1,16.6,8.3c6.2,2.1,14.5,4.1,22.8,6.2c8.3,2.1,18.7,2.1,27,2.1c0,0,0,0,2.1,0v35.3h35.3v-39.4c2.1,0,4.2,0,4.2-2.1c12.5-4.2,24.9-10.4,33.2-18.7c10.4-8.3,16.6-16.6,22.8-29.1c6.2-12.5,8.3-24.9,8.3-41.5c0-12.5-2.1-22.8-6.2-31.1c-4.2-8.3-8.3-16.6-14.5-22.8c-6.2-6.2-12.5-12.5-20.8-16.6c-8.3-4.1-14.5-8.3-22.8-12.5c-8.3-4.2-14.5-6.2-22.8-10.4c-8.3-4.1-14.5-6.2-20.8-10.4c-6.2-4.1-10.4-8.3-14.5-12.5c-4.2-4.2-6.2-10.4-6.2-16.6c0-4.2,0-8.3,2.1-12.5c2.1-4.2,4.2-8.3,6.2-10.4c4.2-2.1,6.2-4.2,12.5-6.2c4.2-2.1,10.4-2.1,16.6-2.1c8.3,0,16.6,0,22.8,2.1c6.2,2.1,12.5,4.2,18.7,6.2c6.2,2.1,10.4,4.2,12.5,6.2c4.2,2.1,6.2,4.2,8.3,4.2c2.1,0,2.1,0,4.2-2.1c0,0,2.1-2.1,2.1-4.2c0-2.1,0-4.2,2.1-8.3c0-2.1,0-6.2,0-10.4c0-4.1,0-8.3,0-10.4c0-2.1,0-4.1,0-6.2s0-4.1-2.1-4.1c0-2.1-2.1-2.1-2.1-4.2c-2.1-2.1-4.2-4.2-8.3-6.2c-4.2-2.1-10.4-4.2-16.6-6.2c-6.2-2.1-12.5-4.1-18.7-4.1c-2.1,0-2.1,0-4.2,0v-37.4h-35.3v37.4c-6.2,0-12.5,2.1-18.7,4.1c-12.5,4.2-22.8,8.3-31.1,16.6c-8.3,6.2-16.6,16.6-20.8,27c-2.1,12.5-4.2,24.9-4.2,39.4c0,12.5,2.1,22.8,6.2,31.1c4.2,8.3,8.3,16.6,14.5,22.8c6.2,6.2,12.5,12.5,18.7,16.6c8.3,4.2,14.5,8.3,22.8,12.5c8.3,4.2,14.5,6.2,22.8,10.4c8.3,4.2,14.5,6.2,18.7,10.4c6.2,4.2,10.4,8.3,14.5,12.5c4.2,4.2,6.2,10.4,6.2,16.6c0,6.2-2.1,10.4-4.2,16.6c-2.1,4.2-4.2,8.3-8.3,12.5s-8.3,6.2-14.5,8.3c-6.2,2.1-12.5,2.1-18.7,2.1c-10.4,0-20.8-2.1-29.1-4.2c-8.3-2.1-14.5-6.2-20.8-8.3c-6.2-2.1-10.4-6.2-14.5-8.3c-4.2-2.1-6.2-4.2-8.3-4.2c-2.1,0-2.1,0-4.1,2.1c-2.1,0-2.1,2.1-2.1,4.2c0,2.1-2.1,4.1-2.1,8.3s0,6.2,0,12.5s0,12.5,2.1,16.6C404.5,604,404.5,606.1,406.6,608.2L406.6,608.2z M676.4,242.9V81.1c-10.4-49.8-74.7-45.7-89.2,0v161.9H556V45.8c-20.8-47.7-68.5-47.7-89.2,0v197.1h-31.1V79c-18.7-39.4-66.4-49.8-89.2,0v163.9h-31.1V116.4c-14.5-39.4-66.4-51.9-89.2,0v126.6H74.6v462.8h157.7c4.1,157.7,126.6,284.3,276,284.3c149.4,0,269.8-126.6,276-284.3h141.1V242.9H676.4L676.4,242.9z M894.3,680.8H778.1V467.1c-14.5-78.9-66.4-103.8-89.2,0v213.7H99.5V269.9h794.8V680.8L894.3,680.8z"/>
                                         </g>
 </svg>
-                                                    <span class="btn-text-inner">withdrawal</span>
+                                                    <span class="btn-text-inner">@lang('btn.withdrawal')</span>
                                                 </button>
                                             </div>
                                         </div>
@@ -231,10 +237,10 @@
                     <table class="table table-bordered">
                         <thead>
                         <tr>
-                            <th scope="col">Amount</th>
-                            <th scope="col" style="width: 50px;">Info</th>
-                            <th class="text-center" scope="col">Type</th>
-                            <th class="text-center" scope="col">Status</th>
+                            <th scope="col">@lang('wallet-details.Amount')</th>
+                            <th scope="col" style="width: 50px;">@lang('wallet-details.Info')</th>
+                            <th class="text-center" scope="col">@lang('wallet-details.Type')</th>
+                            <th class="text-center" scope="col">@lang('wallet-details.Status')</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -263,12 +269,12 @@
 
                                 <td><h3 class="text-left"><b>{{number_format($item->amount)}}</b>
 
-                                        <span class="d-inline mt-1" style="font-size: 18px">USDT</span>
+                                        <span class="d-inline mt-1"
+                                              style="font-size: 18px">@lang('wallet-details.USDT')</span>
                                     </h3>
                                     {{$item->created_at}}
                                 </td>
                                 <td>
-
                                     @if ($item->type=='buy')
                                         @php
                                             $info = unserialize($item->description);
@@ -376,7 +382,7 @@
                 Swal.fire({
                     title: 'Dont close this page',
                     html:
-                        'I will close in <strong></strong> seconds.',
+                       ' <strong> @lang('wallet-details.I will close in  seconds')</strong>',
 
                     timer: 1000000,
                     didOpen: () => {

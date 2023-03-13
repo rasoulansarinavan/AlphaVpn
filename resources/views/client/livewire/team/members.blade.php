@@ -21,8 +21,9 @@
         <div class="page-meta">
             <nav class="breadcrumb-style-one" aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{route('client.profile.dashboard')}}">Dashboard</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">My Team</li>
+                    <li class="breadcrumb-item"><a
+                            href="{{route('client.profile.dashboard')}}">@lang('side-bar.Dashboard')</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">@lang('side-bar.My Team')</li>
                 </ol>
             </nav>
         </div>
@@ -43,10 +44,10 @@
                                         <table class="table table-bordered">
                                             <thead>
                                             <tr>
-                                                <th class="text-center class="text-center" " scope="col">Level</th>
-                                                <th class="text-center" scope="col">Total Members</th>
-                                                <th class="text-center" scope="col">Sales (USDT)</th>
-                                                <th class="text-center" scope="col">Profit (USDT)</th>
+                                                <th class="text-center " scope="col">@lang('members.Level')</th>
+                                                <th class="text-center" scope="col">@lang('members.Total Members')</th>
+                                                <th class="text-center" scope="col">@lang('members.Sales')</th>
+                                                <th class="text-center" scope="col">@lang('members.Profit')</th>
                                             </tr>
                                             </thead>
                                             <tbody>

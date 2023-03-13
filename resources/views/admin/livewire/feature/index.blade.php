@@ -13,11 +13,11 @@
                 <div class="col-md-3">
                     <form wire:submit.prevent="saveFeature(Object.fromEntries(new FormData($event.target)))">
                         <div class="mb-4">
-                            <label class="form-label" for="product_id">choose product</label>
+                            <label class="form-label" for="product_id">Product</label>
 
                             <select class="form-select  @error('product_id') error-input-border @enderror"
                                     name="product_id" id="product_id">
-                                <option></option>
+                                <option>choose Product</option>
                                 @foreach($products as $product)
                                     <option
                                         @if($product_id==$product->id)
@@ -75,10 +75,10 @@
                                         </div>
                                     </td>
                                     <td>{{$loop->index+1}}</td>
-                                    <td><b>{{optional($feature->parent)->name}}</b></td>
-                                    <td><b>{{number_format(optional($feature->parent)->price)}}</b></td>
-                                    <td><b>{{optional($feature->parent)->discount}}%</b></td>
-                                    <td><b>{{optional($feature->parent)->type}}</b></td>
+                                    <td><b>{{optional($feature->product)->name}}</b></td>
+                                    <td><b>{{number_format(optional($feature->product)->price)}}</b></td>
+                                    <td><b>{{optional($feature->product)->discount}}%</b></td>
+                                    <td><b>{{optional($feature->product)->type->name}}</b></td>
                                     <td>{{$feature->description}}</td>
                                     <td class="text-end">
                                         <div class="dropdown"><a class="btn btn-light rounded btn-sm font-sm" href="#"

@@ -18,7 +18,7 @@
                         <label class="form-label" for="type_id">Types</label>
                         <select class="form-select  @error('type_id') error-input-border @enderror"
                                 name="type_id" id="type_id" wire:model.defer="type_id">
-                            <option disabled selected>Choose</option>
+                            <option>Choose Type</option>
                             @foreach($types as $type)
                                 <option
                                     @if(@$type_id==$type->id)
@@ -83,6 +83,7 @@
                             <th>Server Name</th>
                             <th>Password</th>
                             <th>IP</th>
+                            <th>Type</th>
                             <th class="text-end">Action</th>
                         </tr>
                         </thead>
@@ -99,6 +100,7 @@
                                 <td><b>{{$server->name}}</b></td>
                                 <td>{{$server->password}}</td>
                                 <td>{{$server->ip}}</td>
+                                <td>{{optional($server->type)->name}}</td>
                                 <td class="text-end">
                                     <div class="dropdown"><a class="btn btn-light rounded btn-sm font-sm" href="#"
                                                              data-bs-toggle="dropdown"><i
