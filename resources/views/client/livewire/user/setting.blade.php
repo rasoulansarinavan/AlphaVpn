@@ -20,15 +20,15 @@
         <div class="page-meta">
             <nav class="breadcrumb-style-one" aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Users</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Account Settings</li>
+                    <li class="breadcrumb-item"><a href="#">@lang('account-setting.Users')</a></li>
+                    <li class="breadcrumb-item active"
+                        aria-current="page">@lang('account-setting.Account Settings')</li>
                 </ol>
             </nav>
         </div>
         <!-- /BREADCRUMB -->
 
         <div class="row layout-spacing ">
-
             <!-- Content -->
             <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 layout-top-spacing">
                 <div class="user-profile">

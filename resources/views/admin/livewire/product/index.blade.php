@@ -13,10 +13,10 @@
             <div class="col-md-3">
                 <form wire:submit.prevent="saveProduct(Object.fromEntries(new FormData($event.target)))">
                     <div class="mb-4">
-                        <label class="form-label" for="server_id">choose Server</label>
+                        <label class="form-label" for="server_id">Server</label>
                         <select class="form-select  @error('server_id') error-input-border @enderror"
                                 name="server_id" id="server_id">
-                            <option></option>
+                            <option>Choose Server</option>
                             @foreach($servers as $server)
                                 <option
                                     @if($server_id==$server->id)
@@ -51,14 +51,14 @@
                         @endforeach
                     </div>
                     <div class="mb-4">
-                        <label class="form-label" for="type">choose Type</label>
+                        <label class="form-label" for="type_id">Type</label>
                         <select class="form-select  @error('type') error-input-border @enderror"
-                                name="type" id="type">
-                            <option></option>
+                                name="type_id" id="type_id">
+                            <option>Choose Type</option>
 
                             @foreach($types as $type)
                                 <option
-                                    @if($server_id==$server->id)
+                                    @if($type_id==$type->id)
                                         selected="selected"
                                     @endif
                                     value="{{$type->id}}">{{$type->name}}</option>
@@ -113,9 +113,9 @@
                                     </div>
                                 </td>
                                 <td>{{$loop->index+1}}</td>
-                                <td><b>{{optional($product->parent)->name}}</b></td>
+                                <td><b>{{optional($product->server)->name}}</b></td>
                                 <td><b>{{$product->name}}</b></td>
-                                <td><b>{{$product->price}}</b></td>
+                                <td><b>{{number_format($product->price)}}</b></td>
 
                                 <td>
                                     @if(isset($product->discount))
@@ -124,7 +124,7 @@
                                         <b>0</b>
                                     @endif
                                 </td>
-                                <td>{{optional($product->category)->name}}</td>
+                                <td>{{optional($product->type)->name}}</td>
                                 <td class="text-end">
                                     <div class="dropdown"><a class="btn btn-light rounded btn-sm font-sm" href="#"
                                                              data-bs-toggle="dropdown"><i

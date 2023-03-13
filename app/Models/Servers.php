@@ -10,6 +10,7 @@ class Servers extends Model
     use HasFactory;
 
     protected $guarded = [];
+    protected $with = ['type'];
 
     public function saveServer($formData, $server_id)
     {
@@ -26,8 +27,8 @@ class Servers extends Model
         );
     }
 
-//    public function parent()
-//    {
-//        return $this->belongsTo(Servers::class, 'server_id');
-//    }
+    public function type()
+    {
+        return $this->belongsTo(Types::class, 'type_id');
+    }
 }

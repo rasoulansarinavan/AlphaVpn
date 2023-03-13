@@ -4,8 +4,9 @@
         <div class="page-meta">
             <nav class="breadcrumb-style-one" aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{route('client.profile.dashboard')}}">Dashboard</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Orders</li>
+                    <li class="breadcrumb-item"><a
+                            href="{{route('client.profile.dashboard')}}">@lang('side-bar.Dashboard')</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">@lang('side-bar.Orders')</li>
                 </ol>
             </nav>
         </div>
@@ -18,10 +19,10 @@
                         <thead>
                         <tr>
                             <th class="checkbox-column" width="30">#</th>
-                            <th width="100">Name</th>
-                            <th width="50">Period</th>
-                            <th>Configs</th>
-                            <th width="160">Status</th>
+                            <th width="100">@lang('orders.Name')</th>
+                            <th width="50">@lang('orders.Period')</th>
+                            <th>@lang('orders.Configs')</th>
+                            <th width="160">@lang('orders.Status')</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -52,7 +53,8 @@
                                 <td class="checkbox-column">{{$loop->index+1}}</td>
                                 <td><h3 class="text-left"><b>{{number_format($order->price)}}</b>
 
-                                        <span class="d-inline mt-1" style="font-size: 18px">USDT</span>
+                                        <span class="d-inline mt-1"
+                                              style="font-size: 18px">@lang('Orders.USDT')</span>
                                     </h3>
                                     {{$order->created_at}}
                                 </td>
@@ -69,15 +71,15 @@
                                 <td>
                                     @if($order->status=='pending')
                                         <div class="d-flex align-items-center"><span
-                                                class="spinner-border text-white me-2 align-self-center loader-sm "></span><span class="ms-3">Please wait . . . </span>
+                                                class="spinner-border text-white me-2 align-self-center loader-sm "></span><span
+                                                class="ms-3">Please wait . . . </span>
                                         </div>
                                     @endif
 
                                     <ul class="d-flex flex-wrap p-0">
                                         @forelse($order->files as $file)
 
-                                            <li class="badge badge-primary mb-2 me-4"><a target="_blank" download
-                                                                                         href="{{$file->path}}">{{$file->name}}
+                                            <li class="badge badge-primary mb-2 me-4"><a target="_blank" download href="{{$file->path}}">{{$file->name}}
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                          style="background: white;border-radius: 50%"
                                                          viewBox="0 0 24 24" fill="balck" stroke="currentColor"

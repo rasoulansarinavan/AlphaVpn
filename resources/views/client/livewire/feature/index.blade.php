@@ -87,7 +87,7 @@
                                             <div class="dropdown-menu">
                                                 <a class="dropdown-item" wire:click="editFeature('{{$feature->id}}')">Edit
                                                     info</a>
-                                                <a class="dropdown-item text-danger"
+                                                <a href="#" class="dropdown-item text-danger"
                                                    wire:click="deleteConfirm({{$feature->id}})">Delete</a>
                                             </div>
                                         </div>

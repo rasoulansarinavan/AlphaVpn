@@ -15,17 +15,17 @@ class Features extends Model
     {
         Features::query()->updateOrCreate(
             [
-                'id' => $feature_id
+                'product_id' => $formData['product_id'],
             ],
             [
-                'product_id' => $formData['product_id'],
+                'id' => $feature_id,
                 'description' => $formData['description']
             ]
         );
     }
 
 
-    public function parent()
+    public function product()
     {
         return $this->belongsTo(Product::class, 'product_id');
     }
