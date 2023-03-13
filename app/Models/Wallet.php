@@ -15,7 +15,7 @@ class Wallet extends Model
 
     public function deposit(array $formData)
     {
-        // dd('dwad');
+
         Wallet::query()->create([
             'user_id' => Auth::user()->id,
             'wallet_address' => $formData['wallet_address'],
