@@ -5,11 +5,13 @@
 @endphp
 <div class="sidebar-wrapper sidebar-theme">
     <nav id="sidebar">
+
+
         <div class="navbar-nav theme-brand flex-row  justify-content-center">
 
-            <div class="nav-item sidebar-toggle p-1">
+            <div class="nav-item sidebar-toggle p-2">
 
-                    <img src="/admin/assets/img/logo.png" width="100" alt="">
+                    <img src="/admin/assets/img/logo.png" width="120" alt="">
 
             </div>
         </div>

@@ -104,6 +104,6 @@ class Index extends Component
         ])->first();
 
 
-        return view('Client.livewire.wallet.index', ['wallet' => $wallet, 'balance' => $balance])->extends('client.layouts.app');
+        return view('client.livewire.wallet.index', ['wallet' => $wallet, 'balance' => $balance])->extends('client.layouts.app');
     }
 }

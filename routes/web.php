@@ -1,13 +1,12 @@
 <?php
 
-use App\Http\Livewire\client\Auth\Login;
-use App\Http\Livewire\client\Auth\Register;
+use App\Http\Livewire\Client\Auth\Register;
 
 use App\Http\Livewire\Admin\Feature\Index;
-use App\Http\Livewire\client\Home\Dashboard;
-use App\Http\Livewire\client\Pricing\Table;
-use App\Http\Livewire\client\Team\Members;
-use App\Http\Livewire\client\User\Setting;
+use App\Http\Livewire\Client\Home\Dashboard;
+use App\Http\Livewire\Client\Pricing\Table;
+use App\Http\Livewire\Client\Team\Members;
+use App\Http\Livewire\Client\User\Setting;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,9 +20,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/logout', [Register::class, 'clientLogout'])->name('client.logout')->middleware('auth:web');
+Route::get('/', Register::class)->name('register');
 
 Route::name('client.')->group(function () {
-    Route::get('/login', Login::class)->name('login');
 
     Route::group(['prefix' => 'register', 'middleware' => 'guest'], function () {
         Route::get('', Register::class)->name('register');

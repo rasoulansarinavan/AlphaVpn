@@ -44,9 +44,12 @@
     @stack('link')
     @livewireStyles
 </head>
-<livewire:client.layouts.header/>
+
 
 <body class="layout-boxed dark" style="background-image: url(/admin/assets/img/back.jpg);background-size: cover;">
+
+
+<livewire:client.layouts.header/>
 
 <div class="main-container" id="container">
     <div class="overlay"></div>

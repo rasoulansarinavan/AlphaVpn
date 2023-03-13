@@ -15,7 +15,6 @@ return new class extends Migration {
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->string('wallet_address')->nullable();
-            $table->foreignId('distillation_wallet_address_id')->nullable()->constrained();
             $table->integer('amount');
             $table->string('hash')->nullable()->unique();
             $table->text('description')->nullable();
