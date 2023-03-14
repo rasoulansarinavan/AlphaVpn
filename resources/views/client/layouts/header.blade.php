@@ -6,22 +6,6 @@
         </a>
         <ul class="navbar-item flex-row ms-lg-auto ms-0">
 
-            <li class="nav-item dropdown language-dropdown">
-                <a href="javascript:0" class="nav-link dropdown-toggle" id="language-dropdown"
-                   data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img src="/admin/src/assets/img/1x1/us.svg" class="flag-width" alt="flag">
-                </a>
-                <div class="dropdown-menu position-absolute" aria-labelledby="language-dropdown">
-                    <a  href="{{route('lang','en')}}" class="dropdown-item d-flex" ><img
-                            src="/admin/src/assets/img/1x1/us.svg" class="flag-width" alt="flag"> <span
-                            class="align-self-center">&nbsp;English</span></a>
-                    <a  href="{{route('lang','fa')}}" class="dropdown-item d-flex"><img
-                            src="/admin/assets/img/iran1.png" class="flag-width" alt="flag"> <span
-                            class="align-self-center">Persian</span></a>
-
-                </div>
-            </li>
-
             <li class="nav-item dropdown user-profile-dropdown  order-lg-0 order-1">
                 <a href="javascript:void(0);" class="nav-link dropdown-toggle user" id="userProfileDropdown"
                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

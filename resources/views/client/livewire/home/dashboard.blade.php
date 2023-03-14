@@ -89,7 +89,7 @@
             <div class="col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="row widget-statistic">
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 layout-spacing">
-                        <div class="widget widget-one_hybrid widget-followers">
+                        <div class="widget widget-one_hybrid widget-followers widget-card-five">
                             <div class="widget-heading">
                                 <div class="w-title">
                                     <div class="w-icon">
@@ -117,7 +117,7 @@
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 layout-spacing">
-                        <div class="widget widget-one_hybrid widget-referral">
+                        <div class="widget widget-one_hybrid widget-referral widget-card-five ">
                             <div class="widget-heading">
                                 <div class="w-title">
                                     <div class="w-icon">
@@ -148,7 +148,7 @@
                 </div>
             </div>
             <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 layout-spacing">
-                <div class="widget widget-table-one">
+                <div class="widget widget-table-one widget-card-five">
                     <div class="widget-heading">
                         <h5 class="">Transactions</h5>
                         <div class="task-action">

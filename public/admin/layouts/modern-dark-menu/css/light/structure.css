@@ -229,7 +229,7 @@ code {
   margin-left: 80px;
 }
 
-/* 
+/*
 =====================
     Navigation Bar
 =====================
@@ -744,7 +744,7 @@ body .navbar .dark-mode, body:not(.dark) .navbar .dark-mode {
   height: 18px;
 }
 
-/* 
+/*
 ===============
     Sidebar
 ===============
@@ -821,10 +821,10 @@ body .navbar .dark-mode, body:not(.dark) .navbar .dark-mode {
 .sidebar-closed .sidebar-wrapper:not(:hover) .profile-info .user-info .profile-img {
   margin-right: 0;
 }
-.sidebar-closed .sidebar-wrapper:not(:hover) .profile-info .user-info .profile-content {
+/*.sidebar-closed .sidebar-wrapper:not(:hover) .profile-info .user-info .profile-content {
   opacity: 0;
   width: 0;
-}
+}*/
 .sidebar-closed .sidebar-wrapper:hover .shadow-bottom {
   top: 170px;
   height: 26px;
@@ -1355,7 +1355,7 @@ body .navbar .dark-mode, body:not(.dark) .navbar .dark-mode {
   animation-name: e-fadeInUp;
 }
 
-/*  
+/*
     ======================
         Footer-wrapper
     ======================
@@ -1407,7 +1407,7 @@ body.alt-menu #content {
   transition: none;
 }
 
-/*  
+/*
     ======================
         MEDIA QUERIES
     ======================

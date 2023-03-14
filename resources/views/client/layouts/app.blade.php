@@ -18,7 +18,7 @@
 
     <link href="/admin/layouts/modern-dark-menu/css/light/loader.css" rel="stylesheet" type="text/css"/>
     <link href="/admin/layouts/modern-dark-menu/css/dark/loader.css" rel="stylesheet" type="text/css"/>
-    <script src="/admin/layouts/modern-dark-menu/loader.js"></script>
+    {{-- <script src="/admin/layouts/modern-dark-menu/loader.js"></script>--}}
 
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
@@ -42,7 +42,7 @@
     <link href="/admin/src/assets/css/dark/components/list-group.css" rel="stylesheet" type="text/css">
     <link href="/admin/src/assets/css/dark/dashboard/dash_2.css" rel="stylesheet" type="text/css"/>
 
-    <link href="/admin/src/assets/css/light/components/modal.css" rel="stylesheet" type="text/css" />
+    <link href="/admin/src/assets/css/light/components/modal.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" type="text/css" href="/admin/src/assets/css/dark/elements/alert.css">
 
     <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
@@ -162,7 +162,7 @@
     window.addEventListener('swal:pricing', event => {
         Swal.fire({
 
-            text:  event.detail.text,
+            text: event.detail.text,
             icon: 'warning',
             showCancelButton: false,
             confirmButtonColor: '#3085d6',
@@ -187,10 +187,23 @@
         }).then((result) => {
             if (result.isConfirmed) {
                 window.livewire.emit('buy', event.detail.id);
-                window.location = '/profile/orders'
+                setTimeout(
+                    function()
+                    {
+                        window.location = '/profile/orders'
+                    }, 1000)
             }
         })
     })
+
+</script>
+
+<script>
+    $('.sidebarCollapse').on('click', function () {
+        $('#container').toggleClass('sbar-open')
+        $('.overlay').toggleClass('show')
+        $('.sidebar-wrapper.sidebar-theme').css('background','#0e1726')
+    });
 
 </script>
 

@@ -2,6 +2,16 @@
 
     <div class="middle-content container-xxl p-0">
 
+        <div class="page-meta">
+            <nav class="breadcrumb-style-one" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{route('client.profile.dashboard')}}">Dashboard</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">@lang('side-bar.Wallet Details')</li>
+
+                </ol>
+            </nav>
+        </div>
+
         <div class="row layout-top-spacing">
 
 

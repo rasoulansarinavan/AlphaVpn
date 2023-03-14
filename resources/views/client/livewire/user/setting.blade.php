@@ -30,12 +30,10 @@
 
         <div class="row layout-spacing ">
             <!-- Content -->
-            <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 layout-top-spacing">
-                <div class="user-profile">
-                    <div class="widget-content widget-content-area">
-                        <div class="d-flex justify-content-between">
-                            <h3 class="">Profile</h3>
-                        </div>
+            <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 layout-top-spacing" >
+
+                <div class="widget-content widget-content-area widget widget-card-five text-center" style="height: 100%;line-height: 100px">
+
                         <div class="text-center user-info">
                             <img src="{{\Illuminate\Support\Facades\Auth::user()->avatar}}" alt="avatar">
                             <p class="">{{\Illuminate\Support\Facades\Auth::user()->name}}</p>
@@ -62,16 +60,18 @@
                             </div>
                         </div>
                     </div>
-                </div>
+
             </div>
             <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 layout-top-spacing">
-                <div class="user-profile">
-                    <div class="widget-content widget-content-area">
-                        <div class="section general-info payment-info">
+
+                    <div class="widget-content widget-content-area widget widget-card-five" style="height: 100%">
+
+                        <div class="user-info-list">
+
                             <div class="info">
                                 <h6 class="">Payment Method</h6>
                                 <div class="list-group mt-4">
-                                    <label class="list-group-item">
+                                    <label class="">
                                         @foreach($wallets as $wallet)
                                             <div class="d-flex w-100">
                                                 <div class="billing-radio me-2">
@@ -97,33 +97,30 @@
                                 <form
                                     wire:submit.prevent="saveAddressWallet(Object.fromEntries(new FormData($event.target)))">
 
-                                        <div class="row mt-4">
-                                            <div class="col-md-12">
-                                                <div class="mb-3">
-                                                    <label class="form-label" for="address_wallet">Address
-                                                        Wallet</label>
-                                                    <input value="{{$address_wallet}}"
-                                                           class="form-control add-payment-method-input col-md-12 @error('address_wallet') error-input-border  @enderror"
-                                                           name="address_wallet" id="address_wallet"
-                                                           type="text">
-                                                    @foreach ($errors->get('address_wallet') as $message)
-                                                        <span wire:loading.remove
-                                                              class=" text-danger w-100 d-block mt-2">{{$message}}</span>
-                                                    @endforeach
-                                                </div>
+                                    <div class="row mt-4">
+                                        <div class="col-md-12">
+                                            <div class="mb-3">
+                                                <label class="form-label" for="address_wallet">Address
+                                                    Wallet</label>
+                                                <input value="{{$address_wallet}}"
+                                                       class="form-control add-payment-method-input col-md-12 @error('address_wallet') error-input-border  @enderror"
+                                                       name="address_wallet" id="address_wallet"
+                                                       type="text">
+                                                @foreach ($errors->get('address_wallet') as $message)
+                                                    <span wire:loading.remove
+                                                          class=" text-danger w-100 d-block mt-2">{{$message}}</span>
+                                                @endforeach
                                             </div>
                                         </div>
-                                        <button type="submit" class="btn btn-secondary mt-4 add-payment">Save
-                                        </button>
+                                    </div>
+                                    <button type="submit" class="btn btn-secondary mt-4 add-payment">Save
+                                    </button>
                                 </form>
                             </div>
                         </div>
-
                     </div>
-                </div>
+
             </div>
-
-
         </div>
 
 

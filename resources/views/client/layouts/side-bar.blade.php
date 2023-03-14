@@ -11,7 +11,7 @@
 
             <div class="nav-item sidebar-toggle p-2">
 
-                    <img src="/admin/assets/img/logo.png" width="120" alt="">
+                <a href="{{route('client.profile.dashboard')}}"> <img src="/admin/assets/img/logo.png" width="120" alt=""></a>
 
             </div>
         </div>
@@ -134,6 +134,14 @@
                         </svg>
                         <span>Log Out</span>
 
+                    </div>
+                </a>
+            </li>
+            <li class="menu mt-3" style="background: white">
+                <a href="https://t.me/vipi_persian" aria-expanded="false" class="dropdown-toggle">
+                    <div class="">
+                        <img src="/admin/assets/img/telegram.png" width="40" style="margin-right: 6px" alt="">
+                        <span class="btn-text-inner" style="color: #006696;font-weight: bold ">Info & Tutorial </span>
                     </div>
                 </a>
             </li>

@@ -939,10 +939,12 @@ body.dark .sidebar-closed .sidebar-wrapper:not(:hover) .profile-info .user-info 
     margin-left: 0;
 }
 
+/*
 body.dark .sidebar-closed .sidebar-wrapper:not(:hover) .profile-info .user-info .profile-content {
     opacity: 0;
     width: 0;
 }
+*/
 
 body.dark .sidebar-closed .sidebar-wrapper:hover .shadow-bottom {
     top: 170px;
