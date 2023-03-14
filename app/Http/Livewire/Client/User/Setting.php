@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Client\User;
 
 use App\Models\UserWallet;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
 
@@ -53,7 +54,7 @@ class Setting extends Component
 
     public function render()
     {
-        $wallets = UserWallet::all();
-        return view('client.livewire.user.setting', ['wallets' => $wallets])->extends('client.layouts.app');
+        $wallet = UserWallet::query()->where('user_id', Auth::user()->id)->first();
+        return view('client.livewire.user.setting', ['wallet' => $wallet])->extends('client.layouts.app');
     }
 }

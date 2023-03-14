@@ -71,8 +71,7 @@
                             <div class="info">
                                 <h6 class="">Payment Method</h6>
                                 <div class="list-group mt-4">
-                                    <label class="">
-                                        @foreach($wallets as $wallet)
+
                                             <div class="d-flex w-100">
                                                 <div class="billing-radio me-2">
                                                     <div class="form-check">
@@ -91,8 +90,8 @@
                                                     </button>
                                                 </div>
                                             </div>
-                                        @endforeach
-                                    </label>
+
+
                                 </div>
                                 <form
                                     wire:submit.prevent="saveAddressWallet(Object.fromEntries(new FormData($event.target)))">

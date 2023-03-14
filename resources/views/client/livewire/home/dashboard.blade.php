@@ -104,7 +104,7 @@
                                         </svg>
                                     </div>
                                     <div class="">
-                                        <p class="w-value">31.6K</p>
+                                        <p class="w-value">0</p>
                                         <h5 class="">Followers</h5>
                                     </div>
                                 </div>
@@ -132,7 +132,7 @@
                                         </svg>
                                     </div>
                                     <div class="">
-                                        <p class="w-value">1,900</p>
+                                        <p class="w-value">0</p>
                                         <h5 class="">Referral</h5>
                                     </div>
 
@@ -147,7 +147,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 layout-spacing">
+            {{--<div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 layout-spacing">
                 <div class="widget widget-table-one widget-card-five">
                     <div class="widget-heading">
                         <h5 class="">Transactions</h5>
@@ -290,7 +290,7 @@
 
                     </div>
                 </div>
-            </div>
+            </div>--}}
 
 
 

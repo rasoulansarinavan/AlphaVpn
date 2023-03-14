@@ -52,10 +52,10 @@
                         <form method="post"
                               wire:submit.prevent="authentication(Object.fromEntries(new FormData($event.target)))">
                             <div class="row">
-                                <div class="col-md-12 text-center mb-4 " id="logo">
-                                    <img src="/admin/assets/img/logo.png" width="280" alt="">
+                                <div class="col-md-12 text-center mb-5 " id="logo">
+                                    <img src="/admin/assets/img/logo.png" width="250" alt="">
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-12 mt-4">
 
                                     <div class="alert alert-gradient alert-dismissible fade show mb-4" role="alert">
 
