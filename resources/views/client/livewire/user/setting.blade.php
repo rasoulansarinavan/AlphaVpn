@@ -32,7 +32,7 @@
             <!-- Content -->
             <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 layout-top-spacing" >
 
-                <div class="widget-content widget-content-area widget widget-card-five text-center" style="height: 100%;line-height: 100px">
+                <div class="widget-content widget-content-area widget widget-card-five text-center" style="height: 100%;line-height: 50px">
 
                         <div class="text-center user-info">
                             <img src="{{\Illuminate\Support\Facades\Auth::user()->avatar}}" alt="avatar">
@@ -72,24 +72,28 @@
                                 <h6 class="">Payment Method</h6>
                                 <div class="list-group mt-4">
 
-                                            <div class="d-flex w-100">
-                                                <div class="billing-radio me-2">
-                                                    <div class="form-check">
-                                                        <input checked class="form-check-input" type="radio"
-                                                               name="paymentMethod" id="paymentMethod1">
-                                                    </div>
-                                                </div>
-                                                <div class="billing-content">
-                                                    <div class="fw-bold">USDT Address Wallet</div>
-                                                    <p>{{$wallet->address_wallet}}</p>
-                                                </div>
-                                                <div class="billing-edit align-self-center ms-auto">
-                                                    <button type="button"
-                                                            wire:click="editWallet('{{$wallet->id}}')"
-                                                            class="btn btn-dark">Edit
-                                                    </button>
+                                            @if($wallet)
+
+
+                                        <div class="d-flex w-100">
+                                            <div class="billing-radio me-2">
+                                                <div class="form-check">
+                                                    <input checked class="form-check-input" type="radio"
+                                                           name="paymentMethod" id="paymentMethod1">
                                                 </div>
                                             </div>
+                                            <div class="billing-content">
+                                                <div class="fw-bold">USDT Address Wallet</div>
+                                                <p>{{$wallet->address_wallet}}</p>
+                                            </div>
+                                            <div class="billing-edit align-self-center ms-auto">
+                                                <button type="button"
+                                                        wire:click="editWallet('{{$wallet->id}}')"
+                                                        class="btn btn-dark">Edit
+                                                </button>
+                                            </div>
+                                        </div>
+                                    @endif
 
 
                                 </div>

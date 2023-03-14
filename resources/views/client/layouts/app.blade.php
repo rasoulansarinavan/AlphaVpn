@@ -136,6 +136,7 @@
 
 
     })
+
     document.addEventListener('error', event => {
         toastr.error(event.detail.message)
         setTimeout(function () {
@@ -193,6 +194,15 @@
                         window.location = '/profile/orders'
                     }, 1000)
             }
+        })
+    })
+    window.addEventListener('swal:saveAddressWalletAlert', event => {
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: event.detail.message,
+            showConfirmButton: false,
+            timer: 1500
         })
     })
 

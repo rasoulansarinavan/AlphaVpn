@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class UserWallet extends Model
 {
@@ -18,7 +19,7 @@ class UserWallet extends Model
                 'id' => $wallet_id
             ],
             [
-                'user_id' => 1,
+                'user_id' => Auth::user()->id,
                 'address_wallet' => $formData['address_wallet']
             ]
         );
