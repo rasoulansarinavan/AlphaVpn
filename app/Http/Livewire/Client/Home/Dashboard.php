@@ -11,12 +11,14 @@ class Dashboard extends Component
     public $wallet_total = '';
     public $referral = false;
     public $teamCount;
+    public $totalSales;
 
 
     public function mount()
     {
 
         $this->teamCount = count(getTeamCount(Auth::user()->id));
+        $this->totalSales = getTeamSale(Auth::user()->id);
 
         $order = Order::query()->where('user_id', Auth::user()->id)->first();
 

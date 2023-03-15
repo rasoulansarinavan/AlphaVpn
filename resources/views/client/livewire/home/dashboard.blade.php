@@ -104,8 +104,8 @@
                                         </svg>
                                     </div>
                                     <div class="">
-                                        <p class="w-value">{{number_format($teamCount)}}</p>
-                                        <h5 class="">Followers</h5>
+                                        <p class="w-value"><b>{{number_format($teamCount)}}</b></p>
+                                        <h5 class="">Followers In 3 Levels</h5>
                                     </div>
                                 </div>
                             </div>
@@ -132,8 +132,8 @@
                                         </svg>
                                     </div>
                                     <div class="">
-                                        <p class="w-value">0</p>
-                                        <h5 class="">Referral</h5>
+                                        <p class="w-value"><b>{{number_format($totalSales)}}</b> <span style="font-size: 15px">USDT</span></p>
+                                        <h5 class="">Total Sales in 3 Levels</h5>
                                     </div>
 
                                 </div>

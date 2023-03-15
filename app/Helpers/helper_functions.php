@@ -98,3 +98,27 @@ function getTeamCount($user_id): array
     }
     return $teams;
 }
+
+function getTeamSale($user_id)
+{
+    $level = User::query()->where('user_id', $user_id)->pluck('id')->toArray();
+    $commission_level = 2;
+
+    $teams = [$level];
+
+    for ($i = 1; $i <= $commission_level; $i++) {
+        $level = User::query()->whereIn('user_id', $level)->pluck('id')->toArray();
+        $teams[] = $level;
+    }
+    $totalSales = 0;
+    foreach ($teams as $key => $team) {
+        $orders = Order::query()
+            ->whereIn('user_id', $team)
+            ->where('status', '=', 'confirmed')
+            ->sum('price');
+        $totalSales = $totalSales + $orders;
+
+
+    }
+    return $totalSales;
+}
