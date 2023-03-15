@@ -10,10 +10,14 @@ class Dashboard extends Component
 {
     public $wallet_total = '';
     public $referral = false;
+    public $teamCount;
 
 
     public function mount()
     {
+
+        $this->teamCount = count(getTeamCount(Auth::user()->id));
+
         $order = Order::query()->where('user_id', Auth::user()->id)->first();
 
         if ($order) {

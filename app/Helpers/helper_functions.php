@@ -74,7 +74,7 @@ function transactionHistory()
                         'created_at' => \Carbon\Carbon::createFromTimestampMs($data[0]['timestamp'])->format('Y-m-d H:i:s'),
                     ]);
 
-                Wallet::query()->where('hash', $item['hash'])->update(['amount' => ($item['trigger_info']['parameter']['_value'])/1000000]);
+                Wallet::query()->where('hash', $item['hash'])->update(['amount' => ($item['trigger_info']['parameter']['_value']) / 1000000]);
 
                 $hash[] = $transaction->hash;
             }
@@ -83,4 +83,18 @@ function transactionHistory()
         Wallet::query()->whereIn('hash', $hash)->update(['status' => 'confirmed']);
 
     }
+}
+
+function getTeamCount($user_id): array
+{
+    $level = User::query()->where('user_id', $user_id)->pluck('id')->toArray();
+    $commission_level = 2;
+
+    $teams = [implode(',', $level)];
+
+    for ($i = 1; $i <= $commission_level; $i++) {
+        $level = User::query()->whereIn('user_id', $level)->pluck('id')->toArray();
+        $teams[] = implode(',', $level);
+    }
+    return $teams;
 }

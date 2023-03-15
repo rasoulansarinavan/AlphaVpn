@@ -104,7 +104,7 @@
                                         </svg>
                                     </div>
                                     <div class="">
-                                        <p class="w-value">0</p>
+                                        <p class="w-value">{{number_format($teamCount)}}</p>
                                         <h5 class="">Followers</h5>
                                     </div>
                                 </div>
