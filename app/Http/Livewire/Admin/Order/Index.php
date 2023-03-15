@@ -42,7 +42,7 @@ class Index extends Component
                 'order_id' => $order_id,
             ]);
         }
-        Order::query()->where('id', $order_id)->update(['status' => 'confirmed']);
+        //Order::query()->where('id', $order_id)->update(['status' => 'confirmed']);
 
         return redirect()->route('admin.orders');
     }
