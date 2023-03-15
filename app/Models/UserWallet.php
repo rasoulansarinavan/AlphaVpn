@@ -14,23 +14,16 @@ class UserWallet extends Model
 
     public function saveAddressWallet($formData, $wallet_id)
     {
-        if (isset($formData['address_wallet']))
-            UserWallet::query()->update(
-                [
-                    'id' => $wallet_id,
-                    'user_id' => Auth::user()->id,
-                    'address_wallet' => $formData['address_wallet']
-                ]
-            );
-        else {
-            UserWallet::query()->create(
-                [
-                    'id' => $wallet_id,
-                    'user_id' => Auth::user()->id,
-                    'address_wallet' => $formData['address_wallet']
-                ]
-            );
-        }
+
+        UserWallet::query()->updateOrCreate(
+            [
+                'user_id' => Auth::user()->id,
+            ],
+            [
+                'id' => $wallet_id,
+                'address_wallet' => $formData['address_wallet']
+            ],
+        );
     }
 
 
